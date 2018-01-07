@@ -20,13 +20,14 @@ export default class LoginForm extends React.Component {
   render() {
     return (
       <div class="loginFormcontainer">
-        <form ref="loginFOrm" onSubmit={this.handleSubmit}>
+        <h2> Login </h2> 
+        <form ref="loginForm" onSubmit={this.handleSubmit}>
           <label>
-            email:
+            E-mail:
             <input type="email" ref="email" placeholder="email" required />
           </label>
           <label>
-            password:
+            Password:
             <input type="password" ref="password" placeholder="password" required />
           </label>
           <button type="submit"> Login </button>

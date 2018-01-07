@@ -23,6 +23,7 @@ export default class SignUpForm extends React.Component {
   render () {
     return (
       <div className="signupFormContainer">
+        <h2> Sign up for Guest Book </h2>
         <form ref="signUpForm" onSubmit={this.handleSubmit}>
           <label>
             First Name:
@@ -33,11 +34,11 @@ export default class SignUpForm extends React.Component {
             <input type="text" ref="lastName" placeholder="last name"/>
           </label>
           <label>
-            email:
+            E-mail:
             <input type="email" ref="email" placeholder="email" required/>
           </label>
           <label>
-            password:
+            Password:
             <input type="password" ref="password" placeholder="password" required/>
           </label>
           <button type="submit"> Signup </button>
