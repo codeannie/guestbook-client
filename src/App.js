@@ -1,29 +1,12 @@
 import React, { Component } from 'react';
 import './styles/App.css';
 
-import IntroSection from './landing-page/intro/intro-section.component';
-import LoginForm from './landing-page/login-signup/login-form.component';
-import SignUpFrom from './landing-page/login-signup/signup-form.component';
-
+import LandingPage from './landing-page/landing-page.component';
 class App extends Component {
   render() {
     return (
       <div className="App">
-        <div className="header-image">
-          <header className="App-header">
-            <h1 className="App-title">Guest Book</h1>
-          </header>
-        </div>
-        {/* <div className="intro-container"> */}
-          <p className="App-intro">
-            Welcome to Guest Book! This app will change how you plan future events!
-          </p>
-          <IntroSection />
-        {/* </div> */}
-        <div className="form-container">
-          <LoginForm />
-          <SignUpFrom />
-        </div>
+      <LandingPage />
       </div>
     );
   }
