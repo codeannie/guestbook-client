@@ -2,11 +2,9 @@
 
 import React from 'react';
 
-// is this correct? 
-// do mapping here? 
-const upcomingEventCard = (props) => {
+const eventCard = (props) => {
   return (
-    <div className="upcomingEventCard">
+    <div className="eventCard">
       <h3> {props.eventName} </h3>
       {/* put this in list or p? */}
       <ul className="eventCardDetails">

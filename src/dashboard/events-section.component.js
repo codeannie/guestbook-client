@@ -4,16 +4,18 @@
 import React from 'react';
 import EventCard from './event-card.component';
 
-export default class eventSection extends React.Component {
+export default class EventSection extends React.Component {
   // constructor(props) {
   //   super(props);
   // }
 
   render () {
     // const eventCards  -- mapping? 
+    // props.events.map = transform event to eventCard component
     return (
       <div className="events-section">
-        <Event Card />
+        <h3> {props.title} </h3>
+        {/* put the constant of the mapped array here `*/}
       </div> 
     )
   }
