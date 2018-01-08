@@ -1,4 +1,6 @@
 import React from 'react';
+import SubmitBtn from '../../_shared/buttons/submit-btn.component'
+import ResetBtn from '../../_shared/buttons/reset-btn.component'
 
 export default class LoginForm extends React.Component {
   constructor(props) {
@@ -30,8 +32,8 @@ export default class LoginForm extends React.Component {
             Password:
             <input type="password" ref="password" placeholder="password" required />
           </label>
-          <button type="submit"> Login </button>
-          <button type="reset"> Reset </button> 
+          <SubmitBtn buttonName="Login" />
+          <ResetBtn buttonName="Reset" /> 
         </form>
       </div> 
     )
