@@ -1,7 +1,7 @@
 // put landing page components here
 import React from 'react';
 
-import Header from '../_shared/navigation/landing-header.component';
+import Header from '../_shared/navigation/header-image.component';
 import IntroSection from './intro/intro-section.component';
 import LoginForm from './login-signup/login-form.component';
 import SignUpFrom from './login-signup/signup-form.component';
