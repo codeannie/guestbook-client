@@ -19,7 +19,7 @@ class LoginForm extends React.Component {
         <form ref="loginForm" onSubmit={handleSubmit}>
           <Field 
             label="E-mail" 
-            name="email" 
+            name="email"  //?
             component={renderTextField} 
             type="text" 
             // placeholder="E-mail"
