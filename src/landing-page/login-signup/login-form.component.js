@@ -1,41 +1,49 @@
 import React from 'react';
+import { Field, reduxForm } from 'redux-form';
+import TextField from 'material-ui/TextField';
+
 import SubmitBtn from '../../_shared/buttons/submit-btn.component'
 import ResetBtn from '../../_shared/buttons/reset-btn.component'
 
-export default class LoginForm extends React.Component {
-  constructor(props) {
-    super(props);
-    
-    this.handleSubmit = this.handleSubmit.bind(this);
-  }
-
-  handleSubmit(event) {
-    event.preventDefault();
-    const login = {
-      email: this.refs.email.value,
-      password: this.refs.password.value
-    }
-    // submit this to get cookie? 
-    this.refs.LoginForm.reset();
-  }
+class LoginForm extends React.Component {
+  // handleSubmit = (userLogin) => {
+  //   // submit login to server
+  //   console.log(userLogin);
+  // }
 
   render() {
+    const { handleSubmit } = this.props; //?
     return (
-      <div class="loginFormcontainer">
-        <h2> Login </h2> 
-        <form ref="loginForm" onSubmit={this.handleSubmit}>
-          <label>
-            E-mail:
-            <input type="email" ref="email" placeholder="email" required />
-          </label>
-          <label>
-            Password:
-            <input type="password" ref="password" placeholder="password" required />
-          </label>
+      <div className="loginFormcontainer">
+        <h2> Login </h2>
+        <form ref="loginForm" onSubmit={handleSubmit}>
+          <Field 
+            label="email" 
+            name="email" 
+            component="input" 
+            type="text" 
+            placeholder="E-mail"
+            required
+            autoFocus />
+
+          <Field 
+            label="password" 
+            name="password" 
+            component="input" 
+            type="text" 
+            placeholder="Password"
+            required
+            autoFocus />
           <SubmitBtn buttonName="Login" />
-          <ResetBtn buttonName="Reset" /> 
+          <ResetBtn buttonName="Reset" />
         </form>
-      </div> 
+      </div>
     )
   }
 }
+
+LoginForm = reduxForm({
+  form: 'login'
+})(LoginForm);
+
+export default LoginForm;
