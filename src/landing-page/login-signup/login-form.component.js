@@ -1,7 +1,7 @@
 import React from 'react';
 import { Field, reduxForm } from 'redux-form';
-import TextField from 'material-ui/TextField';
 
+import { renderTextField, validate } from '../../_shared/material-ui-redux-form.component';
 import SubmitBtn from '../../_shared/buttons/submit-btn.component'
 import ResetBtn from '../../_shared/buttons/reset-btn.component'
 
@@ -18,20 +18,20 @@ class LoginForm extends React.Component {
         <h2> Login </h2>
         <form ref="loginForm" onSubmit={handleSubmit}>
           <Field 
-            label="email" 
+            label="E-mail" 
             name="email" 
-            component="input" 
+            component={renderTextField} 
             type="text" 
-            placeholder="E-mail"
+            // placeholder="E-mail"
             required
             autoFocus />
 
           <Field 
-            label="password" 
+            label="Password" 
             name="password" 
-            component="input" 
+            component={renderTextField}  
             type="text" 
-            placeholder="Password"
+            // placeholder="Password"
             required
             autoFocus />
           <SubmitBtn buttonName="Login" />
@@ -43,7 +43,8 @@ class LoginForm extends React.Component {
 }
 
 LoginForm = reduxForm({
-  form: 'login'
+  form: 'login',
+  validate
 })(LoginForm);
 
 export default LoginForm;

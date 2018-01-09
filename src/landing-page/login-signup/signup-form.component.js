@@ -1,11 +1,15 @@
 import React from 'react';
 import { Field, reduxForm } from 'redux-form';
-import TextField from 'material-ui/TextField';
 
+import { renderTextField, validate } from '../../_shared/material-ui-redux-form.component';
 import SubmitBtn from '../../_shared/buttons/submit-btn.component'
 import ResetBtn from '../../_shared/buttons/reset-btn.component'
 
 class SignUpForm extends React.Component {
+  // constructor(props) {
+  //   super(props);
+  //   this.handleSubmit = this.handleSubmit.bind(this);
+  // }
 
   render () {
     const { handleSubmit } = this.props;
@@ -14,38 +18,38 @@ class SignUpForm extends React.Component {
         <h2> Sign up for Guest Book </h2>
         <form ref="signUpForm" onSubmit={handleSubmit}>
           <Field 
-            label="firstName" 
+            label="First Name" 
             name="firstName" 
-            component="input" 
+            component={renderTextField} 
             type="text" 
-            placeholder="First Name"
+            // placeholder="First Name"
             required
             autoFocus />
 
           <Field 
-            label="lastName" 
+            label="Last Name" 
             name="lastName" 
-            component="input" 
+            component={renderTextField}  
             type="text" 
             placeholder="Last Name"
             required
             autoFocus />
 
           <Field 
-            label="email" 
+            label="E-mail" 
             name="email" 
-            component="input" 
+            component={renderTextField} 
             type="text" 
-            placeholder="E-mail"
+            // placeholder="E-mail"
             required
             autoFocus />
 
           <Field 
-            label="password" 
+            label="Password" 
             name="password" 
-            component="input" 
+            component={renderTextField} 
             type="text" 
-            placeholder="Password"
+            // placeholder="Password"
             required
             autoFocus />
           <SubmitBtn buttonName="Sign Up" />
@@ -57,7 +61,8 @@ class SignUpForm extends React.Component {
 }
 
 SignUpForm = reduxForm({
-  form: 'signup'
+  form: 'signup',
+  validate
 })(SignUpForm);
 
 export default SignUpForm;
