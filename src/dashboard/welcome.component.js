@@ -3,7 +3,7 @@ import React from 'react';
 const welcomeBlurb = (props) => {
   return (
     <div className="welcomeBlurb">
-      <p> Welcome, {props.firstName} </p>
+      <h2> Welcome, {props.firstName} </h2>
     </div> 
   )
 }

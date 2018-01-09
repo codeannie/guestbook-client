@@ -5,14 +5,32 @@ import React from 'react';
 import EventCard from './event-card.component';
 
 export default class EventSection extends React.Component {
-  // constructor(props) {
-  //   super(props);
-  // }
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      events: [{
+          eventName: 'Test Event',
+          eventDate: '2/1/18',
+          eventTime: '1PM',
+          eventLocation: 'Somewhere over the rainbow',
+          guestNumber: 10
+        }, {
+          eventName: 'Test Event 2',
+          eventDate: '2/1/18',
+          eventTime: '4PM',
+          eventLocation: 'Fancy House',
+          guestNumber: 20
+        }
+      ]
+    }
+  }
 
   render() {
-    const eventCards = this.props.events.map((event, index) => 
+    // chnage to this.props later
+    const eventCards = this.state.events.map((event, index) => 
       <div className="event" key={index}>
-        <Event Card {...event} />
+        <EventCard {...event} />
       </div>
     );
 

@@ -18,4 +18,12 @@ const eventCard = (props) => {
   );
 };
 
-// default props?
+export default eventCard;
+
+// eventCard.defaultProps = {
+//   eventName: 'Test Event',
+//   eventDate: '2/1/18',
+//   eventTime: '1PM',
+//   eventLocation: 'Somewhere over the rainbow',
+//   guestNumber: 10
+// }
