@@ -9,8 +9,9 @@ const eventCard = (props) => {
       {/* put this in list or p? */}
       <ul className="eventCardDetails">
         <li className="eventDate"> {props.eventDate} </li>
-        <li className="eventTime"> {props.eventTime} </li>
-        <li className="eventLocation"> {props.eventLocationName} </li>
+        <li className="eventStartTime"> {props.eventStartTime} </li>
+        <li className="eventEndTime"> {props.eventEndTime} </li>
+        <li className="eventLocationName"> {props.eventLocationName} </li>
         <li className="guestNumber"> {props.guestNumber} </li>
       </ul>
       <button> View </button> 

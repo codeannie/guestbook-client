@@ -12,14 +12,16 @@ export default class EventSection extends React.Component {
       events: [{
           eventName: 'Test Event',
           eventDate: '2/1/18',
-          eventTime: '1PM',
-          eventLocation: 'Somewhere over the rainbow',
+          eventStartTime: '1PM',
+          eventEndTime: '4PM',
+          eventLocationName: 'Somewhere over the rainbow',
           guestNumber: 10
         }, {
           eventName: 'Test Event 2',
           eventDate: '2/1/18',
-          eventTime: '4PM',
-          eventLocation: 'Fancy House',
+          eventStartTime: '1PM',
+          eventEndTime: '4PM',
+          eventLocationName: 'Fancy House',
           guestNumber: 20
         }
       ]
