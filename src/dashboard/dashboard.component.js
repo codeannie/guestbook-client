@@ -5,6 +5,7 @@ import AppBar from '../_shared/navigation/app-nav.component';
 import Welcome from './welcome.component';
 import EventSection from './events-section.component';
 import EventForm from '../events/event-form.component';
+import EventOverview from '../events/event-overview.component';
 export default class Dashboard extends React.Component {
   render() {
     return (
@@ -13,6 +14,7 @@ export default class Dashboard extends React.Component {
         <Welcome />
         <EventSection />
         <EventForm />
+        <EventOverview />
       </div>
     )
   }
