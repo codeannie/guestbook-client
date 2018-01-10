@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './styles/App.css';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-
+import muiTheme from './_shared/styling/material-ui.theme';
 import LandingPage from './landing-page/landing-page.component';
 import Dashboard from './dashboard/dashboard.component'
 class App extends Component {
@@ -9,7 +9,7 @@ class App extends Component {
   //not sure if App div is needed
   render() {
     return (
-      <MuiThemeProvider>
+      <MuiThemeProvider muiTheme={muiTheme}>
         <div>
           <LandingPage />
           <Dashboard />
