@@ -28,6 +28,13 @@ class GuestForm extends React.Component{
             component={TextField}
             floatingLabelText="E-mail" />
 
+          <Field
+            name="plusOne"
+            component={Toggle}
+            label="Plus One?"
+            labelPosition="right"
+          />
+
           <SubmitBtn buttonName="Save" />
           <SendBtn buttonName="Send" />
           <CancelBtn buttonName="Close" />
