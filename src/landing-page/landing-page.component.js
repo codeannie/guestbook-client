@@ -9,8 +9,9 @@ import SignUpFrom from './login-signup/signup-form.component';
 export default class LandingPage extends React.Component {
   render() {
     return (
-      <div className="landing-container">
+      <div className="main-container">
         <Header />
+      <div className="landing-container">
         <p className="App-intro">
           Welcome to Guest Book! This app will change how you plan future events!
         </p>
@@ -18,6 +19,7 @@ export default class LandingPage extends React.Component {
         <LoginForm />
         <SignUpFrom />
       </div>
+    </div>
     )
   }
 }
