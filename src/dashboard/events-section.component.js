@@ -1,9 +1,6 @@
-// this will hold upcoming events & past event cards 
-// how to use this separetly for upcoming and past? 
-
 import React from 'react';
 import EventCard from './event-card.component';
-// import eventCardComponent from './event-card.component';
+
 
 export default class EventSection extends React.Component {
   constructor(props) {
@@ -27,11 +24,11 @@ export default class EventSection extends React.Component {
           numOfGuests: 40,
           eventStatus: 1
         }, {
-          eventName: 'Test Event 2',
+          eventName: 'Test Event 3',
           date: '2/4/18',
           startTime: '1PM',
-          endTime: '4PM',
-          locationName: 'Somewhere with hipster backyard',
+          endTime: '2PM',
+          locationName: 'hilton conference room',
           numOfGuests: 40,
           eventStatus: 2
         }
@@ -73,13 +70,13 @@ export default class EventSection extends React.Component {
     return (
       <section className="events-section">
         <div className="upcoming-container">
-          <h4> Upcoming Events </h4>
+          <h3> Upcoming Events </h3>
             {eventByStatus.upcoming}
         </div>
-        {/* <div className="past-container">
-          <h4> Past Event </h4>
+        <div className="past-container">
+          <h3> Past Event </h3>
             {eventByStatus.past}
-        </div> */}
+        </div>
       </section> 
     )
   }
