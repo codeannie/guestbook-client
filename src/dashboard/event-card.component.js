@@ -17,13 +17,12 @@ const eventCard = (props) => {
   console.log('is the event card working?', props);
   return (
     <div className="eventCard">
-      <h3> this is a card! </h3>
-      <h3> {props.eventName} </h3>
+      <h4> {props.eventName} </h4>
         <p> {props.date} </p>
-        <p> {props.startTime} </p>
-        <p> {props.endTime} </p>
-        <p> {props.locationName} </p>
-        <p> {props.numOfGuests} </p>
+        <p> Start Time: {props.startTime} </p>
+        <p> End Time: {props.endTime} </p>
+        <p> Location: {props.locationName} </p>
+        <p> # of Guests {props.numOfGuests} </p>
       <button> View </button> 
     </div>
   );
