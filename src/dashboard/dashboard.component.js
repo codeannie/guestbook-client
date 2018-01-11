@@ -6,6 +6,7 @@ import Welcome from './welcome.component';
 import EventSection from './events-section.component';
 import EventForm from '../events/event-form.component';
 import EventOverview from '../events/event-overview.component';
+import GuestForm from '../guests/guestList-form.component';
 export default class Dashboard extends React.Component {
   render() {
     return (
@@ -15,6 +16,7 @@ export default class Dashboard extends React.Component {
         <EventSection />
         <EventForm />
         <EventOverview />
+        <GuestForm />
       </div>
     )
   }
