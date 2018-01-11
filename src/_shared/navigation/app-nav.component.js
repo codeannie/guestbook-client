@@ -1,12 +1,12 @@
 import React from 'react';
 import Appbar from 'material-ui/AppBar';
 
-const AppBar = (props) => {
+const AppNav = (props) => {
   return (
-    <AppBar
+    <Appbar
       title="Guest Book"
     />
   )
 }
 
-export default AppBar;
+export default AppNav;
