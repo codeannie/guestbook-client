@@ -3,10 +3,22 @@ import GuestResponse from './guestlist-responses.component';
 export default class GuestList extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
+    // this.state = {
+    //   attending: [
 
+    //   ],
+    //   notAttending: [
+
+    //   ],
+    //   tentative: [
+
+    //   ],
+    //   noResponse: [
+
+    //   ]
+    //   }
     }
-  }
+    
 // loop through and filter by guest status
   render() {
     return (
