@@ -46,7 +46,8 @@ export default class NavBarDrawer extends React.Component {
             open={this.state.open}
             docked={false}
             width={200}
-            onRequestChange={(open) => this.setState(open)}
+            // onRequestChange={(open) => this.setState(open)}
+            onRequestChange={this.handleToggle}
             >
 
             {/* <Paper style={style}> */}
