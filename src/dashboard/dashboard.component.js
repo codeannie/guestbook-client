@@ -14,9 +14,9 @@ export default class Dashboard extends React.Component {
         <AppNav />
         <Welcome />
         <EventSection />
-        <EventForm />
+        {/* <EventForm />
         <EventOverview />
-        <GuestForm />
+        <GuestForm /> */}
       </div>
     )
   }
