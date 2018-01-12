@@ -1,11 +1,11 @@
 import React from 'react';
 import IntroCard from './intro-card.component';
+import bulletStyle from '../../_shared/styling/bullets.style.component';
 
 export default class introSection extends React.Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
+  // constructor(props) {
+  //   super(props);
+    state = {
       introCards : [{
         title: '- WHAT -',
         body: 'Manage your guestlist in one place. Know who RSVP and attended'
@@ -14,8 +14,7 @@ export default class introSection extends React.Component {
         body: 'Send emails to guests to RSVP. Check guests in on day of event'
       }]
     }
-  }
-
+  // }
   render() {
     const introCards = this.state.introCards.map((introCard, index) =>
       <li key={index}>
@@ -25,7 +24,7 @@ export default class introSection extends React.Component {
 
     return (
       <div className="intro-section">
-        <ul className="intro-cards">
+        <ul className="intro-cards" style={bulletStyle}>
           {introCards}
         </ul>
       </div>  

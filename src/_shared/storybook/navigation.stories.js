@@ -2,16 +2,21 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import { linkTo } from '@storybook/addon-links';
-import AppNav from './app-nav.component';
+import AppNav from '../navigation/app-nav.component';
+import SideBar from '../navigation/sidebar.component';
+import BarAndDrawer from '../navigation/nav-bar-drawer.component';
 
-storiesOf("navigation", module).add("app-nav", () => {
-  return <AppNav 
-          title="Guest Book" 
-          // pass in No OP if components expects a handler
-          // onMenuClick={()=>{}}
-          onMenuClick={action('clicked')}
-          />;
-})
+storiesOf("navigation", module)
+  .add("app-nav", () => {
+    return <AppNav 
+      onLeftIconButtonClick={action('clicked')}/>;
+    })
+  .add("sidebar", () => {
+    return <SideBar />;
+  })
+  .add("app bar and drawer", () => {
+    return <BarAndDrawer />;
+  })
 
 
 // import React from 'react';

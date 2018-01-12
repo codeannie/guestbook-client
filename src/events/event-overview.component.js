@@ -9,7 +9,7 @@ export default class EventOverview extends React.Component{
 
     this.state = {
       event: [{
-          eventName: 'Test Details',
+          eventName: 'Test Event Details',
           date: '1/30/18',
           startTime: '3PM',
           endTime: '8PM',
@@ -28,10 +28,9 @@ export default class EventOverview extends React.Component{
         <EventInfo {...event} />
       </div>
     );
-
+    // add button to click to add to guests? 
     return (
       <section className="event-overview">
-        <h3> {this.state.event.eventName} </h3>
         {eventDetails}
         <GuestList />
       </section>
