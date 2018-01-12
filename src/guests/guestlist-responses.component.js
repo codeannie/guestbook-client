@@ -1,13 +1,16 @@
 import React from 'react';
 
 const guestResponse = (props) => {
+  const {
+    name,
+    email,
+    //plusOne?
+  } = props;
+
   return (
-    <ul className="guest">
-      <li className="firstName"> {props.firstName} </li>
-      <li className="lastName"> {props.lastName} </li>
-      <li className="email"> {props.email} </li>
-      <li className="plusOne"> {props.plusOne} </li>
-    </ul>
+    <ol type="1" className="guest">
+      <li className="guestInfo"> {props.name}, {props.email} </li>
+    </ol>
   )
 }
 
