@@ -1,7 +1,7 @@
 // this will hold teh dashboard content...? 
 // or does this go into App.js and use routing? 
 import React from 'react';
-import AppNav from '../_shared/navigation/app-nav.component';
+import Header from '../_shared/navigation/header-image.component';
 import NavBarDrawer from '../_shared/navigation/nav-bar-drawer.component';
 import Welcome from './welcome.component';
 import EventSection from './events-section.component';
@@ -11,13 +11,16 @@ import GuestForm from '../guests/guestList-form.component';
 export default class Dashboard extends React.Component {
   render() {
     return (
-      <div className="dashboard-container">
+      <div className="main-container">
+        <Header />
         <NavBarDrawer />
-        <Welcome />
-        <EventSection />
-        <EventForm />
-        <EventOverview />
-        <GuestForm />
+        <div className="dashboard-container">
+          <Welcome />
+          <EventSection />
+          <EventForm />
+          <EventOverview />
+          <GuestForm />
+        </div>
       </div>
     )
   }
