@@ -3,6 +3,7 @@ import React from 'react';
 const eventDetails = (props) => {
   return (
     <div className="event-info">
+      <h3> {props.eventName} </h3>
       <ul className="eventDetails">
         <li className="date"> {props.date} </li>
         <li className="startTime"> {props.startTime} </li>
