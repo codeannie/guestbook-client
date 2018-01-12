@@ -28,7 +28,7 @@ export default class EventOverview extends React.Component{
         <EventInfo {...event} />
       </div>
     );
-
+    // add button to click to add to guests? 
     return (
       <section className="event-overview">
         {eventDetails}
