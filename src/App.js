@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './styles/App.css';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import muiTheme from './_shared/styling/material-ui.theme';
+import muiTheme from './_shared/styles/material-ui.theme';
 import LandingPage from './landing-page/landing-page.component';
 import Dashboard from './dashboard/dashboard.component'
 class App extends Component {

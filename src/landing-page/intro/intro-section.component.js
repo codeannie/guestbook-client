@@ -1,6 +1,6 @@
 import React from 'react';
 import IntroCard from './intro-card.component';
-import bulletStyle from '../../_shared/styling/bullets.style.component';
+import bulletStyle from '../../_shared/styles/bullets.style.component';
 
 export default class introSection extends React.Component {
   // constructor(props) {

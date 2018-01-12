@@ -6,7 +6,7 @@ import NavBarDrawer from '../_shared/navigation/nav-bar-drawer.component';
 import Welcome from './welcome.component';
 import EventSection from './events-section.component';
 import EventForm from '../events/event-form.component';
-import EventOverview from '../events/event-overview.component';
+import EventOverview from '../events/event-overview.container';
 import GuestForm from '../guests/guestList-form.component';
 export default class Dashboard extends React.Component {
   render() {
