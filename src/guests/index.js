@@ -1,0 +1,1 @@
+export { guestsReducer } from './store/guests.reducer';
