@@ -4,12 +4,14 @@ const guestResponse = (props) => {
   const {
     name,
     email,
-    //plusOne?
+    guestByStatus = [] // default value? 
+    // plusOne?
   } = props;
 
+    // how to capture guest id from db? 
   return (
-    <ol type="1" className="guest">
-      <li className="guestInfo"> {props.name}, {props.email} </li>
+    <ol className="guest">
+      {guestByStatus}
     </ol>
   )
 }
