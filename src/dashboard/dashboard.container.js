@@ -1,6 +1,7 @@
-import { connect } from "react-redux";
-import EventOverview from "./event-overview.component";
-import { createGetAllEventsAction } from "./store/events.actions";
+import { connect } from 'react-redux';
+import Dashboard from './dashboard.component';
+// import actions
+import { createGetAllEventsAction } from '../events/store/events.actions';
 
 const mapStateToProps = state => {
   console.log(state);
@@ -15,6 +16,6 @@ const mapDispatchToProps = dispatch => {
       dispatch(createGetAllEventsAction(userId));
     }
   };
-};
+}
 
-export default connect(mapStateToProps, mapDispatchToProps)(EventOverview);
+export default connect(mapStateToProps, mapDispatchToProps)(Dashboard);

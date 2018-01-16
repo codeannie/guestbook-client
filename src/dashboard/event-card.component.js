@@ -3,9 +3,9 @@
 import React from 'react';
 
 const eventCard = (props) => {
-
-    // stateless so can't use this.props
+  // stateless so can't use this.props
   const {
+    eventId,
     eventName,
     date,
     startTime,
@@ -14,9 +14,9 @@ const eventCard = (props) => {
     numOfGuests
   } = props;
   
-  console.log('is the event card working?', props);
+  // console.log('is the event card working?', props);
   return (
-    <div className="eventCard">
+    <div className="eventCard" key={eventId}>
       <h4> {props.eventName} </h4>
         <p> {props.date} </p>
         <p> Start Time: {props.startTime} </p>

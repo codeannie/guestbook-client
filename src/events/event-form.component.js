@@ -7,7 +7,7 @@ import CancelBtn from '../_shared/buttons/cancel-btn.component'
 
 // class EventForm extends React.Component{
 let EventForm = (props) => {
-  // render() {
+  
     const { handleSubmit } = props;
   
     return (

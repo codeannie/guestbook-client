@@ -3,42 +3,10 @@ import EventCard from './event-card.component';
 
 
 export default class EventSection extends React.Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      events: [{
-          eventName: 'Test Event',
-          date: '2/1/18',
-          startTime: '1PM',
-          endTime: '4PM',
-          locationName: 'Somewhere over the rainbow',
-          numOfGuests: 10,
-          eventStatus: 1
-        }, {
-          eventName: 'Test Event 2',
-          date: '2/4/18',
-          startTime: '1PM',
-          endTime: '4PM',
-          locationName: 'Somewhere with hipster backyard',
-          numOfGuests: 40,
-          eventStatus: 1
-        }, {
-          eventName: 'Test Event 3',
-          date: '2/4/18',
-          startTime: '1PM',
-          endTime: '2PM',
-          locationName: 'hilton conference room',
-          numOfGuests: 40,
-          eventStatus: 2
-        }
-      ]
-    }
-  }
-
   render() {
     // const { events } = this.props;
-    const eventByStatus = this.state.events.reduce(
+    // how to add key? 
+    const eventByStatus = this.props.events.reduce(
       (results, event) => {
         const eventComponent = (
           <EventCard
@@ -52,7 +20,7 @@ export default class EventSection extends React.Component {
           />
         );
         if (event.eventStatus === 1) {
-          console.log('upcoming results? ->', results.upcoming);
+          // console.log('upcoming results? ->', results.upcoming);
           results.upcoming.push(eventComponent);
           return results;
         } 
@@ -65,7 +33,7 @@ export default class EventSection extends React.Component {
       }
   );
     // 
-    console.log('upcoming events? ->', eventByStatus.upcoming);
+    // console.log('upcoming events? ->', eventByStatus.upcoming);
 
     return (
       <section className="events-section">

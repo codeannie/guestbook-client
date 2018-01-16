@@ -5,6 +5,7 @@ const eventDetails = (props) => {
     <div className="event-info">
       <h3> {props.eventName} </h3>
       <ul className="eventDetails">
+        <li className="description"> {props.description} </li>
         <li className="date"> {props.date} </li>
         <li className="startTime"> {props.startTime} </li>
         <li className="endTime"> {props.endTime} </li>

@@ -13,6 +13,7 @@ class LoginForm extends React.Component {
   }
 
   render() {
+    // const { handleSubmit, pristine, reset, submitting } = this.props
     return (
       <div className="loginFormcontainer">
         <h2> Login </h2>
@@ -48,3 +49,10 @@ LoginForm = reduxForm({
 })(LoginForm);
 
 export default LoginForm;
+
+{/* <button type="submit" disabled={pristine || submitting}>
+Submit
+</button>
+<button type="button" disabled={pristine || submitting} onClick={reset}>
+Clear Values
+</button> */}
