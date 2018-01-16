@@ -12,7 +12,8 @@
     "react-scripts": "1.0.17",
     "redux": "^3.7.2",
     "redux-form": "^7.2.0",
-    "redux-form-material-ui": "^4.3.2"
+    "redux-form-material-ui": "^4.3.2",
+    "redux-little-router": "^14.2.3"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -23,13 +24,13 @@
     "build-storybook": "build-storybook -s public"
   },
   "devDependencies": {
+    "@storybook/addon-actions": "^3.4.0-alpha.1",
+    "@storybook/addon-links": "^3.4.0-alpha.1",
+    "@storybook/react": "^3.4.0-alpha.1",
     "enzyme": "^3.3.0",
     "enzyme-adapter-react-16": "^1.1.1",
     "jest": "^22.0.4",
     "react-test-renderer": "^16.2.0",
-    "redux-logger": "^3.0.6",
-    "@storybook/react": "^3.4.0-alpha.1",
-    "@storybook/addon-actions": "^3.4.0-alpha.1",
-    "@storybook/addon-links": "^3.4.0-alpha.1"
+    "redux-logger": "^3.0.6"
   }
 }
