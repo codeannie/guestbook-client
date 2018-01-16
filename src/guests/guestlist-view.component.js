@@ -1,83 +1,40 @@
 import React from 'react';
 import GuestResponse from './guestlist-responses.component';
-export default class GuestList extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      guests: [
-        {
-          name: "Joe Bruin",
-          email: "joebruin@ucla.edu",
-          rsvpStatus: 0
-        }, {
-          name: "Tommy Trojan",
-          email: "tommytrojan@usc.edu",
-          rsvpStatus: 1
-        }, {
-          name: "Code Bear",
-          email: "iamcodebear@awesome.com",
-          rsvpStatus: 1
-        }, {
-          name: "Joe Bruin",
-          email: "joebruin@ucla.edu",
-          rsvpStatus: 2
-        }, {
-          name: "Tommy Trojan",
-          email: "tommytrojan@usc.edu",
-          rsvpStatus: 2
-        }, {
-          name: "Code Bear",
-          email: "iamcodebear@awesome.com",
-          rsvpStatus: 3
-          //plus one?
-        }
-      ]
-    }
-  }
 
+export default class GuestList extends React.Component {
   render() {
-    const guestByStatus = this.state.guests.reduce(
-      (results, guest) => {
-        const guestComponent = (
-          <GuestResponse
-            name={guest.name}
-            email={guest.email}
-            rsvpStatus={guest.rsvpStatus}
-          />
-        );
-        if (guest.rsvpStatus === 1) {
-          results.attending.push(guestComponent);
-          return results;
-        } else if (guest.rsvpStatus === 2) {
-          results.notAttending.push(guestComponent);
-          return results;
-        } else if (guest.rsvpStatus === 3) {
-          results.tenatative.push(guestComponent)
-          return results; 
-        } 
-          results.noResponse.push(guestComponent);
-          return results;
-        },
-        { 
-          attending: [],
-          notAttending: [],
-          tenatative: [],
-          noResponse: []
-          }
-        );
+    const guestResponses = new Map();
+      // no response
+      guestResponses.set(0, []);
+      // attending
+      guestResponses.set(1, []);
+      // not attending
+      guestResponses.set(2, []);
+      // tentative
+      guestResponses.set(3, []);
+    // console.log('props? ->', this.props.guests);
+    // console.log('guest props? ->', this.props.guests);
+    const guestByStatus = this.props.guests.forEach(guest => {
+      //map, get array that correspondes to rsvp status & push to array
+      guestResponses.get(guest.rsvpStatus).push(
+        //guest.id should be _id from db
+        <li className="guestInfo" key={guest.id}> {guest.name}, {guest.email} </li>
+      )
+    })
 
     return (
       <section className="guestlist">
         <h2> Guest List </h2>
         <h3> Responses </h3>
           <h4> Attending </h4>
-            {guestByStatus.attending}
+            <GuestResponse guestByStatus={guestResponses.get(1)} />
           <h4> Not Attending </h4>
-            {guestByStatus.notAttending}
+            <GuestResponse guestByStatus={guestResponses.get(2)} />
           <h4> Tentative </h4>
-            {guestByStatus.tenatative}
+            <GuestResponse guestByStatus={guestResponses.get(3)} />
           <h4> Not Responded </h4>
-            {guestByStatus.noResponse}
+            <GuestResponse guestByStatus={guestResponses.get(0)} />
+
       </section>
     )
   }

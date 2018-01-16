@@ -1,25 +1,26 @@
-// this will hold teh dashboard content...? 
-// or does this go into App.js and use routing? 
 import React from 'react';
 import Header from '../_shared/navigation/header-image.component';
 import NavBarDrawer from '../_shared/navigation/nav-bar-drawer.component';
 import Welcome from './welcome.component';
 import EventSection from './events-section.component';
-import EventForm from '../events/event-form.component';
-import EventOverview from '../events/event-overview.container';
-import GuestForm from '../guests/guestList-form.component';
+import EventPage from '../events/event-page.component';
+
+// this can be stateless component since not referencing local state anymore
 export default class Dashboard extends React.Component {
   render() {
+    // ok to connect parent componanet to redux store/container
+    // then pass as props to child component 
+    const events = this.props.events;
+
     return (
       <div className="main-container">
         <Header />
         <NavBarDrawer />
         <div className="dashboard-container">
           <Welcome />
-          <EventSection />
-          <EventForm />
-          <EventOverview />
-          <GuestForm />
+          {/* child prop expects "events" */}
+          <EventSection events={events} />
+          <EventPage />
         </div>
       </div>
     )

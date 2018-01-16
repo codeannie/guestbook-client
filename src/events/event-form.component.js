@@ -5,9 +5,10 @@ import SubmitBtn from '../_shared/buttons/submit-btn.component'
 import ResetBtn from '../_shared/buttons/reset-btn.component'
 import CancelBtn from '../_shared/buttons/cancel-btn.component'
 
-class EventForm extends React.Component{
-  render() {
-    const { handleSubmit } = this.props;
+// class EventForm extends React.Component{
+let EventForm = (props) => {
+  
+    const { handleSubmit } = props;
   
     return (
       <div className="form-container">
@@ -57,10 +58,10 @@ class EventForm extends React.Component{
       </div>
     )
   }
-}
+// }
 
-EventForm = reduxForm({
+export default EventForm = reduxForm({
   form: 'event'
 })(EventForm);
 
-export default EventForm;
+// export default EventForm;

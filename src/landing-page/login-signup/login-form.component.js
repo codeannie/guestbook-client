@@ -6,17 +6,18 @@ import SubmitBtn from '../../_shared/buttons/submit-btn.component'
 import ResetBtn from '../../_shared/buttons/reset-btn.component'
 
 class LoginForm extends React.Component {
-  // handleSubmit = (userLogin) => {
-  //   // submit login to server
-  //   console.log(userLogin);
-  // }
+  handleSubmit = values => {
+    // print the form values to the console
+    alert('login!');
+    console.log(values)
+  }
 
   render() {
-    const { handleSubmit } = this.props; //?
+    // const { handleSubmit, pristine, reset, submitting } = this.props
     return (
       <div className="loginFormcontainer">
         <h2> Login </h2>
-        <form ref="loginForm" onSubmit={handleSubmit}>
+        <form ref="loginForm" onSubmit={this.handleSubmit}>
           <Field 
             label="E-mail" 
             name="email"  //?
@@ -48,3 +49,10 @@ LoginForm = reduxForm({
 })(LoginForm);
 
 export default LoginForm;
+
+{/* <button type="submit" disabled={pristine || submitting}>
+Submit
+</button>
+<button type="button" disabled={pristine || submitting} onClick={reset}>
+Clear Values
+</button> */}
