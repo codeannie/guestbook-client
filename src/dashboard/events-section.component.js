@@ -23,13 +23,17 @@ export default class EventSection extends React.Component {
           // console.log('upcoming results? ->', results.upcoming);
           results.upcoming.push(eventComponent);
           return results;
-        } 
-        results.past.push(eventComponent);
-        return results;
+        } else if (event.eventStatus === 2) {
+          results.past.push(eventComponent);
+          return results;
+        } else 
+          results.archive.push(eventComponent);
+          return results;
         },
       { 
         upcoming: [],
-        past: []
+        past: [],
+        archive: []
       }
   );
     // 

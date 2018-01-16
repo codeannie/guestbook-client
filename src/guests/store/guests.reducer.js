@@ -39,7 +39,7 @@ const initialState = {
 };
 
 export const guestsReducer = (state = initialState, action) => {
-  switch(action.payload){
+  switch(action.type){
     case GET_ALL_GUESTS:
     // do something
     return state; // create your new state and return
