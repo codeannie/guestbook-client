@@ -12,52 +12,16 @@ export const createGetAllEventsAction = (userId) => ({
 });
 
 // is this correct? 
-export const createNewEventAction = ( 
-  userId,
-  name,
-  description,
-  date, 
-  startTime,
-  endTime,
-  locationName,
-  locationAddress,
-  locationMap 
-  ) => ({
+export const createNewEventAction = (event) => ({
     action: CREATE_NEW_EVENT, 
     payload: {
-      userId,
-      name,
-      description,
-      date, 
-      startTime,
-      endTime,
-      locationName,
-      locationAddress,
-      locationMap
+      event
   }
 })
 
-export const createModifyEventAction = ( 
-  userId,
-  name,
-  description,
-  date, 
-  startTime,
-  endTime,
-  locationName,
-  locationAddress,
-  locationMap 
-  ) => ({
+export const createModifyEventAction = (event) => ({
     action: MODIFY_EVENT_DETAILS, 
     payload: {
-      userId,
-      name,
-      description,
-      date, 
-      startTime,
-      endTime,
-      locationName,
-      locationAddress,
-      locationMap
+      event
   }
 })
