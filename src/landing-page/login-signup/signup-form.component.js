@@ -1,68 +1,61 @@
 import React from 'react';
-import { Field, reduxForm } from 'redux-form';
+import TextField from 'material-ui/TextField';
+import RaisedButton from 'material-ui/RaisedButton';
 
-import { renderTextField, validate } from '../../_shared/material-ui-redux-form.component';
-import SubmitBtn from '../../_shared/buttons/submit-btn.component'
-import ResetBtn from '../../_shared/buttons/reset-btn.component'
+export default class SignUpForm extends React.Component {
+  constructor(props) {
+    super(props);
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
 
-class SignUpForm extends React.Component {
-  // constructor(props) {
-  //   super(props);
-  //   this.handleSubmit = this.handleSubmit.bind(this);
-  // }
+  handleSubmit(event) {
+    event.preventDefault();
+    const firstName = event.target.firstName.value;
+    const lastName = event.target.lastName.value;
+    const userEmail = event.target.email.value;
+    const userPassword = event.target.password.value
+    
+    // dispatch action to update redux store w/ values
+    // how to capture auth token?
+    this.refs.signUpForm.reset(); 
 
-  render () {
-    const { handleSubmit } = this.props;
+  }
+  render() {
     return (
       <div className="signupFormContainer">
         <h2> Sign up for Guest Book </h2>
-        <form ref="signUpForm" onSubmit={handleSubmit}>
-          <Field 
-            label="First Name" 
-            name="firstName" 
-            component={renderTextField} 
-            type="text" 
-            // placeholder="First Name"
-            required
-            autoFocus />
+        <form ref="signUpForm" onSubmit={this.handleSubmit}>
+          <TextField
+            name="firstName"
+            floatingLabelText="First name"
+            type="text"
+          // onChange={this.handleChange}
+          />
 
-          <Field 
-            label="Last Name" 
-            name="lastName" 
-            component={renderTextField}  
-            type="text" 
-            placeholder="Last Name"
-            required
-            autoFocus />
+          <TextField
+            name="lastName"
+            floatingLabelText="Last Name"
+            type="text"
+          // onChange={this.handleChange}
+          />
 
-          <Field 
-            label="E-mail" 
-            name="email" 
-            component={renderTextField} 
-            type="text" 
-            // placeholder="E-mail"
-            required
-            autoFocus />
+          <TextField
+            name="email"
+            floatingLabelText="E-mail"
+            type="text"
+          // onChange={this.handleChange}
+          />
 
-          <Field 
-            label="Password" 
-            name="password" 
-            component={renderTextField} 
-            type="text" 
-            // placeholder="Password"
-            required
-            autoFocus />
-          <SubmitBtn buttonName="Sign Up" />
-          <ResetBtn buttonName="Reset" /> 
+          <TextField
+            name="password"
+            floatingLabelText="Password"
+            type="password"
+          // onChange={this.handleChange}
+          />
+          <RaisedButton label="Submit" type="Sign Up" primary={true} />
+          <RaisedButton label="Reset" type="reset" />
           </form>
       </div>
     )
   }
 }
-
-SignUpForm = reduxForm({
-  form: 'signup',
-  validate
-})(SignUpForm);
-
-export default SignUpForm;
