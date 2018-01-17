@@ -28,6 +28,7 @@ export default class LoginForm extends React.Component {
       console.log('password ->', event.target.password.value);
       // dispatch action to update redux store w/ values
       // how to capture auth token?
+      // this.props.
       this.refs.loginForm.reset(); 
       // handle form validation? 
       // console.log('state->', this.state)

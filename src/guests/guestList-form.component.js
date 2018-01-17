@@ -1,77 +1,63 @@
 import React from 'react';
-import { Field, reduxForm } from 'redux-form';
-import { TextField, Toggle } from 'redux-form-material-ui'
-import SubmitBtn from '../_shared/buttons/submit-btn.component'
-import ResetBtn from '../_shared/buttons/reset-btn.component'
-import CancelBtn from '../_shared/buttons/cancel-btn.component'
-import SendBtn from '../_shared/buttons/send-btn.component'
+import TextField from 'material-ui/TextField';
+import RaisedButton from 'material-ui/RaisedButton';
+import Toggle from 'material-ui/Toggle';
 
-class GuestForm extends React.Component{
+export default class GuestForm extends React.Component{
+  constructor(props) {
+    super(props);
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  handleSubmit(event) {
+    event.preventDefault();
+    const firstName = event.target.firstName.value;
+    const lastName = event.target.lastName.value;
+    const email = event.target.email.value;
+    // toggle = true? 
+    
+    // dispatch action to update redux store w/ values
+    // how to capture auth token?
+    this.refs.guestForm.reset(); 
+
+  }
+
   render() {
-    const { handleSubmit } = this.props;
-  
     return (
-      <div className="form-container">
-        <form onSubmit={handleSubmit}>
-        {/* with MUI component */}
-          <Field label="First Name"
-          name="firstName"
-          component={TextField}
-          floatingLabelText="First Name"/>
+      <div className="signupFormContainer">
+        <h2> Sign up for Guest Book </h2>
+        <form ref="signUpForm" onSubmit={this.handleSubmit}>
+          <TextField
+            name="firstName"
+            floatingLabelText="First name"
+            type="text"
+          // onChange={this.handleChange}
+          />
 
-          <Field label="Last Name"
-          name="lastName"
-          component={TextField}
-          floatingLabelText="Last Name" />
+          <TextField
+            name="lastName"
+            floatingLabelText="Last Name"
+            type="text"
+          // onChange={this.handleChange}
+          />
 
-          <Field label="E-mail"
-          name="email"
-          component={TextField}
-          floatingLabelText="E-mail" />
+          <TextField
+            name="email"
+            floatingLabelText="E-mail"
+            type="text"
+          // onChange={this.handleChange}
+          />
 
-          <Field
-          name="plusOne"
-          component={Toggle}
-          label="Plus One?"
-          labelPosition="right"/>
+          <Toggle 
+            label="Plus One?"
+            // onToggle={}
+          />
 
-          <SubmitBtn buttonName="Save" />
-          <SendBtn buttonName="Send" />
-          <CancelBtn buttonName="Close" />
-        </form>
+          <RaisedButton label="Save" type="submit" primary={true} />
+          <RaisedButton label="Send" secondary={true} />
+          <RaisedButton label="Close" />
+          </form>
       </div>
     )
   }
 }
-
-GuestForm = reduxForm({
-  form: 'guests'
-})(GuestForm);
-
-export default GuestForm;
-
-// redux form only
-{/* <label>First Name</label>
-<Field 
-  name="firstName"
-  type="text"
-  component="input" />
-
-<label>Last Name</label>
-<Field 
-  name="lastName"
-  type="text"
-  component="input" />
-
-<label>E-Mail</label>
-<Field 
-  name="email"
-  type="email"
-  component="input" />
-
-<label>Plus One Needed?</label>
-<Field
-  name="plusOne"
-  component="input"
-  type="checkbox"
-/> */}
