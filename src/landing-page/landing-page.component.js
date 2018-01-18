@@ -3,7 +3,7 @@ import React from 'react';
 import Header from '../_shared/navigation/header-image.component';
 import IntroSection from './intro/intro-section.component';
 import LoginForm from './login-signup/login-form.container';
-import SignUpFrom from './login-signup/signup-form.container';
+import SignUpForm from './login-signup/signup-form.container';
 
 export default class LandingPage extends React.Component {
   render() {
@@ -16,7 +16,7 @@ export default class LandingPage extends React.Component {
         </p>
         <IntroSection />
         <LoginForm />
-        <SignUpFrom />
+        <SignUpForm />
       </div>
     </div>
     )
