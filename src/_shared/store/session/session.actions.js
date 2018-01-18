@@ -12,6 +12,21 @@ export const createLoginSuccessAction = (user) => {
     }
   }
 }
+
+export const createSignUpSuccessAction = (user) => {
+  return {
+    type: SIGNUP_SUCCESS,
+    payload: {
+      user
+    }
+  }
+}
+
+export const createLogOutAction = () => {
+  return {
+    type: LOGOUT, 
+  }
+}
 // action - make ajax request to GET
 // promise of fetch request (success)
 // dispatch async action that returns the object 

@@ -15,8 +15,8 @@ export default class SignUpForm extends React.Component {
     const userEmail = event.target.email.value;
     const userPassword = event.target.password.value
     
-    // dispatch action to update redux store w/ values
-    // how to capture auth token?
+    console.log('signup inputs ->', firstName, lastName, userEmail, userPassword);
+    this.props.onSignUp(firstName, lastName, userEmail, userPassword);
     this.refs.signUpForm.reset(); 
 
   }
@@ -29,29 +29,26 @@ export default class SignUpForm extends React.Component {
             name="firstName"
             floatingLabelText="First name"
             type="text"
-          // onChange={this.handleChange}
           />
 
           <TextField
             name="lastName"
             floatingLabelText="Last Name"
             type="text"
-          // onChange={this.handleChange}
           />
 
           <TextField
             name="email"
             floatingLabelText="E-mail"
             type="text"
-          // onChange={this.handleChange}
           />
 
           <TextField
             name="password"
             floatingLabelText="Password"
             type="password"
-          // onChange={this.handleChange}
           />
+          
           <RaisedButton label="Submit" type="Sign Up" primary={true} />
           <RaisedButton label="Reset" type="reset" />
           </form>

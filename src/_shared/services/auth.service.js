@@ -13,9 +13,17 @@ export const login = async (email, password) => {
       password
     },
   })
-
 }
 
-export const signup = (firstName, lastName, email, password) => {
-
+export const signup = async (firstName, lastName, email, password) => {
+  return await axios({
+    method: 'post',
+    url: `${baseUrl}/api/auth/signup`,
+    data: {
+      firstName,
+      lastName,
+      email,
+      password
+    },
+  })
 }

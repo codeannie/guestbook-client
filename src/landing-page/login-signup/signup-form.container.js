@@ -1,6 +1,10 @@
 import { connect } from 'react-redux';
+import { push } from 'redux-little-router';
+
 import SignUpForm from './signup-form.component';
-// import action
+import { signup } from '../../_shared/services/auth.service';
+import { createSignUpSuccessAction } from '../../_shared/store/session/session.actions';
+
 
 const mapStateToProps = state => {
   console.log(state);
@@ -14,7 +18,14 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    //getlogin
+    onSignUp(firstName, lastName, email, password){
+      signup(firstName, lastName, email, password)
+        .then(res => {
+          console.log(res);
+          dispatch(createSignUpSuccessAction(res.data));
+          dispatch(push('/dashboard'));
+        });
+    }
   };
 }
 
