@@ -5,37 +5,19 @@ import RaisedButton from 'material-ui/RaisedButton';
 export default class LoginForm extends React.Component {
     constructor(props) {
       super(props);
-      // this.handleChange = this.handleChange.bind(this);
       this.handleSubmit = this.handleSubmit.bind(this);
-      // this.state = {
-      //   email: '',
-      //   password: '',
-      // };
     }
     
-    // handleChange(event) {
-    //   this.setState({
-    //     email: event.target.email.value,
-    //     password: event.target.password.value
-    //   });
-    // }
-  
     handleSubmit(event) {
       event.preventDefault();
       const userEmail = event.target.email.value;
       const userPassword = event.target.password.value
+      
       console.log('email ->', event.target.email.value);
       console.log('password ->', event.target.password.value);
-      // dispatch action to update redux store w/ values
-      // how to capture auth token?
-      // this.props.
+
+      this.props.onLogin(userEmail, userPassword); 
       this.refs.loginForm.reset(); 
-      // handle form validation? 
-      // console.log('state->', this.state)
-      // this.setState({
-      //   email: userEmail,
-      //   password: userPassword
-      // });
     }
 
   render() {
@@ -47,14 +29,12 @@ export default class LoginForm extends React.Component {
             name="email"
             floatingLabelText="E-mail"
             type="text"
-            // onChange={this.handleChange}
           />
 
           <TextField
             name="password"
             floatingLabelText="Password"
             type="password"
-            // onChange={this.handleChange}
           />
 
           <RaisedButton label="Submit" type="submit" primary={true} />
