@@ -3,7 +3,7 @@ import React from 'react';
 import Header from '../_shared/navigation/header-image.component';
 import NavBarDrawer from '../_shared/navigation/nav-bar-drawer.component';
 // COMPONENTS
-import EventForm from '../events/event-form.component';
+import EventForm from '../events/event-form.container';
 import EventOverview from '../events/event-overview.container';
 import GuestForm from '../guests/guestlist-form.component';
 import GuestList from '../guests/guestlist-view.component';
@@ -23,7 +23,7 @@ export default class EventPage extends React.Component {
         return <GuestForm />; 
       case routerPath.EVENT_OVERVIEW_ROUTE:
       default:
-        return <EventOverview />;
+        return <EventOverview />; //if there is not event to show, what shoudl be the default?
     }
   }
   render() {

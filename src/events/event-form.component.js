@@ -22,7 +22,8 @@ export default class EventForm extends React.Component{
         description: null,
         locationName: null,
         locationAddress: null,
-        locationLink: null
+        locationLink: null,
+        locationMap: null,
         },
       error: false,
       errorMsg: ''
@@ -89,7 +90,6 @@ export default class EventForm extends React.Component{
             name="eventName"
             floatingLabelText="Event Name"
             type="text"
-          // onChange={this.handleChange}
           />
           
           <DatePicker 
@@ -134,6 +134,11 @@ export default class EventForm extends React.Component{
           <TextField
             name="locationLink"
             floatingLabelText="Location Link"
+            type="text" />
+
+          <TextField
+            name="locationMap"
+            floatingLabelText="Google Map Link"
             type="text" />
 
           <RaisedButton label="Save" type="submit" primary={true} />

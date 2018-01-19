@@ -1,6 +1,6 @@
 import React from 'react';
 
-const eventDetails = (props) => {
+const eventDetailsCard = (props) => {
   return (
     <div className="event-info">
       <h3> {props.eventName} </h3>
@@ -17,4 +17,4 @@ const eventDetails = (props) => {
   )
 }
 
-export default eventDetails; 
+export default eventDetailsCard; 
