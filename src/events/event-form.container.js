@@ -5,7 +5,7 @@ import EventForm from './event-form.component';
 const mapStateToProps = state => {
   console.log(state);
   return {
-
+    userId: state._sharedReducer.session.currentUser.user.id //?
   };
 };
 

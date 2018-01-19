@@ -8,6 +8,7 @@ const initialState = {
   // eventually change this to events: [] 
   events: [
     {
+      id: 1,
       eventName: 'Test Event',
       description: 'blah',
       date: '2/1/18',
@@ -19,6 +20,7 @@ const initialState = {
       numOfGuests: 10,
       eventStatus: 1
     }, {
+      id:2,
       eventName: 'Test Event 2',
       date: '2/4/18',
       startTime: '1PM',

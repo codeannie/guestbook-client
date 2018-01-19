@@ -5,7 +5,6 @@ import { createGetAllEventsAction } from "./store/events.actions";
 const mapStateToProps = state => {
   console.log(state);
   return {
-    events: state.eventsReducer.events
   };
 };
 
