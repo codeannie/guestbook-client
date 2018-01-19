@@ -6,7 +6,6 @@ import { createGetAllEventsAction } from '../events/store/events.actions';
 import { createLogOutAction } from '../_shared/store/session/session.actions';
 
 const mapStateToProps = state => {
-  console.log(state);
   return {
     // at login, should give you current user 
     currentUser: state._sharedReducer.session.currentUser,

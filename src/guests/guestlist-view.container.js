@@ -3,7 +3,6 @@ import GuestList from './guestlist-view.component';
 import { createGetAllGuestsAction} from './store/guests.actions';
 
 const mapStateToProps = state => {
-  console.log(state);
   return {
     guests: state.guestsReducer.guests
   };

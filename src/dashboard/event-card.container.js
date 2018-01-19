@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { push } from 'redux-little-router';
+import { push } from '../_shared/store/router/utils';
 import EventCard from './event-card.component';
 import { EVENT_OVERVIEW_ROUTE } from '../_shared/store/router/authenticated.routes';
 
@@ -10,12 +10,12 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-      onViewClick() {
+      onViewClick(eventId) {
         dispatch(push({
           route: EVENT_OVERVIEW_ROUTE,
           params: {
-            eventId: 1 // for now
-          }  
+            eventId
+          }
         }));
       }
   };

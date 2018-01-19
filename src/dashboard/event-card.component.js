@@ -14,7 +14,11 @@ const eventCard = (props) => {
     numOfGuests,
     onViewClick
   } = props;
-  
+
+  const handleViewClick = () => {
+    onViewClick(eventId);
+  };
+
   // console.log('is the event card working?', props);
   return (
     <div className="eventCard" key={eventId}>
@@ -24,7 +28,7 @@ const eventCard = (props) => {
         <p> End Time: {props.endTime} </p>
         <p> Location: {props.locationName} </p>
         <p> # of Guests {props.numOfGuests} </p>
-      <button onClick={onViewClick}> View </button> 
+      <button onClick={handleViewClick}> View </button>
     </div>
   );
 };

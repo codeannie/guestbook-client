@@ -29,6 +29,7 @@ const initialState = {
       numOfGuests: 40,
       eventStatus: 1
     }, {
+      id: 3,
       eventName: 'Test Past Event',
       date: '2/4/18',
       startTime: '1PM',
@@ -37,6 +38,7 @@ const initialState = {
       numOfGuests: 40,
       eventStatus: 2
     }, {
+      id: 4,
       eventName: 'Test Archive Event',
       date: '2/4/18',
       startTime: '1PM',

@@ -20,7 +20,6 @@ export default class Dashboard extends React.Component {
           <Welcome />
           {/* child prop expects "events" */}
           <EventSection events={events} />
-          <EventPage />
         </div>
       </div>
     )

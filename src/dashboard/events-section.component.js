@@ -7,9 +7,11 @@ export default class EventSection extends React.Component {
     // const { events } = this.props;
     // how to add key? 
     const eventByStatus = this.props.events.reduce(
-      (results, event) => {
+      (results, event, index) => {
         const eventComponent = (
           <EventCard
+            key={index}
+            eventId={event.id}
             eventName={event.eventName}
             date={event.date}
             startTime={event.startTime}
