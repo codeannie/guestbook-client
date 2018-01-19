@@ -1,5 +1,5 @@
 import React from 'react';
-import GuestResponse from './guestlist-responses.component';
+import GuestResponse from './guest.component';
 
 export default class GuestList extends React.Component {
   render() {
