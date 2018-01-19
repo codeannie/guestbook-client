@@ -1,57 +1,140 @@
 import React from 'react';
-import { Field, reduxForm } from 'redux-form';
-import { TextField, DatePicker, TimePicker } from 'redux-form-material-ui'
-import RaisedButton from 'material-ui/RaisedButton';
+import isPast from 'date-fns/is_past';
+import { 
+  DatePicker, 
+  TextField, 
+  TimePicker, 
+  RaisedButton 
+} from 'material-ui';
 
-// class EventForm extends React.Component{
-let EventForm = (props) => {
-  // handleSubmit(values) {
-  //   console.log(values);
-  // }
+import { ERROR_MESSAGES } from '../_shared/constants';
 
-  // render() {
-    const { handleSubmit } = props;
+export default class EventForm extends React.Component{
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      event: { 
+        eventName: null,
+        date: null,
+        startTime: null,
+        endTime: null,
+        description: null,
+        locationName: null,
+        locationAddress: null,
+        locationLink: null
+        },
+      error: false,
+      errorMsg: ''
+    }
+  }
+
+  handleDate = (event, date) => {
+    // always set to false in the beginning 
+    this.setState({
+      error: false,
+      errorMsg: ''
+    });
+
+    if(isPast(date)) {
+      this.setState({
+        error: true,
+        errorMsg: ERROR_MESSAGES.DATE_PAST  //vs 'date cannot be in the past'
+      });
+    } else {
+      this.setState({
+        date: date
+      })
+    }
+  }
+
+  handleStartTime = (event, time) => {
+    this.setState({
+      startTime: time
+    })
+  }
+
+  handleEndTime = (event, time) => {
+    console.log('end time? ->', time)
+    this.setState({
+      endTime: time
+    })
+  }
   
+  handleSubmit = (event) => {
+    event.preventDefault();
+    const newEvent = {
+      ...this.state.event
+    };
+    
+    console.log('new event?', newEvent)
+
+    this.props.createNewEvent(newEvent);
+    this.refs.eventForm.reset(); 
+
+  }
+  render() {
     return (
       <div className="form-container">
-        <form onSubmit={handleSubmit}>
-          <Field label="Event Name"
+        <h2> Create an Event </h2>
+        <form ref="eventForm" onSubmit={this.handleSubmit}>
+
+            {/* Example validation */}
+            <p style={{
+            display: (this.state.error ? "block" : "none"),
+            color: "red"
+            }}> {this.state.errorMsg} </p>
+            
+          <TextField
             name="eventName"
-            component={TextField}
-            floatingLabelText="Event Name"/>
+            floatingLabelText="Event Name"
+            type="text"
+          // onChange={this.handleChange}
+          />
           
-          <Field label="Date"
-            name="date"
-            component={DatePicker}
-            format={null} 
-            floatingLabelText="Date"/>
-          
-          <Field label="Start Time"
-            name="startTime"
-            component={TimePicker}
-            format={null} 
-            floatingLabelText="Start Time" />
+          <DatePicker 
+            hintText="Event Date" 
+            mode="landscape" 
+            onChange={this.handleDate}
+            value={this.state.date} />
 
-          <Field label="End Time"
-            name="endTime"
-            component={TimePicker}
-            format={null} 
-            floatingLabelText="End Time" />
+          <TimePicker
+            hintText="Start Time"
+            autoOk={true} 
+            onChange={this.handleStartTime}
+            value={this.state.startTime} />
+                    
+          <TimePicker
+            hintText="End Time"
+            autoOk={true}
+            onChange={this.handleEndTime}
+            value={this.state.endTime} />
+
+          <TextField
+            name="eventDescription"
+            floatingLabelText="Description"
+            type="text"
+          />
           
-          <Field label="Location Name"
+          <TextField
+            name="description"
+            floatingLabelText="Description"
+            type="text" />
+            
+          <TextField
             name="locationName"
-            component={TextField}
-            floatingLabelText="Location Name" />
+            floatingLabelText="Location Name"
+            type="text" />
 
-          <Field label="Location Address"
+          <TextField
             name="locationAddress"
-            component={TextField}
-            floatingLabelText="Location Address" />
+            floatingLabelText="Location Address"
+            type="text" />
 
-          <Field label="Location Link"
+          <TextField
             name="locationLink"
-            component={TextField}
-            floatingLabelText="Location Link" />
+            floatingLabelText="Location Link"
+            type="text" />
 
           <RaisedButton label="Save" type="submit" primary={true} />
           <RaisedButton label="Send" secondary={true} />
@@ -60,10 +143,4 @@ let EventForm = (props) => {
       </div>
     )
   }
-// }
-
-export default EventForm = reduxForm({
-  form: 'event'
-})(EventForm);
-
-// export default EventForm;
+}

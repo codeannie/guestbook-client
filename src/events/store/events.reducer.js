@@ -62,7 +62,7 @@ export const eventsReducer = (state = initialState, action) => {
         ...state,
         events: [
           ...state.events, 
-          action.payload.event
+          action.payload.newEvent
         ]
       };
     case MODIFY_EVENT_DETAILS:  //this would happen on the server side and put back in updated obj?

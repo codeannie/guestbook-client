@@ -13,22 +13,22 @@ export const MODIFY_EVENT_DETAILS = 'MODIFY_EVENT_DETAILS';
 // reducer - hey! action has happened, then update the state
 
 export const createGetAllEventsAction = (userId) => ({
-  action: GET_ALL_EVENTS,
+  type: GET_ALL_EVENTS,
   payload: {
     userId
   }
 });
 
 // is this correct? 
-export const createNewEventAction = (event) => ({
-    action: CREATE_NEW_EVENT, 
+export const createNewEventAction = (newEvent) => ({
+    type: CREATE_NEW_EVENT, 
     payload: {
-      event
+      newEvent
   }
 })
 
 export const createModifyEventAction = (event) => ({
-    action: MODIFY_EVENT_DETAILS, 
+    type: MODIFY_EVENT_DETAILS, 
     payload: {
       event
   }
