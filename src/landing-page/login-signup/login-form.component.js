@@ -28,7 +28,7 @@ export default class LoginForm extends React.Component {
           <TextField
             name="email"
             floatingLabelText="E-mail"
-            type="text"
+            type="email"
           />
 
           <TextField
