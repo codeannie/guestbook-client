@@ -1,7 +1,9 @@
 import { connect } from 'react-redux';
+import { push } from 'redux-little-router';
 import Dashboard from './dashboard.component';
 // import actions
 import { createGetAllEventsAction } from '../events/store/events.actions';
+import { createLogOutAction } from '../_shared/store/session/session.actions';
 
 const mapStateToProps = state => {
   console.log(state);
@@ -13,10 +15,16 @@ const mapStateToProps = state => {
 };
 
 const mapDispatchToProps = dispatch => {
+  // const userId = state._sharedReducer.session.currentUser.user.id; //?
   return {
-    // getEvents(userId) {
-    //   dispatch(createGetAllEventsAction(userId));
-    // }
+  //   onLogOut() {
+  //     if (!state._sharedReducer.session.currentUserUser) {
+  //       dispatch(createLogOutAction());
+  //       dispatch(push('/'));
+  //     }
+      onLoadDashboard() {
+        dispatch(createGetAllEventsAction());
+      }
   };
 }
 
