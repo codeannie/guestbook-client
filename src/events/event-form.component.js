@@ -1,13 +1,15 @@
 import React from 'react';
 import { Field, reduxForm } from 'redux-form';
 import { TextField, DatePicker, TimePicker } from 'redux-form-material-ui'
-import SubmitBtn from '../_shared/buttons/submit-btn.component'
-import ResetBtn from '../_shared/buttons/reset-btn.component'
-import CancelBtn from '../_shared/buttons/cancel-btn.component'
+import RaisedButton from 'material-ui/RaisedButton';
 
 // class EventForm extends React.Component{
 let EventForm = (props) => {
-  
+  // handleSubmit(values) {
+  //   console.log(values);
+  // }
+
+  // render() {
     const { handleSubmit } = props;
   
     return (
@@ -51,9 +53,9 @@ let EventForm = (props) => {
             component={TextField}
             floatingLabelText="Location Link" />
 
-          <SubmitBtn buttonName="Create" />
-          <ResetBtn buttonName="Reset" />
-          <CancelBtn buttonName="Cancel" />
+          <RaisedButton label="Save" type="submit" primary={true} />
+          <RaisedButton label="Send" secondary={true} />
+          <RaisedButton label="Close" />
         </form>
       </div>
     )
