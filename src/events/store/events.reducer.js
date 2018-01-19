@@ -5,6 +5,7 @@ import {
 } from './events.actions';
 
 const initialState = {
+  // eventually change this to events: [] 
   events: [
     {
       eventName: 'Test Event',
@@ -46,37 +47,41 @@ const initialState = {
 };
 
 export const eventsReducer = (state = initialState, action) => {
-  // switch (action.payload) { // why payload?
   switch (action.type) {
-    case GET_ALL_EVENTS:
-      // return all events? 
-      return 
-        {...state};
-    case CREATE_NEW_EVENT:
-      // push new event to end of state -- array or obj? 
-      return [
+    case GET_ALL_EVENTS:  
+      return {
         ...state,
-        events: [...state.events, action.payload.event]
-      ];
-    case MODIFY_EVENT_DETAILS:
-      // find the item in array
+        state //?
+      };
+    case CREATE_NEW_EVENT:
+      return {
+        ...state,
+        events: [
+          ...state.events, 
+          action.payload.event
+        ]
+      };
+    case MODIFY_EVENT_DETAILS:  //this would happen on the server side and put back in updated obj?
+      // find the item in array ?
       const findEventToModify = (eventId) => {
         return eventId;
-        //?
       }
       // update the object 
-      return [
+      return {
         ...state,
         events: [
           ...state.events,
-
         ]
-      // events.map((event, index) => {
-      //   if (eve[
-
-      // ] 
     };
     default:
       return state;
   }
 };
+
+// case FETCH_EVENT_SUCCESS:
+//   return 
+//     //returning a new object from the server
+//     {
+//       ...state, //properties of previous state
+//       events: action.payload.events
+//     }
