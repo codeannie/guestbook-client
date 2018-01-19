@@ -5,11 +5,14 @@ import GuestForm from '../guests/guestlist-form.component';
 import GuestList from '../guests/guestlist-view.component';
 
 export default class EventPage extends React.Component {
+  submit = values => {
+    console.log('event form submission', values);
+  }
   render() {
     return (
       <div className="eventPage">
-        <EventForm />
         <EventOverview />
+        <EventForm onSubmit={this.submit}/>
         <GuestForm />
       </div>
     )
