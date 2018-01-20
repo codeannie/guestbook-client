@@ -15,7 +15,7 @@ export default class EventForm extends React.Component{
 
     this.state = {
       event: { 
-        eventName: null,
+        name: null,
         date: null,
         startTime: null,
         endTime: null,
@@ -44,24 +44,39 @@ export default class EventForm extends React.Component{
       });
     } else {
       this.setState({
-        date: date
+        event: {
+          date: date
+        }
       })
     }
   }
 
   handleStartTime = (event, time) => {
     this.setState({
-      startTime: time
+      event: {
+        startTime: time
+      }
     })
   }
 
   handleEndTime = (event, time) => {
-    console.log('end time? ->', time)
     this.setState({
-      endTime: time
+      event: {
+        endTime: time
+      }
     })
   }
   
+  handleChange = (event) => {
+    const name = event.target.name;
+    console.log(name);
+    this.setState({
+      event: {
+        [name]: event.target.value
+      }
+    });
+  }
+
   handleSubmit = (event) => {
     event.preventDefault();
     const newEvent = {
@@ -75,6 +90,7 @@ export default class EventForm extends React.Component{
 
   }
   render() {
+    const { name, date, startTime, endTime, description, locationName, locationAddress, locationLink, locationMap } = this.state.event;
     return (
       <div className="form-container">
         <h2> Create an Event </h2>
@@ -87,8 +103,10 @@ export default class EventForm extends React.Component{
             }}> {this.state.errorMsg} </p>
             
           <TextField
-            name="eventName"
+            name="name"
             floatingLabelText="Event Name"
+            onChange={this.handleChange}
+            value={name}
             type="text"
           />
           
@@ -96,49 +114,54 @@ export default class EventForm extends React.Component{
             hintText="Event Date" 
             mode="landscape" 
             onChange={this.handleDate}
-            value={this.state.date} />
+            value={this.state.event.date} />
 
           <TimePicker
             hintText="Start Time"
             autoOk={true} 
             onChange={this.handleStartTime}
-            value={this.state.startTime} />
+            value={this.state.event.startTime} />
                     
           <TimePicker
             hintText="End Time"
             autoOk={true}
             onChange={this.handleEndTime}
-            value={this.state.endTime} />
+            value={this.state.event.endTime} />
 
-          <TextField
-            name="eventDescription"
-            floatingLabelText="Description"
-            type="text"
-          />
-          
           <TextField
             name="description"
             floatingLabelText="Description"
-            type="text" />
+            onChange={this.handleChange}
+            value={description}
+            type="text"
+          />
             
           <TextField
             name="locationName"
             floatingLabelText="Location Name"
+            onChange={this.handleChange}
+            value={locationName}
             type="text" />
 
           <TextField
             name="locationAddress"
             floatingLabelText="Location Address"
+            onChange={this.handleChange}
+            value={locationAddress}
             type="text" />
 
           <TextField
             name="locationLink"
             floatingLabelText="Location Link"
+            onChange={this.handleChange}
+            value={locationLink}
             type="text" />
 
           <TextField
             name="locationMap"
             floatingLabelText="Google Map Link"
+            onChange={this.handleChange}
+            value={locationMap}
             type="text" />
 
           <RaisedButton label="Save" type="submit" primary={true} />

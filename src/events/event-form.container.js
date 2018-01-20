@@ -9,6 +9,8 @@ const mapStateToProps = state => {
   return {
     // make sure this is the event that is being created
     // userId: state._sharedReducer.session.currentUser.user.id //?
+    currentUser: state._sharedReducer.session.currentUser,
+    events: state.eventsReducer.events
   };
 };
 
