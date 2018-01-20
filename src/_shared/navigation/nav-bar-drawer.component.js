@@ -31,6 +31,7 @@ export default class NavBarDrawer extends React.Component {
     }
   };
 
+  // write handler to check if dashboard already open, then close the drawer 
   render() {
     return (
       <div className="navigation">
