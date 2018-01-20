@@ -1,6 +1,6 @@
 import React from 'react';
 import Header from '../_shared/navigation/header-image.component';
-import NavBarDrawer from '../_shared/navigation/nav-bar-drawer.component';
+import NavBarDrawer from '../_shared/navigation/nav-bar-drawer.container';
 import Welcome from './welcome.component';
 import EventSection from './events-list-section.component';
 import EventPage from '../events/event-page.component';

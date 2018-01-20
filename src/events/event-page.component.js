@@ -1,7 +1,7 @@
 import React from 'react';
 // HEADER
 import Header from '../_shared/navigation/header-image.component';
-import NavBarDrawer from '../_shared/navigation/nav-bar-drawer.component';
+import NavBarDrawer from '../_shared/navigation/nav-bar-drawer.container';
 // COMPONENTS
 import EventForm from '../events/event-form.container';
 import EventOverview from '../events/event-overview.container';
