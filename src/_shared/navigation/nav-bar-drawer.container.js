@@ -18,6 +18,12 @@ const mapDispatchToProps = dispatch => {
     onLogOut: () => {
       dispatch(createLogOutAction());
       dispatch(push("/"));
+    },
+    openDashboard: () => {
+      dispatch(push("/dashboard"));
+    },
+    openEventForm: () => {
+      dispatch(push("/event/new"));
     }
   };
 };
