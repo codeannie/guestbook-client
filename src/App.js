@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import "./styles/App.css";
+// import "./styles/App.css";
 import { Fragment as RouterFragment } from "redux-little-router";
 import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
 import muiTheme from "./_shared/styles/material-ui.theme";
@@ -7,7 +7,6 @@ import LandingPage from "./landing-page/landing-page.component";
 import { Dashboard } from "./dashboard";
 import EventPage from '../src/events/event-page.container';
 class App extends Component {
-  //not sure if App div is needed
   render() {
     return (
       <MuiThemeProvider muiTheme={muiTheme}>
