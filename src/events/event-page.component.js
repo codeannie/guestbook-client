@@ -5,7 +5,7 @@ import NavBarDrawer from '../_shared/navigation/nav-bar-drawer.container';
 // COMPONENTS
 import EventForm from '../events/event-form.container';
 import EventOverview from '../events/event-overview.container';
-import GuestForm from '../guests/guestlist-form.component';
+import GuestForm from '../guests/guests-form.container';
 import GuestList from '../guests/guestlist-view.component';
 // ROUTES
 import * as routerPath from '../_shared/store/router/authenticated.routes';
