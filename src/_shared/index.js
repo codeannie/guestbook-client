@@ -7,4 +7,7 @@ export {
   routerReducer,
 } from './store/router/router.reducer.js';
 
-export const sharedReducer = combineReducers({ navigationReducer, sessionReducer });
+export const sharedReducer = combineReducers({
+  navigation: navigationReducer,
+  session: sessionReducer
+});

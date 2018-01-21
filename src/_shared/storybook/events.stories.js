@@ -7,7 +7,7 @@ import EventOverview from '../../events/event-overview.component';
 import EventForm from '../../events/event-form.component';
 
 import GuestList from '../../guests/guestlist-view.component';
-import GuestForm from '../../guests/guestList-form.component';
+import GuestForm from '../../guests/guestlist-form.component';
 
 storiesOf("events", module)
   .add("event overview", () => {

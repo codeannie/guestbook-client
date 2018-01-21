@@ -1,58 +1,65 @@
 import React from 'react';
-import { Field, reduxForm } from 'redux-form';
+import TextField from 'material-ui/TextField';
+import RaisedButton from 'material-ui/RaisedButton';
 
-import { renderTextField, validate } from '../../_shared/material-ui-redux-form.component';
-import SubmitBtn from '../../_shared/buttons/submit-btn.component'
-import ResetBtn from '../../_shared/buttons/reset-btn.component'
+export default class LoginForm extends React.Component {
+    constructor(props) {
+      super(props);
+      this.handleSubmit = this.handleSubmit.bind(this);
+    }
+    
+    handleSubmit(event) {
+      event.preventDefault();
+      const userEmail = event.target.email.value;
+      const userPassword = event.target.password.value
+      
+      console.log('email ->', event.target.email.value);
+      console.log('password ->', event.target.password.value);
 
-class LoginForm extends React.Component {
-  handleSubmit = values => {
-    // print the form values to the console
-    alert('login!');
-    console.log(values)
-  }
+      this.props.onLogin(userEmail, userPassword); 
+      this.refs.loginForm.reset(); 
+    }
 
   render() {
-    // const { handleSubmit, pristine, reset, submitting } = this.props
     return (
       <div className="loginFormcontainer">
         <h2> Login </h2>
         <form ref="loginForm" onSubmit={this.handleSubmit}>
-          <Field 
-            label="E-mail" 
-            name="email"  //?
-            component={renderTextField} 
-            type="text" 
-            // placeholder="E-mail"
-            required
-            autoFocus />
+          <TextField
+            name="email"
+            floatingLabelText="E-mail"
+            type="email"
+          />
 
-          <Field 
-            label="Password" 
-            name="password" 
-            component={renderTextField}  
-            type="text" 
-            // placeholder="Password"
-            required
-            autoFocus />
-          <SubmitBtn buttonName="Login" />
-          <ResetBtn buttonName="Reset" />
+          <TextField
+            name="password"
+            floatingLabelText="Password"
+            type="password"
+          />
+
+          <RaisedButton label="Submit" type="submit" primary={true} />
+          <RaisedButton label="Reset" type="reset" />
         </form>
       </div>
-    )
+    );
   }
 }
 
-LoginForm = reduxForm({
-  form: 'login',
-  validate
-})(LoginForm);
+// onChange for each input
+// update teh state
+// submit listener - dispatch teh action and grab the values of the state 
+// optional - add to redux store
 
-export default LoginForm;
+// login - get response and store token in local storage & redux state
+// App.js - check if token is in local storage, if there is, dispatch action to redux 
 
-{/* <button type="submit" disabled={pristine || submitting}>
-Submit
-</button>
-<button type="button" disabled={pristine || submitting} onClick={reset}>
-Clear Values
-</button> */}
+{/* <label>
+E-mail:
+<input type="text" ref="email" onChange={this.handleChange} required />
+</label>
+
+    
+<label>
+Password:
+<input type="password" ref="password" onChange={this.handleChange} required/>
+</label> */}

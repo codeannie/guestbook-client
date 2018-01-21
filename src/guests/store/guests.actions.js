@@ -16,78 +16,38 @@ export const createGetAllGuestsAction = (eventId) => ({
 });
 
 // how to handle guests? 
-export const createNewGuestListAction = ( 
-  eventId,
-  firstName,
-  lastName,
-  email
-  //plusOne?
-  ) => ({
+export const createNewGuestListAction = (guests) => ({
     action: CREATE_NEW_GUESTLIST, 
     payload: {
-      eventId,
-      firstName,
-      lastName,
-      email,
+      guests
   }
 })
 
-export const createAddGuestAction = ( 
-  eventId,
-  firstName,
-  lastName,
-  email
-  ) => ({
+export const createAddGuestAction = (guest) => ({
     action: ADD_GUEST, 
     payload: {
-      eventId,
-      firstName,
-      lastName,
-      email,
+      guest
   }
 })
 
-export const createDeleteGuestAction = ( 
-  eventId,
-  firstName,
-  lastName,
-  email
-  ) => ({
+export const createDeleteGuestAction = (guest) => ({
     action: DELETE_GUEST, 
     payload: {
-      eventId,
-      firstName,
-      lastName,
-      email,
+      guest
   }
 })
 
-export const createModifyGuestAction = ( 
-  eventId,
-  firstName,
-  lastName,
-  email
-  ) => ({
+export const createModifyGuestAction = (guest) => ({
     action: MODIFY_GUEST, 
     payload: {
-      eventId,
-      firstName,
-      lastName,
-      email,
+      guest
   }
 })
 
-export const createEmailGuestsAction = ( 
-  eventId,
-  firstName,
-  lastName,
-  email
-  ) => ({
+// not sure about email? 
+export const createEmailGuestsAction = (guest) => ({
     action: EMAIL_GUESTS, 
     payload: {
-      eventId,
-      firstName,
-      lastName,
-      email,
+      guest
   }
 })

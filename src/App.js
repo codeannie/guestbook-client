@@ -5,6 +5,7 @@ import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
 import muiTheme from "./_shared/styles/material-ui.theme";
 import LandingPage from "./landing-page/landing-page.component";
 import { Dashboard } from "./dashboard";
+import EventPage from '../src/events/event-page.container';
 class App extends Component {
   //not sure if App div is needed
   render() {
@@ -20,6 +21,9 @@ class App extends Component {
             </RouterFragment>
             <RouterFragment forRoute="/dashboard">
               <Dashboard />
+            </RouterFragment>
+            <RouterFragment forRoute="/event">
+              <EventPage />
             </RouterFragment>
           </div>
         </RouterFragment>

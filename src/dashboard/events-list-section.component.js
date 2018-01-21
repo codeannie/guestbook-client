@@ -1,5 +1,5 @@
 import React from 'react';
-import EventCard from './event-card.component';
+import EventCard from './event-card.container';
 
 
 export default class EventSection extends React.Component {
@@ -7,9 +7,11 @@ export default class EventSection extends React.Component {
     // const { events } = this.props;
     // how to add key? 
     const eventByStatus = this.props.events.reduce(
-      (results, event) => {
+      (results, event, index) => {
         const eventComponent = (
           <EventCard
+            key={index}
+            eventId={event.id}
             eventName={event.eventName}
             date={event.date}
             startTime={event.startTime}
@@ -23,13 +25,17 @@ export default class EventSection extends React.Component {
           // console.log('upcoming results? ->', results.upcoming);
           results.upcoming.push(eventComponent);
           return results;
-        } 
-        results.past.push(eventComponent);
-        return results;
+        } else if (event.eventStatus === 2) {
+          results.past.push(eventComponent);
+          return results;
+        } else 
+          results.archive.push(eventComponent);
+          return results;
         },
       { 
         upcoming: [],
-        past: []
+        past: [],
+        archive: []
       }
   );
     // 

@@ -1,5 +1,6 @@
 import React from 'react';
-import { storiesOf } from '@storybook/react';
+import { storiesOf, addDecorator } from '@storybook/react';
+import { muiTheme } from '../styles/material-ui.theme';
 import { action } from '@storybook/addon-actions';
 import { linkTo } from '@storybook/addon-links';
 import LandingPage from '../../landing-page/landing-page.component';
@@ -8,6 +9,7 @@ import LoginForm from '../../landing-page/login-signup/login-form.component';
 import SignUpForm from '../../landing-page/login-signup/signup-form.component';
 
 storiesOf("landing-page", module)
+  // .addDecorator(muiTheme())
   .add("landing page", () => {
     return <LandingPage/>;
     })

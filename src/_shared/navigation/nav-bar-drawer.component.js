@@ -1,13 +1,8 @@
 import React from 'react';
-import Appbar from 'material-ui/AppBar';
-import Drawer from 'material-ui/Drawer';
-import FlatButton from 'material-ui/FlatButton';
-import MenuItem from 'material-ui/MenuItem';
-// import Paper from 'material-ui/Paper';
-// import RaisedButton from 'material-ui/RaisedButton';
+import Appbar from 'material-ui/AppBar'
+import { Drawer, FlatButton, MenuItem } from 'material-ui';
 
-
-export default class NavBarDrawer extends React.Component {  
+export default class NavBarDrawer extends React.Component {
   constructor(props) {
     super(props);
     this.handleToggle = this.handleToggle.bind(this);
@@ -21,15 +16,22 @@ export default class NavBarDrawer extends React.Component {
   handleToggle() {
     this.setState({
       open: !this.state.open
-    })
-  };
+    });
+  }
 
   handleClose() {
     this.setState({
       open: false
-    })
+    });
   }
 
+  handleLogOut = () => {
+    if (!this.props.currentUser) {
+      this.props.onLogOut();
+    }
+  };
+
+  // write handler to check if dashboard already open, then close the drawer 
   render() {
     return (
       <div className="navigation">
@@ -37,33 +39,28 @@ export default class NavBarDrawer extends React.Component {
           title="Guest Book"
           onLeftIconButtonClick={this.handleToggle}
           iconElementRight={
-            <FlatButton label="Logout" />
-            }
+            <FlatButton label="Logout" onClick={() => this.handleLogOut()} />
+          }
         />
-      {/* </div>
-      <div className="drawer"> */}
-          <Drawer 
-            open={this.state.open}
-            docked={false}
-            width={200}
-            // onRequestChange={(open) => this.setState(open)}
-            onRequestChange={this.handleToggle}
-            >
-
-            {/* <Paper style={style}> */}
-              <MenuItem onClick={this.handleclose}>Create Event</MenuItem>
-              <MenuItem>Upcoming Events</MenuItem>
-              <MenuItem>Past Events</MenuItem>
-              <MenuItem>Archived Events</MenuItem>
-            {/* </Paper> */}
-          </Drawer>
+        <Drawer
+          open={this.state.open}
+          docked={false}
+          width={200}
+          // onRequestChange={(open) => this.setState(open)}
+          onRequestChange={this.handleToggle}
+        >
+          <MenuItem onClick={() => {this.props.openDashboard()}}>Dashboard</MenuItem>
+          <MenuItem onClick={() => {this.props.openEventForm()}}>Create Event</MenuItem>
+          <MenuItem>Upcoming Events</MenuItem>
+          <MenuItem>Past Events</MenuItem>
+          <MenuItem>Archived Events</MenuItem>
+        </Drawer>
       </div>
     );
   }
 }
 
-
 const style = {
-  display: 'inline-block',
-  margin: '16px 32px 16px 0',
+  display: "inline-block",
+  margin: "16px 32px 16px 0"
 };

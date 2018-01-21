@@ -4,60 +4,35 @@ export const CREATE_NEW_EVENT = 'CREATE_NEW_EVENT';
 export const MODIFY_EVENT_DETAILS = 'MODIFY_EVENT_DETAILS';
 
 // Action Creators 
+
+// action - make ajax request to GET
+// promise of fetch request (success)
+// dispatch async action that returns the object 
+
+// pass action the data that has a type property & payload
+// reducer - hey! action has happened, then update the state
+
 export const createGetAllEventsAction = (userId) => ({
-  action: GET_ALL_EVENTS,
+  type: GET_ALL_EVENTS,
   payload: {
     userId
   }
 });
 
 // is this correct? 
-export const createNewEventAction = ( 
-  userId,
-  name,
-  description,
-  date, 
-  startTime,
-  endTime,
-  locationName,
-  locationAddress,
-  locationMap 
-  ) => ({
-    action: CREATE_NEW_EVENT, 
+export const createNewEventAction = (newEvent) => ({
+    type: CREATE_NEW_EVENT, 
     payload: {
-      userId,
-      name,
-      description,
-      date, 
-      startTime,
-      endTime,
-      locationName,
-      locationAddress,
-      locationMap
+      newEvent
   }
 })
 
-export const createModifyEventAction = ( 
-  userId,
-  name,
-  description,
-  date, 
-  startTime,
-  endTime,
-  locationName,
-  locationAddress,
-  locationMap 
-  ) => ({
-    action: MODIFY_EVENT_DETAILS, 
+export const createModifyEventAction = (event) => ({
+    type: MODIFY_EVENT_DETAILS, 
     payload: {
-      userId,
-      name,
-      description,
-      date, 
-      startTime,
-      endTime,
-      locationName,
-      locationAddress,
-      locationMap
+      event
   }
 })
+
+// need to have an async action
+// dispatch the action 

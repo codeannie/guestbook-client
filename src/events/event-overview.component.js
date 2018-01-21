@@ -1,24 +1,22 @@
 import React from 'react';
 
-import EventInfo from './event-details.component';
+import EventDetailsCard from './event-detail-card.component';
 // import GuestList from '../guests/guestlist-view.component';
 import GuestList from '../guests/guestlist-view.container';
 
 export default class EventOverview extends React.Component{
   render() {
-    // chnage to this.props later
-    const eventDetails = this.props.events.map((event, index) =>
-      <div className="event" key={index}>
-        <EventInfo {...event} />
-      </div>
-    );
+      const { event } = this.props;
     // add button to click to add to guests?
-    return (
+    return !event ? (
+      <div><h2>No Event Found</h2></div>
+    ) : (
       <section className="event-overview">
-        {eventDetails}
+        <div className="event">
+          <EventDetailsCard {...this.props.event} />
+        </div>
         <GuestList />
       </section>
     )
   }
 }
-
