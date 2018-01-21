@@ -30,7 +30,8 @@ export default class EventForm extends React.Component{
     }
   }
 
-  handleDate = (event, date) => {
+  handleDate = (e, date) => {
+    const { event } = this.state;
     // always set to false in the beginning 
     this.setState({
       error: false,
@@ -45,34 +46,42 @@ export default class EventForm extends React.Component{
     } else {
       this.setState({
         event: {
+          ...event,
           date: date
         }
       })
     }
   }
 
-  handleStartTime = (event, time) => {
+  handleStartTime = (e, time) => {
+    const { event } = this.state;
     this.setState({
       event: {
+        ...event,
         startTime: time
       }
     })
   }
 
-  handleEndTime = (event, time) => {
+  handleEndTime = (e, time) => {
+    const { event } = this.state;
     this.setState({
       event: {
+        ...event,
         endTime: time
       }
     })
   }
   
-  handleChange = (event) => {
-    const name = event.target.name;
-    console.log(name);
+  handleChange = (input) => {
+    const { event } = this.state;
+    const name = input.target.name;
+    const userInput = input.target.value;
+
     this.setState({
       event: {
-        [name]: event.target.value
+        ...event,
+        [name]: userInput
       }
     });
   }
@@ -87,8 +96,8 @@ export default class EventForm extends React.Component{
 
     this.props.createNewEvent(newEvent);
     this.refs.eventForm.reset(); 
-
   }
+
   render() {
     const { name, date, startTime, endTime, description, locationName, locationAddress, locationLink, locationMap } = this.state.event;
     return (
@@ -106,6 +115,7 @@ export default class EventForm extends React.Component{
             name="name"
             floatingLabelText="Event Name"
             onChange={this.handleChange}
+            // onChange={event => this.setState({event: {name: event.currentTarget.value}})}
             value={name}
             type="text"
           />
@@ -114,19 +124,19 @@ export default class EventForm extends React.Component{
             hintText="Event Date" 
             mode="landscape" 
             onChange={this.handleDate}
-            value={this.state.event.date} />
+            value={date} />
 
           <TimePicker
             hintText="Start Time"
             autoOk={true} 
             onChange={this.handleStartTime}
-            value={this.state.event.startTime} />
+            value={startTime} />
                     
           <TimePicker
             hintText="End Time"
             autoOk={true}
             onChange={this.handleEndTime}
-            value={this.state.event.endTime} />
+            value={endTime} />
 
           <TextField
             name="description"
