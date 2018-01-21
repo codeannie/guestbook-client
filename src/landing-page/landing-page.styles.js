@@ -9,15 +9,19 @@ const styles = {
 
   },
   header: {
-    textAlign: 'center'
+    textAlign: 'center',
+    fontFamily: 'Permanent Marker, cursive',
   },
   paragraph: {
-    textAlign: 'center'
+    textAlign: 'center',
+    fontFamily:'Open Sans, sans-serif',
+    // fontSize: 14
   },
   list: {
     listStylePosition: 'inside',
+    fontFamily:'Open Sans, sans-serif',
     // textAlign: 'center',
-    marginRight: 'auto',
+    // marginRight: 'auto',
   }
 }
 
