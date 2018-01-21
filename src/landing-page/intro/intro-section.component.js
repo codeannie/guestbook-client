@@ -1,33 +1,24 @@
 import React from 'react';
 import IntroCard from './intro-card.component';
-import bulletStyle from '../../_shared/styles/bullets.style.component';
+import styles from '../landing-page.styles';
 
-export default class introSection extends React.Component {
-  // constructor(props) {
-  //   super(props);
-    state = {
-      introCards : [{
-        title: '- WHAT -',
-        body: 'Manage your guestlist in one place. Know who RSVP and attended'
-      }, {
-        title: '- HOW -',
-        body: 'Send emails to guests to RSVP. Check guests in on day of event'
-      }]
-    }
-  // }
-  render() {
-    const introCards = this.state.introCards.map((introCard, index) =>
-      <li key={index}>
-        <IntroCard {...introCard} />
-      </li> 
-    );
+const IntroSection = (props) => {
+  return (
+    <div className="intro-section">
+      <h2 style={styles.header}> Welcome to Guest Book! </h2>
+        <p style={styles.paragraph}> Streamline how you create events and manage the guest list </p>
+        <h3 style={styles.header}> - WHAT - </h3>
+          <p style={styles.paragraph}> Manage your guests in one place </p>
+          <p style={styles.paragraph}>Track RSVP status and attendence </p>
 
-    return (
-      <div className="intro-section">
-        <ul className="intro-cards" style={bulletStyle}>
-          {introCards}
-        </ul>
-      </div>  
-    );
-  }
+        <h3 style={styles.header}> - HOW - </h3>
+          <ol style={styles.list}>
+            <li > Create the Event </li>
+            <li> Create the Guest List </li>
+            <li> Check in guests on the day of the Event </li>
+          </ol>
+    </div>  
+  );
 }
+
+export default IntroSection; 
