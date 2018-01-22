@@ -1,10 +1,4 @@
 const styles = {
-  flex: {
-    display: 'flex',
-    // flexDirection: 'row',
-    justifyContent: 'flex-end',
-    alignContent: 'flex-end',
-  },
   headerBackground: {
     // display: 'flex',
     // displayDirection: 'row',
@@ -14,18 +8,21 @@ const styles = {
     backgroundRepeat: 'no-repeat',
     backgroundPosition: 'center center',
     overflow: 'hidden',
-    height: '15em'
+    height: '15em',
+    position: 'relative'
   },
   title: {
+    display: 'inline-block',
+    marginTop: '.75em',
+    marginLeft: '.60em',
+    marginBottom: 0,
+    marginRight: 0,
     fontFamily: 'Permanent Marker, cursive',
     fontSize: '3em',
     color: 'white',
-    marginLeft: '1em',
+
     // whiteSpace: 'nowrap',
     // alignSelf: 'flex-start'
-  },
-  button: {
-    alignSelf: 'flex-end'
   },
 }
 

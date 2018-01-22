@@ -1,5 +1,7 @@
 // put landing page components here
 import React from 'react';
+import { FlatButton } from 'material-ui';
+
 import Header from '../_shared/navigation/header-image.component';
 import IntroSection from './intro/intro-section.component';
 import LoginForm from './login-signup/login-form.container';
@@ -11,6 +13,10 @@ export default class LandingPage extends React.Component {
     return (
       <div className="main-container">
         <Header />
+        <div className="btn-container" style={styles.flex}>
+          <FlatButton style={styles.button} label="Sign Up" />
+          <FlatButton style={styles.button} label="Log in" />
+        </div>
       <div className="landing-container" style={styles.container}>
         <IntroSection />
         <LoginForm />
