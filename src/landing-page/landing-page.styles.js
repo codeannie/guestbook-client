@@ -1,9 +1,5 @@
 import sharedStyles from '../_shared/styles/shared.styles';
-import {
-  lightBlue800, green700, green800, green900, amber800,
-  grey100, grey300, grey400, grey500,
-  white, darkBlack, fullBlack,
-} from 'material-ui/styles/colors';
+import { green700 } from 'material-ui/styles/colors';
 
 const styles = {
   container: {

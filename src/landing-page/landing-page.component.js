@@ -14,8 +14,21 @@ export default class LandingPage extends React.Component {
       <div className="main-container">
         <Header />
         <div className="btn-container" style={styles.flex}>
-          <FlatButton style={styles.button} label="Sign Up" />
-          <FlatButton style={styles.button} label="Log in" />
+
+        <FlatButton 
+            label="Demo"
+            onClick={() => {this.props.onLoginDemo()}}
+            style={styles.button} />
+
+          <FlatButton 
+            label="Sign Up"
+            onClick={() => {this.props.openSignUpForm()}}
+            style={styles.button} />
+
+          <FlatButton 
+            label="Log in"
+            onClick={() => {this.props.openLoginForm()}}
+            style={styles.button} />
         </div>
       <div className="landing-container" style={styles.container}>
         <IntroSection />

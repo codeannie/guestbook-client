@@ -3,7 +3,7 @@ import React, { Component } from "react";
 import { Fragment as RouterFragment } from "redux-little-router";
 import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
 import muiTheme from "./_shared/styles/material-ui.theme";
-import LandingPage from "./landing-page/landing-page.component";
+import LandingPage from "./landing-page/landing-page.container";
 import { Dashboard } from "./dashboard";
 import EventPage from '../src/events/event-page.container';
 class App extends Component {
