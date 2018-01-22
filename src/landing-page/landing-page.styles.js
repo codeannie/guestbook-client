@@ -1,25 +1,26 @@
-import bulletStyles from '../_shared/styles/bullets.style.component';
+import sharedStyles from '../_shared/styles/shared.styles';
 
 const styles = {
   container: {
-    display: 'flex',
-    flexDirection: 'column',
-    justifyContent: 'center',
+    // display: 'flex',
+    // flexDirection: 'column',
+    // justifyContent: 'center',
     padding: '1em'
 
   },
   header: {
     textAlign: 'center',
-    fontFamily: 'Permanent Marker, cursive',
+    fontFamily: sharedStyles.headerFont.fontFamily,
   },
   paragraph: {
     textAlign: 'center',
-    fontFamily:'Open Sans, sans-serif',
+    fontFamily: sharedStyles.bodyFont,
     // fontSize: 14
   },
   list: {
-    listStylePosition: 'inside',
     fontFamily:'Open Sans, sans-serif',
+    display: 'inline-block',
+    margin: 'auto 0',
     // textAlign: 'center',
     // marginRight: 'auto',
   }
