@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "aphrodite": "^1.2.5",
     "axios": "^0.17.1",
     "date-fns": "^1.29.0",
     "lodash": "^4.17.4",
