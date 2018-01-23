@@ -15,15 +15,15 @@ export default class EventForm extends React.Component{
 
     this.state = {
       event: { 
-        name: null,
-        date: null,
-        startTime: null,
-        endTime: null,
-        description: null,
-        locationName: null,
-        locationAddress: null,
-        locationLink: null,
-        locationMap: null,
+        name: '',
+        date: '',
+        startTime: '',
+        endTime: '',
+        description: '',
+        locationName: '',
+        locationAddress: '',
+        locationLink: '',
+        locationMap: '',
         },
       error: false,
       errorMsg: ''
@@ -88,13 +88,14 @@ export default class EventForm extends React.Component{
 
   handleSubmit = (event) => {
     event.preventDefault();
+    const user = this.props.currentUser
     const newEvent = {
       ...this.state.event
     };
     
     console.log('new event?', newEvent)
 
-    this.props.createNewEvent(newEvent);
+    this.props.onSubmitNewEvent(newEvent, user);
     this.refs.eventForm.reset(); 
   }
 
