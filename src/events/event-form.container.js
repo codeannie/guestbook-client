@@ -6,6 +6,7 @@ import { createNewEventAction } from './store/events.actions';
 import { createEvent, modifyEvent } from './services/events.service';
 
 const mapStateToProps = state => {
+  // store user info in props
   let currentUser; 
   if (state._sharedReducer.session.currentUser) {
     currentUser = state._sharedReducer.session.currentUser; 
@@ -18,8 +19,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    onSubmitNewEvent(newEvent, currentUser){
-      createEvent(newEvent, currentUser)
+    onSubmitNewEvent(newEvent){
+      createEvent(newEvent)
       .then(res => {
         dispatch(createNewEventAction(res.data));
         dispatch(push('/guestlist'));
