@@ -7,6 +7,7 @@ import { createGetAllEventsAction } from "../events/store/events.actions";
 const mapStateToProps = state => {
   return {
     // at login, should give you current user
+    // firstName: state._sharedReducer.session.currentUser.firstName,
     currentUser: state._sharedReducer.session.currentUser,
     events: state.eventsReducer.events
   };
