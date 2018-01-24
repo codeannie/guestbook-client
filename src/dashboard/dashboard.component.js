@@ -26,8 +26,8 @@ export default class Dashboard extends React.Component {
       <div>
         <Header />
         <NavBarDrawer />
-        <div className={css(sharedStyles.mainContainer)}>
-          <WelcomeBlurb />
+        <div className={css(sharedStyles.mainContainer, styles.container)}>
+          <WelcomeBlurb {...this.props} />
           {/* child prop expects "events" */}
           <EventSection events={events} />
         </div>
