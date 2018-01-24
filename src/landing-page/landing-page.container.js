@@ -23,6 +23,7 @@ const mapDispatchToProps = dispatch => {
         .then(res => {
           Cookies.set('jwt', res.data.authToken);
           Cookies.set('loggedInUserId', res.data.user.id);
+          Cookies.set('loggedInUserFirstName', res.data.user.firstName);
           dispatch(createLoginSuccessAction(res.data));
           dispatch(push('/dashboard'));
         });
