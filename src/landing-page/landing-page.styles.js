@@ -1,36 +1,22 @@
-import sharedStyles from '../_shared/styles/shared.styles';
-import { green700 } from 'material-ui/styles/colors';
+import { StyleSheet } from 'aphrodite';
 
-const styles = {
+const styles = StyleSheet.create({
   container: {
     padding: '1em'
-
   },  
-  flex: {
+  flexContainer: {
     display: 'flex',
     justifyContent: 'flex-end',
     alignContent: 'flex-end',
-    backgroundColor: green700
+    backgroundColor: '#388E3C'
   },
-  button: {
-    alignSelf: 'flex-end',
-    // border: '1px dotted red',
-  },
-
   header1: {
     textAlign: 'center',
-    fontFamily: sharedStyles.headerFont.fontFamily,
     fontSize: 32,
   },
-  header2: {
+  centerText: {
     textAlign: 'center',
-    fontFamily: sharedStyles.headerFont.fontFamily, 
   },
-  paragraph: {
-    textAlign: 'center',
-    fontFamily: sharedStyles.bodyFont,
-    // fontSize: 14
-  },
-}
+});
 
 export default styles; 
