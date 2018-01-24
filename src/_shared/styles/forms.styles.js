@@ -6,16 +6,34 @@ const formStyles = {
     width: '50%', // media query - add widthwith large screen
     // alignContent: 'center',
     margin: '0 auto',
-    border: 'red'
+    padding: 18,
+    border: '3px inset #FF8F00',
+    borderRadius: 5
+  },
+  eventGuestContainer: {
+    display: 'flex',
+    flexDirection: 'column',
+    width: '75%', // media query - add width with large screen
+    margin: '0 auto',
+    padding: 18,
+    border: '3px inset #0277BD',
+    borderRadius: 5
   },
   input: {
     display: 'block',
     width: 'auto',
-    marginButtom: 10
+    marginBottom: 5
+  },
+  // how to get it into a row? 
+  dateTimeInput: {
+    display: 'inline-block',
+    width: 'auto',
+    marginBottom: 10,
   },
   buttonContainer: {
     display: 'flex',
     justifyContent: 'center',
+    marginTop: 10,
   },
   button: {
     // display: 'inline-block', 

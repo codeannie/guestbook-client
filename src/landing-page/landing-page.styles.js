@@ -1,9 +1,6 @@
 import { StyleSheet } from 'aphrodite';
 
 const styles = StyleSheet.create({
-  container: {
-    padding: '1em'
-  },  
   flexContainer: {
     display: 'flex',
     justifyContent: 'flex-end',
