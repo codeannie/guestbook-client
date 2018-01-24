@@ -21,13 +21,14 @@ export default class Dashboard extends React.Component {
     // ok to connect parent componanet to redux store/container
     // then pass as props to child component 
     const events = this.props.events;
+    const firstName = this.props.firstName;
 
     return (
       <div>
         <Header />
         <NavBarDrawer />
         <div className={css(sharedStyles.mainContainer, styles.container)}>
-          <WelcomeBlurb {...this.props} />
+          <WelcomeBlurb firstName={firstName} />
           {/* child prop expects "events" */}
           <EventSection events={events} />
         </div>
