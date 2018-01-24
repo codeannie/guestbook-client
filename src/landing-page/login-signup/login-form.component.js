@@ -1,6 +1,10 @@
 import React from 'react';
 import TextField from 'material-ui/TextField';
 import RaisedButton from 'material-ui/RaisedButton';
+import { css } from 'aphrodite';
+import styles from '../landing-page.styles';
+import formStyles from './login-signup.styles';
+import sharedStyles from '../../_shared/styles/shared.styles';
 
 export default class LoginForm extends React.Component {
     constructor(props) {
@@ -23,23 +27,26 @@ export default class LoginForm extends React.Component {
   render() {
     return (
       <div className="loginFormcontainer">
-        <h2> Login </h2>
-        <form ref="loginForm" onSubmit={this.handleSubmit}>
+        <h1 className={css(sharedStyles.headerFont, styles.header1)}> - Login - </h1>
+        <form ref="loginForm" onSubmit={this.handleSubmit} style={formStyles.formContainer}>
           <TextField
             name="email"
             floatingLabelText="E-mail"
             type="email"
+            style={formStyles.input}
           />
 
           <TextField
             name="password"
             floatingLabelText="Password"
             type="password"
+            style={formStyles.input}
           />
-
-          <RaisedButton label="Submit" type="submit" primary={true} />
-          <RaisedButton label="Reset" type="reset" />
         </form>
+        <div style={formStyles.buttonContainer}>
+          <RaisedButton label="Submit" type="submit" primary={true} style={formStyles.button} />
+          <RaisedButton label="Reset" type="reset" style={formStyles.button}/>
+          </div>
       </div>
     );
   }
