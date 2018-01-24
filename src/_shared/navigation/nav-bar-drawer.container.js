@@ -1,6 +1,6 @@
 import { connect } from "react-redux";
 import { push } from "redux-little-router";
-import Cookies from 'js-cookie';
+import Cookies from "js-cookie";
 import NavBarDrawer from "./nav-bar-drawer.component";
 // import actions
 import { createLogOutAction } from "../store/session/session.actions";
@@ -14,12 +14,11 @@ const mapStateToProps = state => {
 };
 
 const mapDispatchToProps = dispatch => {
-  // const userId = state._sharedReducer.session.currentUser.user.id; //?
   return {
     onLogOut: () => {
       dispatch(createLogOutAction());
-      Cookies.remove('jwt');
-      Cookies.remove('loggedInUserId');
+      Cookies.remove("jwt");
+      Cookies.remove("loggedInUserId");
       dispatch(push("/"));
     },
     openDashboard: () => {
