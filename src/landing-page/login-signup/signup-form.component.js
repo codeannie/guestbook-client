@@ -58,7 +58,6 @@ export default class SignUpForm extends React.Component {
             type="password"
             style={formStyles.input}
           />
-          </form>
           <div style={formStyles.buttonContainer}>
             <RaisedButton label="Submit" 
               type="submit" 
@@ -70,6 +69,7 @@ export default class SignUpForm extends React.Component {
               type="reset" 
               style={formStyles.button}/>
           </div>
+        </form>
       </div>
     )
   }

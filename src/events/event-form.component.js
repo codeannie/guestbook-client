@@ -194,8 +194,7 @@ export default class EventForm extends React.Component{
             type="text" 
             style={formStyles.input}
             />
-        </form>
-        <div style={formStyles.buttonContainer}>
+          <div style={formStyles.buttonContainer}>
             <RaisedButton label="Save" 
               type="submit" 
               primary={true} 
@@ -211,7 +210,8 @@ export default class EventForm extends React.Component{
               label="Cancel" 
               type="button" 
               style={formStyles.button}/>
-        </div>
+          </div>
+        </form>
       </div>
     )
   }

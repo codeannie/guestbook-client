@@ -46,8 +46,7 @@ export default class LoginForm extends React.Component {
             type="password"
             style={formStyles.input}
           />
-        </form>
-        <div style={formStyles.buttonContainer}>
+          <div style={formStyles.buttonContainer}>
             <RaisedButton label="Submit" 
               type="submit" 
               primary={true} 
@@ -57,7 +56,8 @@ export default class LoginForm extends React.Component {
               label="Reset" 
               type="reset" 
               style={formStyles.button}/>
-        </div>
+          </div>
+        </form>
       </div>
     );
   }
