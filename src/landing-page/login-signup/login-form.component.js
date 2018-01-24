@@ -3,7 +3,7 @@ import TextField from 'material-ui/TextField';
 import RaisedButton from 'material-ui/RaisedButton';
 import { css } from 'aphrodite';
 import styles from '../landing-page.styles';
-import formStyles from './login-signup.styles';
+import formStyles from '../../_shared/styles/forms.styles';
 import sharedStyles from '../../_shared/styles/shared.styles';
 import Header from '../../_shared/navigation/header-image.component';
 import LandingPageBtnsRow from '../landing-page-buttons.component';
