@@ -2,6 +2,8 @@ import React from 'react';
 import TextField from 'material-ui/TextField';
 import RaisedButton from 'material-ui/RaisedButton';
 import { css } from 'aphrodite';
+import Header from '../../_shared/navigation/header-image.component';
+import LandingPageBtnsRow from '../landing-page-buttons.component';
 import styles from '../landing-page.styles';
 import formStyles from './login-signup.styles';
 import sharedStyles from '../../_shared/styles/shared.styles';
@@ -27,7 +29,8 @@ export default class SignUpForm extends React.Component {
   render() {
     return (
       <div className="signupFormContainer">
-<h1 className={css(sharedStyles.headerFont, styles.header1)}> - Signup for Guest Book - </h1>        <form ref="signUpForm" onSubmit={this.handleSubmit} style={formStyles.formContainer}>
+        {/* <Header /> need to make this conditional render with button  */}
+        <h1 className={css(sharedStyles.headerFont, styles.header1)}> - Signup for Guest Book - </h1>        <form ref="signUpForm" onSubmit={this.handleSubmit} style={formStyles.formContainer}>
           <TextField
             name="firstName"
             floatingLabelText="First name"
@@ -57,11 +60,17 @@ export default class SignUpForm extends React.Component {
           />
           </form>
           <div style={formStyles.buttonContainer}>
-            <RaisedButton label="Submit" type="submit" primary={true} style={formStyles.button} />
-            <RaisedButton label="Reset" type="reset" style={formStyles.button}/>
+            <RaisedButton label="Submit" 
+              type="submit" 
+              primary={true} 
+              style={formStyles.button} />
+
+            <RaisedButton 
+              label="Reset" 
+              type="reset" 
+              style={formStyles.button}/>
           </div>
       </div>
     )
   }
 }
-

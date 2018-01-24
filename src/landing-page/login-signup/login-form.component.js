@@ -5,7 +5,8 @@ import { css } from 'aphrodite';
 import styles from '../landing-page.styles';
 import formStyles from './login-signup.styles';
 import sharedStyles from '../../_shared/styles/shared.styles';
-
+import Header from '../../_shared/navigation/header-image.component';
+import LandingPageBtnsRow from '../landing-page-buttons.component';
 export default class LoginForm extends React.Component {
     constructor(props) {
       super(props);
@@ -27,6 +28,9 @@ export default class LoginForm extends React.Component {
   render() {
     return (
       <div className="loginFormcontainer">
+        <Header />
+        {/* <LandingPageBtnsRow {...this.props} /> */}
+
         <h1 className={css(sharedStyles.headerFont, styles.header1)}> - Login - </h1>
         <form ref="loginForm" onSubmit={this.handleSubmit} style={formStyles.formContainer}>
           <TextField
@@ -44,9 +48,16 @@ export default class LoginForm extends React.Component {
           />
         </form>
         <div style={formStyles.buttonContainer}>
-          <RaisedButton label="Submit" type="submit" primary={true} style={formStyles.button} />
-          <RaisedButton label="Reset" type="reset" style={formStyles.button}/>
-          </div>
+            <RaisedButton label="Submit" 
+              type="submit" 
+              primary={true} 
+              style={formStyles.button} />
+
+            <RaisedButton 
+              label="Reset" 
+              type="reset" 
+              style={formStyles.button}/>
+        </div>
       </div>
     );
   }
