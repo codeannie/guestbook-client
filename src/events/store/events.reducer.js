@@ -8,7 +8,7 @@ const initialState = {
   // eventually change this to events: [] 
   events: [
     {
-      id: 1,
+      id: '1',
       eventName: 'Test Event',
       description: 'blah',
       date: '2/1/18',
@@ -20,7 +20,7 @@ const initialState = {
       numOfGuests: 10,
       eventStatus: 1
     }, {
-      id:2,
+      id: '2',
       eventName: 'Test Event 2',
       date: '2/4/18',
       startTime: '1PM',
@@ -29,7 +29,7 @@ const initialState = {
       numOfGuests: 40,
       eventStatus: 1
     }, {
-      id: 3,
+      id: '3',
       eventName: 'Test Past Event',
       date: '2/4/18',
       startTime: '1PM',
@@ -38,7 +38,7 @@ const initialState = {
       numOfGuests: 40,
       eventStatus: 2
     }, {
-      id: 4,
+      id: '4',
       eventName: 'Test Archive Event',
       date: '2/4/18',
       startTime: '1PM',
@@ -55,7 +55,9 @@ export const eventsReducer = (state = initialState, action) => {
     case GET_ALL_EVENTS:  
       return {
         ...state,
-        state //?
+        events: [
+          action.payload.events 
+        ]
       };
     case CREATE_NEW_EVENT:
       return {
@@ -65,22 +67,26 @@ export const eventsReducer = (state = initialState, action) => {
           action.payload.newEvent
         ]
       };
-    case MODIFY_EVENT_DETAILS:  //this would happen on the server side and put back in updated obj?
-      // find the item in array ?
-      const findEventToModify = (eventId) => {
-        return eventId;
-      }
-      // update the object 
+    case MODIFY_EVENT_DETAILS:  
+      // send update to server
+      // on server, update the event
+      // get the updated event back back
+      // refresh entire redux store 
+
       return {
         ...state,
         events: [
-          ...state.events,
+          ...action.payload.events,
         ]
     };
     default:
       return state;
   }
 };
+
+// const findEventToModify = (eventId) => {
+//   return eventId;
+// }
 
 // case FETCH_EVENT_SUCCESS:
 //   return 
