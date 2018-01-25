@@ -61,7 +61,7 @@ export default class EventForm extends React.Component{
     this.setState({
       event: {
         ...event,
-        startTime: time
+        startDateTime: time
       }
     })
   }
@@ -71,7 +71,7 @@ export default class EventForm extends React.Component{
     this.setState({
       event: {
         ...event,
-        endTime: time
+        endDateTime: time
       }
     })
   }
