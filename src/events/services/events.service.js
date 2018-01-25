@@ -3,9 +3,7 @@ import Cookies from 'js-cookie';
 import { BASE_URL } from '../../_shared/constants';
 
 // get userId & auth token from the js-cookie
-
 const userId = Cookies.get('loggedInUserId');
-// console.log(userId);
 const authToken = Cookies.get('jwt');
 
 // GET ALL EVENTS 
@@ -30,13 +28,14 @@ export const createEvent = async (event) => {
       Authorization: `Bearer ${authToken}`
     },
     data: {
-      event
+      ...event // this sends whole thing as an obj {} aka req.body 
+      // "event" by itself sends it as event: {} aka req.body.event 
     }
   })
 }
 
 // MODIFY EVENT 
-export const modifyEvent = async (event) => { //eventId?
+export const modifyEvent = async (event) => { 
   return await axios ({
     method: 'put',
     url: `${BASE_URL}/api/events/${userId}/${event.id}`,
@@ -44,7 +43,7 @@ export const modifyEvent = async (event) => { //eventId?
       Authorization: `Bearer ${authToken}`
     },
     data: {
-      event
+      ...event
     }
   })
 }
