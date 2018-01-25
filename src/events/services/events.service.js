@@ -6,17 +6,17 @@ import { BASE_URL } from '../../_shared/constants';
 const userId = Cookies.get('loggedInUserId');
 const authToken = Cookies.get('jwt');
 
-// GET ALL EVENTS 
-export const getEvents = async (userId) => {
+// GET ALL EVENTS - do we need to pass in anything? 
+export const getEvents = async () => {
   return await axios({
     method: 'get',
     url: `${BASE_URL}/api/events/${userId}`,
     headers: {
       Authorization: `Bearer ${authToken}`
     },
-    data: {
-      userId
-    }
+    // data: {
+    //   userId
+    // }
   })
 }
 // CREATE NEW EVENT
