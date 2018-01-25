@@ -19,7 +19,7 @@ const mapDispatchToProps = dispatch => {
       dispatch(push("/signup"));
     },
     onLoginDemo() {
-      login('kuma@bear.com', 'test123')
+      login('demo@guestbook.com', 'test123')
         .then(res => {
           Cookies.set('jwt', res.data.authToken);
           Cookies.set('loggedInUserId', res.data.user.id);
