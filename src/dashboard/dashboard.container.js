@@ -1,5 +1,6 @@
 import { connect } from "react-redux";
 import { push } from "redux-little-router";
+import Cookies from "js-cookie";
 import Dashboard from "./dashboard.component";
 // import actions
 import { createGetAllEventsAction } from "../events/store/events.actions";
@@ -12,7 +13,8 @@ const mapStateToProps = state => {
   }
   return {
     currentUser,
-    firstName: currentUser.user.firstName,
+    // firstName: currentUser.user.firstName,
+    firstName: Cookies.get('loggedInUserFirstName'),
     events: state.eventsReducer.events
   };
 };
