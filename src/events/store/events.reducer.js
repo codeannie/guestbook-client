@@ -9,7 +9,7 @@ const initialState = {
   events: [
     {
       id: '1',
-      eventName: 'Test Event',
+      name: 'Test Event',
       description: 'blah',
       date: '2/1/18',
       startTime: '1PM',
@@ -21,7 +21,7 @@ const initialState = {
       eventStatus: 1
     }, {
       id: '2',
-      eventName: 'Test Event 2',
+      name: 'Test Event 2',
       date: '2/4/18',
       startTime: '1PM',
       endTime: '4PM',
@@ -30,7 +30,7 @@ const initialState = {
       eventStatus: 1
     }, {
       id: '3',
-      eventName: 'Test Past Event',
+      name: 'Test Past Event',
       date: '2/4/18',
       startTime: '1PM',
       endTime: '2PM',
@@ -39,7 +39,7 @@ const initialState = {
       eventStatus: 2
     }, {
       id: '4',
-      eventName: 'Test Archive Event',
+      name: 'Test Archive Event',
       date: '2/4/18',
       startTime: '1PM',
       endTime: '2PM',
