@@ -7,7 +7,7 @@ const eventCard = (props) => {
   // container adds or overrides props on component
   const {
     eventId,
-    eventName,
+    name,
     date,
     startTime,
     endTime,
@@ -23,12 +23,12 @@ const eventCard = (props) => {
   // console.log('is the event card working?', props);
   return (
     <div className={css(styles.eventCard)} key={eventId}>
-      <h3 className={css(styles.eventName)}> {props.eventName} </h3>
-        <h4 className={css(styles.date)}> {props.date} </h4>
-        <p> <span> Start Time: </span> {props.startTime} </p>
-        <p> <span> End Time: </span> {props.endTime} </p>
-        <p> <span> Location: </span> {props.locationName} </p>
-        <p> <span> # of Guests: </span> {props.numOfGuests} </p>
+      <h3 className={css(styles.eventName)}> {name} </h3>
+        <h4 className={css(styles.date)}> {date} </h4>
+        <p> <span> Start Time: </span> {startTime} </p>
+        <p> <span> End Time: </span> {endTime} </p>
+        <p> <span> Location: </span> {locationName} </p>
+        <p> <span> # of Guests: </span> {numOfGuests} </p>
       <RaisedButton label="View" onClick={handleViewClick} primary={true} />
       {/* <button onClick={handleViewClick}> View </button> */}
     </div>
