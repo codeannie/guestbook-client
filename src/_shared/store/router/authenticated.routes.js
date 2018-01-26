@@ -2,7 +2,8 @@ export const DASHBOARD_ROUTE = '/dashboard';
 export const EVENT_OVERVIEW_ROUTE = '/event/:eventId'; //:eventId = route parameter
 export const EVENT_EDIT_ROUTE = '/event/edit';
 export const EVENT_NEW_ROUTE = '/event/new';
-export const GUESTLIST_NEW_ROUTE = '/guestlist';
+export const GUESTLIST_NEW_ROUTE = '/guestlist/new';
+export const GUESTLIST_EDIT_ROUTE = '/guestlist/edit'
 
 const routes = {
   [DASHBOARD_ROUTE]: {
@@ -19,6 +20,9 @@ const routes = {
   },
   [GUESTLIST_NEW_ROUTE]: {
     title: 'Guest List'
+  },
+  [GUESTLIST_EDIT_ROUTE]: {
+    title: 'Edit Guest List'
   }
 };
 
