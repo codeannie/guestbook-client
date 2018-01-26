@@ -6,21 +6,20 @@ import GuestList from '../guests/guestlist-view.container';
 import styles from './event.styles';
 
 export default class EventOverview extends React.Component{
-  // how to handle go to form
 
-  // handleViewClick = () => {
-  //   onViewClick(eventId);
-  // };
+  handleEditEvent = (eventId) => {
+    this.props.onEditClick(eventId); 
+  };
 
   render() {
     const { event } = this.props;
-
+    console.log('event id?', this.props.eventId);
     return !event ? (
       <div><h2>No Event Found</h2></div>
     ) : (
       <section className={css(styles.container)}>
           <RaisedButton label="Edit" 
-            // onClick={this.handleViewClick} 
+            onClick={this.handleEditEvent(this.props.eventId)} 
             primary={true} 
             />
           <EventDetailsCard eventId={event.id} {...event} />

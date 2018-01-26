@@ -5,7 +5,22 @@ import { createGetAllEventsAction } from "./store/events.actions";
 import { EVENT_EDIT_ROUTE } from '../_shared/store/router/authenticated.routes';
 
 const mapStateToProps = state => {
+  // is this redundant? it's already on event page container 
+  // get all events from reducer
+  const events = state.eventsReducer.events;
+  // get param from router - event card container 
+  const paramId = state.router.params.eventId;
+  console.log('event overview paramId ->', paramId);
+  // find specific event
+  const event = events.find(e => {
+    return e.id === paramId;
+  })
+  console.log('event overview event ->', event);
   return {
+    // return single event
+    event,
+    eventId: state.router.params.eventId,
+    route: state.router.route
   };
 };
 
@@ -15,7 +30,7 @@ const mapDispatchToProps = dispatch => {
       dispatch(createGetAllEventsAction());
     },
 
-    onEditClick: (eventId) => {
+    onEditClick(eventId) {
       dispatch(push({
         route: EVENT_EDIT_ROUTE,
         params: {
