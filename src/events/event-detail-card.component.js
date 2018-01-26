@@ -1,11 +1,23 @@
 import React from 'react';
+import { RaisedButton } from 'material-ui';
 import { css } from 'aphrodite'; 
 import styles from './event.styles';
 import sharedStyles from '../_shared/styles/shared.styles';
 
 const eventDetailsCard = (props) => {
+  // const { event } = props;
+  // console.log('event detail card id?', props.eventId);
+
+  // const handleEditEvent = () => {
+  //   props.onEditClick(eventId); 
+  // };
+
   return (
     <div className="event-info" key={props.eventId}>
+        {/* <RaisedButton label="Edit" 
+        onClick={handleEditEvent(props.eventId)} 
+        primary={true} 
+        /> */}
       <h2> {props.eventName} </h2>
       <ul className={css(sharedStyles.lists)}>
         <li className="description"> Description: {props.description} </li>
