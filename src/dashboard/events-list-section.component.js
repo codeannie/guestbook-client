@@ -1,11 +1,11 @@
-import React from 'react';
-import EventCard from './event-card.container';
-
+import React from "react";
+import { css } from 'aphrodite';
+import styles from './dashboard.styles';
+import sharedStyles from '../_shared/styles/shared.styles';
+import EventCard from "./event-card.container";
 
 export default class EventSection extends React.Component {
   render() {
-    // const { events } = this.props;
-    // how to add key? 
     const eventByStatus = this.props.events.reduce(
       (results, event, index) => {
         const eventComponent = (
@@ -28,34 +28,32 @@ export default class EventSection extends React.Component {
         } else if (event.eventStatus === 2) {
           results.past.push(eventComponent);
           return results;
-        } else 
-          results.archive.push(eventComponent);
-          return results;
-        },
-      { 
+        } else results.archive.push(eventComponent);
+        return results;
+      },
+      {
         upcoming: [],
         past: [],
         archive: []
       }
-  );
-    // 
+    );
+    //
     // console.log('upcoming events? ->', eventByStatus.upcoming);
 
     return (
-      <section className="events-section">
-        <div className="upcoming-container">
-          <h3> Upcoming Events </h3>
+      <section>
+        <h2 className={css(sharedStyles.headerFont, styles.sectionHeader)}> - Upcoming Events - </h2>
+          <div className={css(styles.flexContainer)}>
             {eventByStatus.upcoming}
-        </div>
-        <div className="past-container">
-          <h3> Past Event </h3>
+          </div>
+        <h2 className={css(sharedStyles.headerFont, styles.sectionHeader)}> - Past Events - </h2>
+          <div className={css(styles.flexContainer)}>
             {eventByStatus.past}
-        </div>
-      </section> 
-    )
+          </div>
+      </section>
+    );
   }
 }
-
 
 // events: [{
 //   eventName: 'Test Event',
@@ -74,19 +72,18 @@ export default class EventSection extends React.Component {
 // }
 // ]
 
+// chnage to this.props later
+// const eventCards = this.state.events.map((event, index) =>
+//   <div className="event" key={index}>
+//     <EventCard {...event} />
+//   </div>
+// );
 
-    // chnage to this.props later
-    // const eventCards = this.state.events.map((event, index) => 
-    //   <div className="event" key={index}>
-    //     <EventCard {...event} />
-    //   </div>
-    // );
+// return (
+//   <section className="events-section">
+//     <h4> Upcoming Events </h4>
+//     <h3> {this.props.title} </h3>
+//       {eventCards}
+//     <h4> Past Event </h4>
 
-    // return (
-    //   <section className="events-section">
-    //     <h4> Upcoming Events </h4>
-    //     <h3> {this.props.title} </h3>
-    //       {eventCards}
-    //     <h4> Past Event </h4>
-
-    //   </section> 
+//   </section>

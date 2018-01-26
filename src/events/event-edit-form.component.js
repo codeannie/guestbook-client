@@ -209,8 +209,7 @@ export default class EventForm extends React.Component{
             <RaisedButton 
               label="Cancel" 
               type="button" 
-              style={formStyles.button}
-              onClick={this.props.closeForm}/>
+              style={formStyles.button}/>
           </div>
         </form>
       </div>

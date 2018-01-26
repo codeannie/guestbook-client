@@ -12,10 +12,10 @@ export const MODIFY_EVENT_DETAILS = 'MODIFY_EVENT_DETAILS';
 // pass action the data that has a type property & payload
 // reducer - hey! action has happened, then update the state
 
-export const createGetAllEventsAction = (userId) => ({
+export const createGetAllEventsAction = (events) => ({
   type: GET_ALL_EVENTS,
   payload: {
-    userId
+    events
   }
 });
 
@@ -27,10 +27,10 @@ export const createNewEventAction = (newEvent) => ({
   }
 })
 
-export const createModifyEventAction = (event) => ({
+export const createModifyEventAction = (events) => ({
     type: MODIFY_EVENT_DETAILS, 
     payload: {
-      event
+      events
   }
 })
 

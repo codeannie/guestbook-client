@@ -1,12 +1,11 @@
 import React from 'react';
+import styles from './header-image.styles';
 
 const headerImage = (props) => {
   return (
-    <div className="header-image">
-      <header className="App-header">
-        <h1 className="App-title">Guest Book</h1>
-      </header>
-    </div>
+    <header className="App-header" style={styles.headerBackground}>
+      <h1 className="App-title" style={styles.title}> - GUEST BOOK - </h1>
+    </header>
   )
 }
 

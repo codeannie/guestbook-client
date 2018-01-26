@@ -9,7 +9,7 @@ const mapStateToProps = state => {
   const paramId = state.router.params.eventId;
   // find specific event
   const event = events.find(e => {
-    return e.id === Number(paramId)
+    return e.id === paramId 
   })
   
   return {

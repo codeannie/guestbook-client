@@ -1,6 +1,7 @@
 import React from 'react';
 import Appbar from 'material-ui/AppBar'
 import { Drawer, FlatButton, MenuItem } from 'material-ui';
+import styles from './nav-bar-drawer.styles';
 
 export default class NavBarDrawer extends React.Component {
   constructor(props) {
@@ -26,9 +27,11 @@ export default class NavBarDrawer extends React.Component {
   }
 
   handleLogOut = () => {
-    if (!this.props.currentUser) {
-      this.props.onLogOut();
-    }
+    // conditional not working? 
+    // if (!this.props.currentUser) {
+    //   this.props.onLogOut();
+    // }
+    this.props.onLogOut();
   };
 
   // write handler to check if dashboard already open, then close the drawer 
@@ -46,6 +49,7 @@ export default class NavBarDrawer extends React.Component {
           open={this.state.open}
           docked={false}
           width={200}
+          style={styles.drawer}
           // onRequestChange={(open) => this.setState(open)}
           onRequestChange={this.handleToggle}
         >

@@ -3,23 +3,36 @@ import { push } from '../_shared/store/router/utils';
 
 import EventForm from './event-form.component';
 import { createNewEventAction } from './store/events.actions';
-
+import { createEvent, modifyEvent } from './services/events.service';
+import { DASHBOARD_ROUTE, GUESTLIST_NEW_ROUTE } from '../_shared/store/router/authenticated.routes';
 const mapStateToProps = state => {
-  console.log(state);
+  // store user info in props
+  let currentUser; 
+  if (state._sharedReducer.session.currentUser) {
+    currentUser = state._sharedReducer.session.currentUser; 
+  }
   return {
-    // make sure this is the event that is being created
-    // userId: state._sharedReducer.session.currentUser.user.id //?
-    currentUser: state._sharedReducer.session.currentUser,
+    currentUser,
     events: state.eventsReducer.events
   };
 };
 
 const mapDispatchToProps = dispatch => {
   return {
-    createNewEvent(newEvent){
-      dispatch(createNewEventAction(newEvent));
-      dispatch(push('/guestlist'));
-    }
+    onSubmitNewEvent(newEvent){
+      createEvent(newEvent)
+      .then(res => {
+        dispatch(createNewEventAction(res.data));
+        dispatch(push({
+          route: GUESTLIST_NEW_ROUTE
+        }));
+      })
+    },
+    closeForm: () => {
+      dispatch(push({
+        route: DASHBOARD_ROUTE
+      }));
+    },
   };
 }
 

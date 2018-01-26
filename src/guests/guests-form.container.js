@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import GuestForm from './guestlist-form.component';
+import GuestForm from './guests-form.component';
 // import action
 
 const mapStateToProps = state => {

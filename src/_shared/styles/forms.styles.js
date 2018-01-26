@@ -1,0 +1,46 @@
+const formStyles = {
+  formContainer: {
+    display: 'flex',
+    flexDirection: 'column',
+    // justifyContent: 'center',
+    width: '50%', // media query - add widthwith large screen
+    // alignContent: 'center',
+    margin: '0 auto',
+    padding: 18,
+    border: '3px inset #FF8F00',
+    borderRadius: 5
+  },
+  eventGuestContainer: {
+    display: 'flex',
+    flexDirection: 'column',
+    width: '75%', // media query - add width with large screen
+    margin: '0 auto',
+    padding: 18,
+    border: '3px inset #0277BD',
+    borderRadius: 5
+  },
+  input: {
+    display: 'block',
+    width: 'auto',
+    marginBottom: 5
+  },
+  // how to get it into a row? 
+  dateTimeInput: {
+    display: 'inline-block',
+    width: 'auto',
+    marginBottom: 10,
+  },
+  buttonContainer: {
+    display: 'flex',
+    justifyContent: 'center',
+    marginTop: 10,
+  },
+  button: {
+    // display: 'inline-block', 
+    // margin: '0 auto',
+    // alignSelf: 'center',
+    // width: '25%',
+  }
+}
+
+export default formStyles;
