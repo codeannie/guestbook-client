@@ -4,8 +4,9 @@ import { css } from 'aphrodite';
 import Header from '../_shared/navigation/header-image.component';
 import NavBarDrawer from '../_shared/navigation/nav-bar-drawer.container';
 // COMPONENTS
-import EventForm from '../events/event-form.container';
-import EventOverview from '../events/event-overview.container';
+import EventForm from './event-form.container';
+import EditEventForm from './event-edit-form.container';
+import EventOverview from './event-overview.container';
 import GuestForm from '../guests/guests-form.container';
 import GuestList from '../guests/guestlist-view.component';
 // ROUTES
@@ -20,7 +21,7 @@ export default class EventPage extends React.Component {
       case routerPath.EVENT_OVERVIEW_ROUTE:
         return <EventOverview event={this.props.event}/>;
       case routerPath.EVENT_EDIT_ROUTE:
-        return <EventForm />;
+        return <EditEventForm />;
       case routerPath.EVENT_NEW_ROUTE:
         return <EventForm />; 
       case routerPath.GUESTLIST_NEW_ROUTE:
