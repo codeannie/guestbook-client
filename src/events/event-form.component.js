@@ -1,6 +1,6 @@
 import React from 'react';
 import { css } from 'aphrodite';
-import isPast from 'date-fns/is_past';
+import { isYesterday } from 'date-fns';
 import { 
   DatePicker, 
   TextField, 
@@ -41,7 +41,7 @@ export default class EventForm extends React.Component{
       errorMsg: ''
     });
 
-    if(isPast(date)) {
+    if(isYesterday(date)) {
       this.setState({
         error: true,
         errorMsg: ERROR_MESSAGES.DATE_PAST  //vs 'date cannot be in the past'
@@ -97,7 +97,7 @@ export default class EventForm extends React.Component{
       ...this.state.event
     };
     
-    console.log('new event?', newEvent)
+    console.log('new event->', newEvent)
 
     this.props.onSubmitNewEvent(newEvent);
     this.refs.eventForm.reset(); 
@@ -120,7 +120,6 @@ export default class EventForm extends React.Component{
             name="name"
             floatingLabelText="Event Name"
             onChange={this.handleChange}
-            // onChange={event => this.setState({event: {name: event.currentTarget.value}})}
             value={name}
             type="text"
             style={formStyles.input}
