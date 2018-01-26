@@ -11,8 +11,8 @@ export default class EventSection extends React.Component {
         const eventComponent = (
           <EventCard
             key={index}
-            eventId={event.id}
-            eventName={event.eventName}
+            eventId={event.id} //._id?
+            name={event.name}
             date={event.date}
             startTime={event.startTime}
             endTIme={event.endTime}
