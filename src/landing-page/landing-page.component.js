@@ -26,3 +26,8 @@ const LandingPage = (props) => {
   }
 
 export default LandingPage;
+
+{/* (this can be true for loading - create prop of loading)
+if header props is true, show header
+else, show nothing aka hide 
+{this.props.showHeading ? <Header /> : ''} */}
