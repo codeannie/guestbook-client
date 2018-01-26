@@ -12,27 +12,7 @@ import { ERROR_MESSAGES } from '../_shared/constants';
 import formStyles from '../_shared/styles/forms.styles';
 import sharedStyles from '../_shared/styles/shared.styles';
 
-export default class EventForm extends React.Component{
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      event: { 
-        name: '',
-        date: null,
-        startTime: null,
-        endTime: null,
-        description: '',
-        locationName: '',
-        locationAddress: '',
-        locationLink: '',
-        locationMap: '',
-        },
-      error: false,
-      errorMsg: ''
-    }
-  }
-
+export default class EditEventForm extends React.Component{
   handleDate = (e, date) => {
     const { event } = this.state;
     // always set to false in the beginning 
@@ -91,37 +71,36 @@ export default class EventForm extends React.Component{
 
   handleSubmit = (event) => {
     event.preventDefault();
-    // const user = this.props.currentUser
-    // const userId = Cookies.get('loggedInUserId');
-    const newEvent = {
+    const modifiedEvent = {
       ...this.state.event
     };
     
-    console.log('new event?', newEvent)
+    console.log('modified event', modifiedEvent)
 
-    this.props.onSubmitNewEvent(newEvent);
-    this.refs.eventForm.reset(); 
+    this.props.onModifyEvent(modifiedEvent);
+    this.refs.editEventForm.reset(); 
   }
 
   render() {
-    const { name, date, startTime, endTime, description, locationName, locationAddress, locationLink, locationMap } = this.state.event;
+    const { name, date, startTime, endTime, description, locationName, locationAddress, locationLink, locationMap } = this.props;
+    console.log('edit form event name?', name);
     return (
       <div className="form-container">
-        <h2 className={css(sharedStyles.headerFont)}> Create an Event </h2>
-        <form ref="eventForm" onSubmit={this.handleSubmit} style={formStyles.eventGuestContainer}>
+        <h2 className={css(sharedStyles.headerFont)}> Edit (event name) </h2>
+        <form ref="editEventForm" onSubmit={this.handleSubmit} style={formStyles.eventGuestContainer}>
 
             {/* Example validation */}
-            <p style={{
+            {/* <p style={{
             display: (this.state.error ? "block" : "none"),
             color: "red"
             }}> {this.state.errorMsg} </p>
-            
+             */}
+        
           <TextField
             name="name"
             floatingLabelText="Event Name"
             onChange={this.handleChange}
-            // onChange={event => this.setState({event: {name: event.currentTarget.value}})}
-            value={name}
+            defaultValue={name}
             type="text"
             style={formStyles.input}
           />
