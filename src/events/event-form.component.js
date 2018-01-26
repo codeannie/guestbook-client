@@ -61,7 +61,7 @@ export default class EventForm extends React.Component{
     this.setState({
       event: {
         ...event,
-        startDateTime: time
+        startTime: time
       }
     })
   }
@@ -71,7 +71,7 @@ export default class EventForm extends React.Component{
     this.setState({
       event: {
         ...event,
-        endDateTime: time
+        endTime: time
       }
     })
   }
@@ -209,7 +209,8 @@ export default class EventForm extends React.Component{
             <RaisedButton 
               label="Cancel" 
               type="button" 
-              style={formStyles.button}/>
+              style={formStyles.button}
+              onClick={this.props.closeForm}/>
           </div>
         </form>
       </div>
