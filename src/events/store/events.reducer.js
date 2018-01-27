@@ -56,7 +56,7 @@ export const eventsReducer = (state = initialState, action) => {
       return {
         ...state,
         events: [
-          action.payload.events 
+          ...action.payload.events 
         ]
       };
     case CREATE_NEW_EVENT:
