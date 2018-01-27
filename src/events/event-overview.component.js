@@ -12,14 +12,14 @@ export default class EventOverview extends React.Component{
   };
 
   render() {
-    const { event } = this.props;
+    const { event, eventId } = this.props;
     console.log('event id?', this.props.eventId);
     return !event ? (
       <div><h2>No Event Found</h2></div>
     ) : (
       <section className={css(styles.container)}>
           <RaisedButton label="Edit" 
-            onClick={this.handleEditEvent(this.props.eventId)} 
+            onClick={() => this.handleEditEvent(eventId)} 
             primary={true} 
             />
           <EventDetailsCard eventId={event.id} {...event} />
