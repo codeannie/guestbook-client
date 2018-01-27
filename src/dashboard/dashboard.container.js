@@ -21,9 +21,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    onLoadDashboard: () => {
-      dispatch(createGetAllEventsAction());
-    }
+    onLoadDashboard: () => 
+      dispatch(createGetAllEventsAction())
   };
 };
 

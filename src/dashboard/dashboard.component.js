@@ -17,9 +17,9 @@ const WelcomeBlurb = (props) => {
   )
 }
 export default class Dashboard extends React.Component {
-  // componentDidMount() {
-  //   this.props.onLoadDashboard()
-  // }
+  componentDidMount() {
+    this.props.onLoadDashboard()
+  }
   
   render() {
     // ok to connect parent componanet to redux store/container
