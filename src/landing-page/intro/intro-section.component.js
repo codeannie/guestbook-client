@@ -16,7 +16,9 @@ const IntroSection = (props) => {
         <h2 className={css(sharedStyles.headerFont, styles.centerText)}> - HOW - </h2>
           <p className={css(sharedStyles.bodyFont, styles.centerText)}> Create the Event </p>
           <p className={css(sharedStyles.bodyFont, styles.centerText)}> Create the Guest List </p>
-          <p className={css(sharedStyles.bodyFont, styles.centerText)}> Check-in Guests on Day of Event </p>
+          {/* <p className={css(sharedStyles.bodyFont, styles.centerText)}> Check-in Guests on Day of Event </p> */}
+        
+        <h2 className={css(sharedStyles.headerFont, styles.centerText)}> Sign Up Today & Start Managing your Event! </h2>
     </section>  
   );
 }
