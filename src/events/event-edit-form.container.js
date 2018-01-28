@@ -5,18 +5,30 @@ import { createModifyEventAction } from './store/events.actions';
 import { modifyEvent } from './services/events.service';
 import { EVENT_OVERVIEW_ROUTE, GUESTLIST_EDIT_ROUTE } from '../_shared/store/router/authenticated.routes';
 
-const mapStateToProps = state => {  
+const mapStateToProps = (state) => {  
+  const events = state.eventsReducer.events;
+  const paramId = state.router.params.eventId;
+  const event = events.find(e => {
+    return e.id === paramId;
+  })
+  
   return {
-  // challenge - grab correct event to edit :) :)     
-    name: state.eventsReducer.events[0].name, 
-    eventId: state.router.params.eventId,
-    route: state.router.route
+    event,
+    eventName: event.name,
+    date: event.date, 
+    startTime: event.startTime,
+    endTime: event.endTime,
+    description: event.description,
+    locationName: event.locationName,
+    locationAddress: event.locationAddress,
+    locationLink: event.locationLink,
+    locationMap: event.locationMap,
   };
 };
 
 const mapDispatchToProps = dispatch => {
   return {
-    onModifyEvent(event){
+    onSubmitUpdatedEvent(event){
       modifyEvent(event)
       .then(res => {
         dispatch(createModifyEventAction(res.data));
@@ -25,11 +37,17 @@ const mapDispatchToProps = dispatch => {
         }));
       })
     },
-    onModifyGuestList:() => {
+    // onModifyGuestList:() => {
+    //   dispatch(push({
+    //     route: GUESTLIST_EDIT_ROUTE
+    //   }))
+    // },
+    closeForm: () => {
       dispatch(push({
-        route: GUESTLIST_EDIT_ROUTE
-      }))
-    }
+        route: EVENT_OVERVIEW_ROUTE
+        // need params? 
+      }));
+    },
   };
 }
 

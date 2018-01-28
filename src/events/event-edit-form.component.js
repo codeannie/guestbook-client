@@ -13,6 +13,31 @@ import formStyles from '../_shared/styles/forms.styles';
 import sharedStyles from '../_shared/styles/shared.styles';
 
 export default class EditEventForm extends React.Component{
+  constructor(props) {
+    super(props);
+    this.state = {
+      event: { 
+        eventName: '',
+        date: null,
+        startTime: null,
+        endTime: null,
+        description: '',
+        locationName: '',
+        locationAddress: '',
+        locationLink: '',
+        locationMap: '',
+        },
+      error: false,
+      errorMsg: ''
+    }
+  }
+  
+  componentDidMount() {
+  // did component mount
+  // if mounteded, add event
+  // if not, fetch from mongod
+  }
+
   handleDate = (e, date) => {
     const { event } = this.state;
     // always set to false in the beginning 
@@ -82,8 +107,27 @@ export default class EditEventForm extends React.Component{
   }
 
   render() {
-    const { name, date, startTime, endTime, description, locationName, locationAddress, locationLink, locationMap } = this.props;
-    console.log('edit form event name?', name);
+    const { eventName, 
+      date, 
+      startTime, 
+      endTime, 
+      description, 
+      locationName, 
+      locationAddress, 
+      locationLink, 
+      locationMap } = this.props;
+
+    // how to capture local state and from props? 
+    // const { eventName, 
+    //   date, 
+    //   startTime, 
+    //   endTime, 
+    //   description, 
+    //   locationName, 
+    //   locationAddress, 
+    //   locationLink, 
+    //   locationMap } = this.state;
+
     return (
       <div className="form-container">
         <h2 className={css(sharedStyles.headerFont)}> Edit (event name) </h2>
@@ -100,7 +144,7 @@ export default class EditEventForm extends React.Component{
             name="name"
             floatingLabelText="Event Name"
             onChange={this.handleChange}
-            defaultValue={name}
+            defaultValue={eventName}
             type="text"
             style={formStyles.input}
           />
@@ -109,7 +153,8 @@ export default class EditEventForm extends React.Component{
             hintText="Event Date" 
             mode="landscape" 
             onChange={this.handleDate}
-            value={date}
+            defaultValue={date}
+            // value={date}
             style={formStyles.dateTime}
             />
 
