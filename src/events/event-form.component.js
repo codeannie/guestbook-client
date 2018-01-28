@@ -18,7 +18,7 @@ export default class EventForm extends React.Component{
 
     this.state = {
       event: { 
-        name: '',
+        eventName: '',
         date: null,
         startTime: null,
         endTime: null,
@@ -104,7 +104,7 @@ export default class EventForm extends React.Component{
   }
 
   render() {
-    const { name, date, startTime, endTime, description, locationName, locationAddress, locationLink, locationMap } = this.state.event;
+    const { eventName, date, startTime, endTime, description, locationName, locationAddress, locationLink, locationMap } = this.state.event;
     return (
       <div className="form-container">
         <h2 className={css(sharedStyles.headerFont)}> Create an Event </h2>
@@ -120,7 +120,7 @@ export default class EventForm extends React.Component{
             name="name"
             floatingLabelText="Event Name"
             onChange={this.handleChange}
-            value={name}
+            value={eventName}
             type="text"
             style={formStyles.input}
           />
