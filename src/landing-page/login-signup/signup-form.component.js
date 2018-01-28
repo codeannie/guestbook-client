@@ -3,7 +3,7 @@ import TextField from 'material-ui/TextField';
 import RaisedButton from 'material-ui/RaisedButton';
 import { css } from 'aphrodite';
 import Header from '../../_shared/navigation/header-image.component';
-import LandingPageBtnsRow from '../landing-page-buttons.component';
+import LandingPageBtnsRow from '../landing-page-buttons.container';
 import styles from '../landing-page.styles';
 import formStyles from '../../_shared/styles/forms.styles';
 import sharedStyles from '../../_shared/styles/shared.styles';
@@ -29,7 +29,9 @@ export default class SignUpForm extends React.Component {
   render() {
     return (
       <div className="signupFormContainer">
-        {/* <Header /> need to make this conditional render with button  */}
+        <Header /> 
+        <LandingPageBtnsRow {...this.props} />
+
         <h1 className={css(sharedStyles.headerFont, styles.header1)}> - Signup for Guest Book - </h1>        <form ref="signUpForm" onSubmit={this.handleSubmit} style={formStyles.formContainer}>
           <TextField
             name="firstName"

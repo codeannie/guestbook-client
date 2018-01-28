@@ -6,7 +6,7 @@ import styles from '../landing-page.styles';
 import formStyles from '../../_shared/styles/forms.styles';
 import sharedStyles from '../../_shared/styles/shared.styles';
 import Header from '../../_shared/navigation/header-image.component';
-import LandingPageBtnsRow from '../landing-page-buttons.component';
+import LandingPageBtnsRow from '../landing-page-buttons.container';
 export default class LoginForm extends React.Component {
     constructor(props) {
       super(props);
@@ -29,7 +29,7 @@ export default class LoginForm extends React.Component {
     return (
       <div className="loginFormcontainer">
         <Header />
-        {/* <LandingPageBtnsRow {...this.props} /> */}
+        <LandingPageBtnsRow {...this.props} />
 
         <h1 className={css(sharedStyles.headerFont, styles.header1)}> - Login - </h1>
         <form ref="loginForm" onSubmit={this.handleSubmit} style={formStyles.formContainer}>

@@ -1,13 +1,9 @@
-import { connect } from "react-redux";
-import { push } from "redux-little-router";
+import { connect } from 'react-redux';
+import { push } from 'redux-little-router';
 import Cookies from 'js-cookie';
-import LandingPage from "./landing-page.component";
+import LandingPageBtnsRow from './landing-page-buttons.component';
 import { login } from '../_shared/services/auth.service';
 import { createLoginSuccessAction } from '../_shared/store/session/session.actions';
-
-const mapStateToProps = state => {
-  return {};
-};
 
 const mapDispatchToProps = dispatch => {
   return {
@@ -31,6 +27,6 @@ const mapDispatchToProps = dispatch => {
         });
     }
   };
-};
+}
 
-export default connect(mapStateToProps, mapDispatchToProps)(LandingPage);
+export default connect(undefined, mapDispatchToProps)(LandingPageBtnsRow);
