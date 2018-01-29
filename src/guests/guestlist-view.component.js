@@ -12,13 +12,14 @@ export default class GuestList extends React.Component {
       guestResponses.set(2, []);
       // tentative
       guestResponses.set(3, []);
-    // console.log('props? ->', this.props.guests);
-    // console.log('guest props? ->', this.props.guests);
+
     const guestByStatus = this.props.guests.forEach((guest, index) => {
       //map, get array that correspondes to rsvp status & push to array
       guestResponses.get(guest.rsvpStatus).push(
         //guest.id should be _id from db
-        <li className="guestInfo" key={index}> {guest.name}, {guest.email} </li>
+        <li className="guestInfo" key={index}> 
+          {guest.fullName}
+        </li>
       )
     })
 
