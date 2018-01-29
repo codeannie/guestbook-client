@@ -12,7 +12,7 @@ export default class EventSection extends React.Component {
           <EventCard
             key={index}
             eventId={event.id} //._id?
-            name={event.name}
+            eventName={event.eventName}
             date={event.date}
             startTime={event.startTime}
             endTIme={event.endTime}

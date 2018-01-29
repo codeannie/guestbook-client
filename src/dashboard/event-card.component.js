@@ -7,7 +7,7 @@ const eventCard = (props) => {
   // container adds or overrides props on component
   const {
     eventId,
-    name,
+    eventName,
     date,
     startTime,
     endTime,
@@ -23,7 +23,7 @@ const eventCard = (props) => {
   // console.log('is the event card working?', props);
   return (
     <div className={css(styles.eventCard)} key={eventId}>
-      <h3 className={css(styles.eventName)}> {name} </h3>
+      <h3 className={css(styles.eventName)}> {eventName} </h3>
         <h4 className={css(styles.date)}> {date} </h4>
         <p> <span> Start Time: </span> {startTime} </p>
         <p> <span> End Time: </span> {endTime} </p>
