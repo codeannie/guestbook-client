@@ -98,9 +98,9 @@ export default class EventForm extends React.Component{
     event.preventDefault();
     const newEvent = {
       ...this.state.event,
-      date: format(this.state.event.date,'MM/DD/YYYY'),
-      startTime: format(this.state.event.startTime, 'hh:mm A'),
-      endTime: format(this.state.event.endTime, 'hh:mm A')
+      // date: format(this.state.event.date,'MM/DD/YYYY'),
+      // startTime: format(this.state.event.startTime, 'hh:mm A'),
+      // endTime: format(this.state.event.endTime, 'hh:mm A')
     };
     
     console.log('new event->', newEvent)
