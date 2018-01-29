@@ -1,6 +1,6 @@
 import React from 'react';
 import { css } from 'aphrodite';
-import { format, isYesterday } from 'date-fns';
+import { format, isBefore } from 'date-fns';
 import { 
   DatePicker, 
   TextField, 
@@ -35,13 +35,14 @@ export default class EventForm extends React.Component{
 
   handleDate = (e, date) => {
     const { event } = this.state;
+    const todayDate = format(new Date(), 'MM/DD/YYYY'); 
     // always set to false in the beginning 
     this.setState({
       error: false,
       errorMsg: ''
     });
 
-    if(isYesterday(date)) {
+    if(isBefore(date, todayDate)) {
       this.setState({
         error: true,
         errorMsg: ERROR_MESSAGES.DATE_PAST  //vs 'date cannot be in the past'
