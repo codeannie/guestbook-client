@@ -131,7 +131,7 @@ export default class EditEventForm extends React.Component{
 
     return (
       <div className="form-container">
-        <h2 className={css(sharedStyles.headerFont)}> Edit (event name) </h2>
+        <h2 className={css(sharedStyles.headerFont)}> Edit {eventName} </h2>
         <form ref="editEventForm" onSubmit={this.handleSubmit} style={formStyles.eventGuestContainer}>
 
             {/* Example validation */}
@@ -219,6 +219,7 @@ export default class EditEventForm extends React.Component{
             type="text" 
             style={formStyles.input}
             />
+
           <div style={formStyles.buttonContainer}>
             <RaisedButton label="Save" 
               type="submit" 
@@ -237,9 +238,11 @@ export default class EditEventForm extends React.Component{
               style={formStyles.button}
               onClick={this.props.closeForm}
               />
+
             <RaisedButton 
               label="Guest List" 
-              type="button" 
+              type="button"
+              primary={true} 
               style={formStyles.button}
               onClick={() => this.props.openGuestList(eventId)}
               />
