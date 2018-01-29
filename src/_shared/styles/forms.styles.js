@@ -19,6 +19,21 @@ const formStyles = {
     border: '3px inset #0277BD',
     borderRadius: 5
   },
+  guestListContainer: {
+    display: 'flex',
+    width: '75%', // media query - add width with large screen
+    margin: '0 auto',
+    padding: 18,
+    border: '3px inset #0277BD',
+    borderRadius: 5
+  },
+  guestFormContainer: {
+    display: 'flex',
+    flexDirection: 'column',
+    width: '80%',
+    margin: '0 auto',
+    padding: 18,
+  },
   input: {
     display: 'block',
     width: 'auto',

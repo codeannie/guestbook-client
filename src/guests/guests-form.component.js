@@ -2,6 +2,9 @@ import React from 'react';
 import TextField from 'material-ui/TextField';
 import RaisedButton from 'material-ui/RaisedButton';
 import Toggle from 'material-ui/Toggle';
+import { css } from 'aphrodite';
+import formStyles from '../_shared/styles/forms.styles';
+import sharedStyles from '../_shared/styles/shared.styles';
 
 export default class GuestForm extends React.Component{
   constructor(props) {
@@ -49,29 +52,28 @@ export default class GuestForm extends React.Component{
 
     const guestListItems = guests.map((guest, index) => {
       return <li key={index}>
-        <span>{guest.firstName}</span>
-        <span>{guest.lastName}</span>
-        <span>{guest.fullName}</span>
-        <span>{guest.name}</span>
-        <span>{guest.email}</span>
+        {/* <span>{guest.firstName}</span>
+        <span>{guest.lastName}</span> */}
+        <strong>{guest.fullName}</strong> <span>{guest.email}</span>
         <button onClick={() => {this.props.removeGuest(event.id, guest.id)}}>X</button>
       </li>;
     })
 
     return (
       <div className="guestFormContainer">
-        <h2> Guest List for {event.eventName} </h2>
-        <div>
+        <h2 className={css(sharedStyles.headerFont)}> Guest List for {event.eventName} </h2>
+        <div style={formStyles.eventGuestContainer}>
           <ul>
             {guestListItems}
           </ul>
         </div>
-        <form ref="guestForm" onSubmit={this.handleSubmit}>
+        <form ref="guestForm" onSubmit={this.handleSubmit} style={formStyles.guestFormContainer}>
           <TextField
             name="firstName"
             floatingLabelText="First name"
             onChange={this.handleChange}
             value={firstName}
+            style={formStyles.input}
             type="text"
           />
 
@@ -80,6 +82,7 @@ export default class GuestForm extends React.Component{
             floatingLabelText="Last Name"
             onChange={this.handleChange}
             value={lastName}
+            style={formStyles.input}
             type="text"
           />
 
@@ -88,19 +91,22 @@ export default class GuestForm extends React.Component{
             floatingLabelText="E-mail"
             onChange={this.handleChange}
             value={email}
+            style={formStyles.input}
             type="text"
           />
-
-          {/* <Toggle 
-            label="Plus One?"
-            onToggle={}
-          /> */}
-
-          <RaisedButton label="Save" type="submit" primary={true} />
-          {/* <RaisedButton label="Send" secondary={true} /> */}
-          <RaisedButton label="Close" onClick={() => this.props.closeForm()}/>
+            <div style={formStyles.buttonContainer}>
+              <RaisedButton label="Save" type="submit" primary={true} />
+              {/* <RaisedButton label="Send" secondary={true} /> */}
+              <RaisedButton label="Close" onClick={() => this.props.closeForm()}/>
+            </div> 
           </form>
       </div>
     )
   }
 }
+
+
+{/* <Toggle 
+  label="Plus One?"
+  onToggle={}
+/> */}
