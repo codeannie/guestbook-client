@@ -1,6 +1,6 @@
 import React from 'react';
 import { css } from 'aphrodite';
-import { isYesterday } from 'date-fns';
+import { format, isYesterday } from 'date-fns';
 import { 
   DatePicker, 
   TextField, 
@@ -46,11 +46,13 @@ export default class EventForm extends React.Component{
         error: true,
         errorMsg: ERROR_MESSAGES.DATE_PAST  //vs 'date cannot be in the past'
       });
+
     } else {
       this.setState({
         event: {
           ...event,
           date: date
+          // date: format(date, 'MM/DD/YYYY')
         }
       })
     }
@@ -61,7 +63,8 @@ export default class EventForm extends React.Component{
     this.setState({
       event: {
         ...event,
-        startTime: time
+        startTime: time,
+        // startTime: format(time, 'hh:mm A')
       }
     })
   }
@@ -71,7 +74,8 @@ export default class EventForm extends React.Component{
     this.setState({
       event: {
         ...event,
-        endTime: time
+        endTime: time,
+        // endTime: format(time, 'hh:mm A')
       }
     })
   }
@@ -91,10 +95,11 @@ export default class EventForm extends React.Component{
 
   handleSubmit = (event) => {
     event.preventDefault();
-    // const user = this.props.currentUser
-    // const userId = Cookies.get('loggedInUserId');
     const newEvent = {
-      ...this.state.event
+      ...this.state.event,
+      date: format(this.state.event.date,'MM/DD/YYYY'),
+      startTime: format(this.state.event.startTime, 'hh:mm A'),
+      endTime: format(this.state.event.endTime, 'hh:mm A')
     };
     
     console.log('new event->', newEvent)
@@ -117,7 +122,7 @@ export default class EventForm extends React.Component{
             }}> {this.state.errorMsg} </p>
             
           <TextField
-            name="name"
+            name="eventName"
             floatingLabelText="Event Name"
             onChange={this.handleChange}
             value={eventName}
