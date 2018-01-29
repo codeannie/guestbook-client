@@ -7,6 +7,8 @@ import NavBarDrawer from '../_shared/navigation/nav-bar-drawer.container';
 // import Welcome from './welcome.component';
 import EventSection from './events-list-section.component';
 import EventPage from '../events/event-page.component';
+import EventForm from '../events/event-form.container';
+import Footer from '../_shared/navigation/footer.component';
 
 // get first name from state
 const WelcomeBlurb = (props) => {
@@ -22,12 +24,11 @@ export default class Dashboard extends React.Component {
   }
   
   render() {
-    // ok to connect parent componanet to redux store/container
-    // then pass as props to child component 
     const events = this.props.events;
     const firstName = this.props.firstName;
 
-    return (
+    return !events ? (
+      <EventForm /> ) : (
       <div>
         <Header />
         <NavBarDrawer />
@@ -36,6 +37,7 @@ export default class Dashboard extends React.Component {
           {/* child prop expects "events" */}
           <EventSection events={events} />
         </div>
+        <Footer />
       </div>
     )
   }
