@@ -6,12 +6,14 @@ import Toggle from 'material-ui/Toggle';
 export default class GuestForm extends React.Component{
   constructor(props) {
     super(props);
-    this.handleCHange = this.handleChange.bind(this);
+    this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
 
     // need to be able to dynamically add and store inputs for multiple guests? 
     this.state = {
-      guest: [{ }]
+      guest: [{
+
+      }]
     }
   }
 

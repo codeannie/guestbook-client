@@ -15,7 +15,6 @@ export const MODIFY_EVENT_DETAILS = 'MODIFY_EVENT_DETAILS';
 
 export const createGetAllEventsAction = () => async (dispatch) => {
   // change this to make thunk call 
-  console.log('request');
   const res = await eventServices.getEvents();
   // console.log(events);
   return dispatch({
