@@ -30,10 +30,11 @@ export const createAddGuestAction = (guest) => ({
   }
 })
 
-export const createDeleteGuestAction = (guest) => ({
+export const createDeleteGuestAction = (guestId) => ({
     type: DELETE_GUEST, 
     payload: {
-      guest
+      // index,
+      guestId
   }
 })
 

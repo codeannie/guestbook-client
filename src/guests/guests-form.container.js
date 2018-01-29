@@ -1,15 +1,21 @@
 import { connect } from 'react-redux';
+import { push } from '../_shared/store/router/utils';
 import GuestForm from './guests-form.component';
-import { getEventGuests, addGuest } from './services/guests.service';
-import { createGetAllGuestsAction, createAddGuestAction } from './store/guests.actions';
-// import action
+import { getEventGuests, addGuest, deleteGuest } from './services/guests.service';
+import { 
+  createGetAllGuestsAction, 
+  createAddGuestAction, 
+  createDeleteGuestAction 
+} from './store/guests.actions';
+import { DASHBOARD_ROUTE } from '../_shared/store/router/authenticated.routes';
 
 const mapStateToProps = state => {
   const events = state.eventsReducer.events;
   const paramId = state.router.params.eventId;
   const event = events.find(e => {
     return e.id === paramId;
-  })
+  });
+  
   const guests = state.guestsReducer.guests;
   return {
     event,
@@ -30,8 +36,15 @@ const mapDispatchToProps = dispatch => {
       });
     },
     removeGuest(eventId, guestId){
-      // call api to remove guest and then dispatch to remove from state
-    }
+      return deleteGuest(eventId, guestId).then(() => {
+        dispatch(createDeleteGuestAction(guestId)); 
+      })
+    },
+    closeForm: () => {
+      dispatch(push({
+        route: DASHBOARD_ROUTE
+      }));
+    },
   };
 }
 

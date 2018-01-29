@@ -41,12 +41,11 @@ const initialState = {
 export const guestsReducer = (state = initialState, action) => {
   switch(action.type){
     case GET_ALL_GUESTS:
-    // do something
       return {
         ...state,
         guests: action.payload.guests
       };
-      case ADD_GUEST:
+    case ADD_GUEST:
       return {
         ...state,
         guests: [
@@ -54,6 +53,14 @@ export const guestsReducer = (state = initialState, action) => {
           action.payload.guest
         ]
       };
+    case DELETE_GUEST:
+      const guestToDelete = action.payload.guestId;
+      return {
+        ...state,
+        guests: [
+          ...state.guests.filter(guest => guest.id !== guestToDelete)
+        ]
+      }
     default:
       return state;
   }

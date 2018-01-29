@@ -9,15 +9,14 @@ export default class GuestForm extends React.Component{
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
 
-    // need to be able to dynamically add and store inputs for multiple guests? 
     this.state = {
-      guest: [{
-
-      }]
+      firstName: '',
+      lastName: '',
+      email: ''
+      };
     }
-  }
 
-  componentWillMount () {
+  componentWillMount() {
     const { event } = this.props;
     this.props.getEventGuests(event.id);
   }
@@ -28,12 +27,10 @@ export default class GuestForm extends React.Component{
     const userInput = input.target.value; 
 
     this.setState({
-      guests: {
-        ...guests,
-        [name]: userInput
-      }
+      [name]: userInput
     })
   }
+
   handleSubmit(e) {
     e.preventDefault();
     const { event } = this.props;
@@ -42,10 +39,8 @@ export default class GuestForm extends React.Component{
     const email = e.target.email.value;
     // const plusOne = e.target.plusOne.value; 
     
-    // dispatch action to update redux store w/ values
     this.props.saveGuest(event.id, {firstName, lastName, email});
-    this.guestForm.reset(); 
-
+    this.refs.guestForm.reset(); 
   }
 
   render() {
@@ -56,7 +51,7 @@ export default class GuestForm extends React.Component{
       return <li key={index}>
         <span>{guest.firstName}</span>
         <span>{guest.lastName}</span>
-
+        <span>{guest.fullName}</span>
         <span>{guest.name}</span>
         <span>{guest.email}</span>
         <button onClick={() => {this.props.removeGuest(event.id, guest.id)}}>X</button>
@@ -64,14 +59,14 @@ export default class GuestForm extends React.Component{
     })
 
     return (
-      <div className="signupFormContainer">
-        <h2> Sign up for Guest Book </h2>
+      <div className="guestFormContainer">
+        <h2> Guest List for {event.eventName} </h2>
         <div>
           <ul>
             {guestListItems}
           </ul>
         </div>
-        <form ref={el => this.guestForm = el} onSubmit={this.handleSubmit}>
+        <form ref="guestForm" onSubmit={this.handleSubmit}>
           <TextField
             name="firstName"
             floatingLabelText="First name"
@@ -102,8 +97,8 @@ export default class GuestForm extends React.Component{
           /> */}
 
           <RaisedButton label="Save" type="submit" primary={true} />
-          <RaisedButton label="Send" secondary={true} />
-          <RaisedButton label="Close" />
+          {/* <RaisedButton label="Send" secondary={true} /> */}
+          <RaisedButton label="Close" onClick={() => this.props.closeForm()}/>
           </form>
       </div>
     )
