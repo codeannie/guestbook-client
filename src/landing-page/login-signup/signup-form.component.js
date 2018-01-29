@@ -32,7 +32,8 @@ export default class SignUpForm extends React.Component {
         <Header /> 
         <LandingPageBtnsRow {...this.props} />
 
-        <h1 className={css(sharedStyles.headerFont, styles.header1)}> - Signup for Guest Book - </h1>        <form ref="signUpForm" onSubmit={this.handleSubmit} style={formStyles.formContainer}>
+        <h1 className={css(sharedStyles.headerFont, styles.header1)}> - Signup for Guest Book - </h1>        
+        <form ref="signUpForm" onSubmit={this.handleSubmit} style={formStyles.formContainer}>
           <TextField
             name="firstName"
             floatingLabelText="First name"
