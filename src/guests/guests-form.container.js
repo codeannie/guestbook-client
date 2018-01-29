@@ -3,7 +3,6 @@ import GuestForm from './guests-form.component';
 // import action
 
 const mapStateToProps = state => {
-  console.log(state);
   return {
 
   };
@@ -11,7 +10,6 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    //getlogin
   };
 }
 

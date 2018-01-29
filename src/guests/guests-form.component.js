@@ -6,23 +6,42 @@ import Toggle from 'material-ui/Toggle';
 export default class GuestForm extends React.Component{
   constructor(props) {
     super(props);
+    this.handleCHange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+
+    // need to be able to dynamically add and store inputs for multiple guests? 
+    this.state = {
+      guest: [{ }]
+    }
   }
 
+  handleChange(input) {
+    const { guests } = this.state;
+    const name = input.target.name;
+    const userInput = input.target.value; 
+
+    this.setState({
+      guests: {
+        ...guests,
+        [name]: userInput
+      }
+    })
+  }
   handleSubmit(event) {
     event.preventDefault();
     const firstName = event.target.firstName.value;
     const lastName = event.target.lastName.value;
     const email = event.target.email.value;
-    // toggle = true? 
+    // const plusOne = event.target.plusOne.value; 
     
     // dispatch action to update redux store w/ values
-    // how to capture auth token?
     this.refs.guestForm.reset(); 
 
   }
 
   render() {
+    const { firstName, lastName, email } = this.state; //?
+
     return (
       <div className="signupFormContainer">
         <h2> Sign up for Guest Book </h2>
@@ -30,28 +49,31 @@ export default class GuestForm extends React.Component{
           <TextField
             name="firstName"
             floatingLabelText="First name"
+            onChange={this.handleChange}
+            value={firstName}
             type="text"
-          // onChange={this.handleChange}
           />
 
           <TextField
             name="lastName"
             floatingLabelText="Last Name"
+            onChange={this.handleChange}
+            value={lastName}
             type="text"
-          // onChange={this.handleChange}
           />
 
           <TextField
             name="email"
             floatingLabelText="E-mail"
+            onChange={this.handleChange}
+            value={email}
             type="text"
-          // onChange={this.handleChange}
           />
 
-          <Toggle 
+          {/* <Toggle 
             label="Plus One?"
-            // onToggle={}
-          />
+            onToggle={}
+          /> */}
 
           <RaisedButton label="Save" type="submit" primary={true} />
           <RaisedButton label="Send" secondary={true} />
