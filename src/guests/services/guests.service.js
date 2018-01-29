@@ -7,3 +7,27 @@ const userId = Cookies.get('loggedInUserId');
 const authToken = Cookies.get('jwt');
 
 // how to capture eventId? 
+
+
+export const getEventGuests = async (eventId) => {
+  return await axios({
+    method: 'get',
+    url: `${BASE_URL}/api/guests/${eventId}`,
+    headers: {
+      Authorization: `Bearer ${authToken}`
+    },
+  })
+}
+
+export const addGuest = async (eventId, guestInfo) => {
+  return await axios({
+    method: 'post',
+    url: `${BASE_URL}/api/guests/${eventId}`,
+    headers: {
+      Authorization: `Bearer ${authToken}`
+    },
+    data: {
+      ...guestInfo
+    }
+  })
+}

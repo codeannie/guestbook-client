@@ -24,6 +24,8 @@ export default class EventPage extends React.Component {
         return <EditEventForm />;
       case routerPath.EVENT_NEW_ROUTE:
         return <EventForm />; 
+      case routerPath.GUESTLIST_EDIT_ROUTE:
+        return <GuestForm />; 
       case routerPath.GUESTLIST_NEW_ROUTE:
         return <GuestForm />; 
       default:

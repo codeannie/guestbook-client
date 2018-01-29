@@ -17,6 +17,11 @@ export default class GuestForm extends React.Component{
     }
   }
 
+  componentWillMount () {
+    const { event } = this.props;
+    this.props.getEventGuests(event.id);
+  }
+
   handleChange(input) {
     const { guests } = this.state;
     const name = input.target.name;
@@ -29,25 +34,44 @@ export default class GuestForm extends React.Component{
       }
     })
   }
-  handleSubmit(event) {
-    event.preventDefault();
-    const firstName = event.target.firstName.value;
-    const lastName = event.target.lastName.value;
-    const email = event.target.email.value;
-    // const plusOne = event.target.plusOne.value; 
+  handleSubmit(e) {
+    e.preventDefault();
+    const { event } = this.props;
+    const firstName = e.target.firstName.value;
+    const lastName = e.target.lastName.value;
+    const email = e.target.email.value;
+    // const plusOne = e.target.plusOne.value; 
     
     // dispatch action to update redux store w/ values
-    this.refs.guestForm.reset(); 
+    this.props.saveGuest(event.id, {firstName, lastName, email});
+    this.guestForm.reset(); 
 
   }
 
   render() {
     const { firstName, lastName, email } = this.state; //?
+    const { guests, event } = this.props;
+
+    const guestListItems = guests.map((guest, index) => {
+      return <li key={index}>
+        <span>{guest.firstName}</span>
+        <span>{guest.lastName}</span>
+
+        <span>{guest.name}</span>
+        <span>{guest.email}</span>
+        <button onClick={() => {this.props.removeGuest(event.id, guest.id)}}>X</button>
+      </li>;
+    })
 
     return (
       <div className="signupFormContainer">
         <h2> Sign up for Guest Book </h2>
-        <form ref="signUpForm" onSubmit={this.handleSubmit}>
+        <div>
+          <ul>
+            {guestListItems}
+          </ul>
+        </div>
+        <form ref={el => this.guestForm = el} onSubmit={this.handleSubmit}>
           <TextField
             name="firstName"
             floatingLabelText="First name"

@@ -108,6 +108,7 @@ export default class EditEventForm extends React.Component{
 
   render() {
     const { eventName, 
+      eventId, 
       date, 
       startTime, 
       endTime, 
@@ -235,6 +236,12 @@ export default class EditEventForm extends React.Component{
               type="button" 
               style={formStyles.button}
               onClick={this.props.closeForm}
+              />
+            <RaisedButton 
+              label="Guest List" 
+              type="button" 
+              style={formStyles.button}
+              onClick={() => this.props.openGuestList(eventId)}
               />
           </div>
         </form>

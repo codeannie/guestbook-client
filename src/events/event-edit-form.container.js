@@ -14,6 +14,7 @@ const mapStateToProps = (state) => {
   
   return {
     event,
+    eventId: event.id,
     eventName: event.eventName,
     date: event.date, 
     startTime: event.startTime,
@@ -43,6 +44,14 @@ const mapDispatchToProps = dispatch => {
         // need params? 
       }));
     },
+    openGuestList: (eventId) => {
+      dispatch(push({
+        route: GUESTLIST_EDIT_ROUTE,
+        params: {
+          eventId
+        }
+      }))
+    }
   };
 }
 

@@ -10,9 +10,9 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    getGuests(eventId) {
-      dispatch(createGetAllGuestsAction(eventId));
-    }
+    // getGuests(eventId) {
+    //   dispatch(createGetAllGuestsAction(eventId));
+    // }
   };
 }
 
