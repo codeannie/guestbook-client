@@ -6,19 +6,39 @@ import { BASE_URL } from '../../_shared/constants';
 const userId = Cookies.get('loggedInUserId');
 const authToken = Cookies.get('jwt');
 
-// GET ALL EVENTS - do we need to pass in anything? 
+// GET ALL EVENTS
 export const getEvents = async () => {
   return await axios({
     method: 'get',
     url: `${BASE_URL}/api/events/${userId}`,
     headers: {
       Authorization: `Bearer ${authToken}`
-    },
-    // data: {
-    //   userId
-    // }
+    }
   })
 }
+
+// GET UPCOMING (ACTIVE) EVENTS 
+export const getActiveEvents = async () => {
+  return await axios({
+    method: 'get',
+    url: `${BASE_URL}/api/events/${userId}/active`,
+    headers: {
+      Authorization: `Bearer ${authToken}`
+    }
+  })
+}
+
+// GET PAST EVENTS 
+export const getPastEvents = async () => {
+  return await axios({
+    method: 'get',
+    url: `${BASE_URL}/api/events/${userId}/past`,
+    headers: {
+      Authorization: `Bearer ${authToken}`
+    }
+  })
+}
+
 // CREATE NEW EVENT
 export const createEvent = async (event) => {
   return await axios({
