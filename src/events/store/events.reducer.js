@@ -92,7 +92,8 @@ export const eventsReducer = (state = initialState, action) => {
       return {
         ...state,
         events: [
-          ...action.payload.events,
+          ...state.events,
+          // ...action.payload.event,
         ]
     };
     default:

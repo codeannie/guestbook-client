@@ -31,7 +31,7 @@ const mapDispatchToProps = dispatch => {
   return {
     onSubmitUpdatedEvent(event, eventId){
       modifyEvent(event, eventId)
-      .then(res => {
+      .then((res) => {
         dispatch(createModifyEventAction(res.data));
         dispatch(push({
           route: EVENT_OVERVIEW_ROUTE,

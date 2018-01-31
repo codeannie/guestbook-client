@@ -65,9 +65,9 @@ export const createNewEventAction = (newEvent) => ({
 //   })
 // };
 
-export const createModifyEventAction = (events) => ({
+export const createModifyEventAction = (event) => ({
   type: MODIFY_EVENT_DETAILS, 
   payload: {
-    events
+    event
 }
 })
