@@ -1,5 +1,6 @@
 import React from 'react';
 import { RaisedButton } from 'material-ui';
+import { format } from 'date-fns';
 import { css } from 'aphrodite';
 import styles from './dashboard.styles';
 
@@ -20,15 +21,14 @@ const eventCard = (props) => {
     onViewClick(eventId);
   };
 
-  // console.log('is the event card working?', props);
   return (
     <div className={css(styles.eventCard)} key={eventId}>
-      <h3 className={css(styles.eventName)}> {props.eventName} </h3>
-        <h4 className={css(styles.date)}> {props.date} </h4>
-        <p> <span> Start Time: </span> {props.startTime} </p>
-        <p> <span> End Time: </span> {props.endTime} </p>
-        <p> <span> Location: </span> {props.locationName} </p>
-        <p> <span> # of Guests: </span> {props.numOfGuests} </p>
+      <h3 className={css(styles.eventName)}> {eventName} </h3>
+        <h4 className={css(styles.date)}> {format(date, 'MM/DD/YYYY')} </h4>
+        <p> <span> Start Time: </span> {format(startTime, 'hh:mm A')} </p>
+        {/* <p> <span> End Time: </span> {format(endTime, 'hh:mm A')} </p> */}
+        <p> <span> Location: </span> {locationName} </p>
+        {/* <p> <span> # of Guests Invited: </span> {numOfGuests} </p> */}
       <RaisedButton label="View" onClick={handleViewClick} primary={true} />
       {/* <button onClick={handleViewClick}> View </button> */}
     </div>
@@ -36,20 +36,3 @@ const eventCard = (props) => {
 };
 
 export default eventCard;
-
-// eventCard.defaultProps = {
-//   eventName: 'Test Event',
-//   eventDate: '2/1/18',
-//   eventTime: '1PM',
-//   eventLocation: 'Somewhere over the rainbow',
-//   guestNumber: 10
-// }
-
-{/* put this in list or p? */}
-{/* <ul className="eventCardDetails">
-  <li className="eventDate"> Date: {props.eventDate} </li>
-  <li className="eventStartTime"> Start Time: {props.eventStartTime} </li>
-  <li className="eventEndTime"> End Time: {props.eventEndTime} </li>
-  <li className="eventLocationName"> Location: {props.eventLocationName} </li>
-  <li className="guestNumber"> {props.guestNumber} </li>
-</ul> */}

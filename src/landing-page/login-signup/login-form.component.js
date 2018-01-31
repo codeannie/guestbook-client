@@ -6,7 +6,7 @@ import styles from '../landing-page.styles';
 import formStyles from '../../_shared/styles/forms.styles';
 import sharedStyles from '../../_shared/styles/shared.styles';
 import Header from '../../_shared/navigation/header-image.component';
-import LandingPageBtnsRow from '../landing-page-buttons.component';
+import LandingPageBtnsRow from '../landing-page-buttons.container';
 export default class LoginForm extends React.Component {
     constructor(props) {
       super(props);
@@ -29,33 +29,36 @@ export default class LoginForm extends React.Component {
     return (
       <div className="loginFormcontainer">
         <Header />
-        {/* <LandingPageBtnsRow {...this.props} /> */}
+        <LandingPageBtnsRow {...this.props} />
 
         <h1 className={css(sharedStyles.headerFont, styles.header1)}> - Login - </h1>
-        <form ref="loginForm" onSubmit={this.handleSubmit} style={formStyles.formContainer}>
+        <form ref="loginForm" 
+          onSubmit={this.handleSubmit} 
+          className={css(formStyles.formContainer)} >
+
           <TextField
             name="email"
             floatingLabelText="E-mail"
             type="email"
-            style={formStyles.input}
+            className={css(formStyles.input)}
           />
 
           <TextField
             name="password"
             floatingLabelText="Password"
             type="password"
-            style={formStyles.input}
+            className={css(formStyles.input)}
           />
-          <div style={formStyles.buttonContainer}>
+          <div className={css(formStyles.buttonContainer)}>
             <RaisedButton label="Submit" 
               type="submit" 
               primary={true} 
-              style={formStyles.button} />
+              />
 
             <RaisedButton 
               label="Reset" 
               type="reset" 
-              style={formStyles.button}/>
+              />
           </div>
         </form>
       </div>

@@ -9,6 +9,14 @@ const LandingPageBtnsRow = (props) => {
   return (
     <div className={css(styles.flexContainer)} style={styles.flex}>
       <FlatButton
+        label="Home"
+        onClick={() => {
+          props.openLandingPage();
+        }}
+        style={btnStyle}
+        />
+
+      <FlatButton
         label="Demo"
         onClick={() => {
           props.onLoginDemo();

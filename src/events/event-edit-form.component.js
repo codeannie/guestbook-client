@@ -1,6 +1,6 @@
 import React from 'react';
 import { css } from 'aphrodite';
-import isPast from 'date-fns/is_past';
+import { format, isBefore, parse } from 'date-fns';
 import { 
   DatePicker, 
   TextField, 
@@ -12,40 +12,48 @@ import { ERROR_MESSAGES } from '../_shared/constants';
 import formStyles from '../_shared/styles/forms.styles';
 import sharedStyles from '../_shared/styles/shared.styles';
 
-export default class EventForm extends React.Component{
+export default class EditEventForm extends React.Component{
   constructor(props) {
     super(props);
-
     this.state = {
+      // local state stores existing data from redux
       event: { 
-        name: '',
-        date: null,
-        startTime: null,
-        endTime: null,
-        description: '',
-        locationName: '',
-        locationAddress: '',
-        locationLink: '',
-        locationMap: '',
+        eventName: props.eventName,
+        date: props.date,
+        startTime: props.startTime,
+        endTime: props.endTime,
+        description: props.description,
+        locationName: props.locationName,
+        locationAddress: props.locationAddress,
+        locationLink: props.locationLink,
+        locationMap: props.locationMap,
         },
       error: false,
       errorMsg: ''
     }
   }
+  
+  componentDidMount() {
+  // did component mount
+  // if mounteded, add event
+  // if not, fetch from mongod
+  }
 
   handleDate = (e, date) => {
     const { event } = this.state;
+    const todayDate = format(new Date(), 'MM/DD/YYYY'); 
     // always set to false in the beginning 
     this.setState({
       error: false,
       errorMsg: ''
     });
 
-    if(isPast(date)) {
+    if(isBefore(date, todayDate)) {
       this.setState({
         error: true,
-        errorMsg: ERROR_MESSAGES.DATE_PAST  //vs 'date cannot be in the past'
+        errorMsg: ERROR_MESSAGES.DATE_PAST  
       });
+
     } else {
       this.setState({
         event: {
@@ -76,39 +84,34 @@ export default class EventForm extends React.Component{
     })
   }
   
-  handleChange = (input) => {
-    const { event } = this.state;
-    const name = input.target.name;
-    const userInput = input.target.value;
-
-    this.setState({
-      event: {
-        ...event,
-        [name]: userInput
-      }
-    });
-  }
-
-  handleSubmit = (event) => {
-    event.preventDefault();
-    // const user = this.props.currentUser
-    // const userId = Cookies.get('loggedInUserId');
-    const newEvent = {
+  handleSubmit = (e) => {
+    e.preventDefault();
+    const updatedEvent = {
       ...this.state.event
     };
-    
-    console.log('new event?', newEvent)
-
-    this.props.onSubmitNewEvent(newEvent);
-    this.refs.eventForm.reset(); 
+    console.log('updated event ->', updatedEvent)
+    this.props.onSubmitUpdatedEvent(updatedEvent, this.props.eventId);
+    this.refs.editEventForm.reset(); 
   }
 
   render() {
-    const { name, date, startTime, endTime, description, locationName, locationAddress, locationLink, locationMap } = this.state.event;
+    const {
+      eventName, 
+      date, 
+      startTime, 
+      endTime, 
+      description, 
+      locationName, 
+      locationAddress, 
+      locationLink, 
+      locationMap } = this.state.event;
+
     return (
       <div className="form-container">
-        <h2 className={css(sharedStyles.headerFont)}> Create an Event </h2>
-        <form ref="eventForm" onSubmit={this.handleSubmit} style={formStyles.eventGuestContainer}>
+        <h2 className={css(sharedStyles.headerFont)}> Edit Mode for {eventName} </h2>
+        <form ref="editEventForm" 
+          onSubmit={this.handleSubmit} 
+          className={css(formStyles.eventFormContainer)}>
 
             {/* Example validation */}
             <p style={{
@@ -116,100 +119,105 @@ export default class EventForm extends React.Component{
             color: "red"
             }}> {this.state.errorMsg} </p>
             
+        
           <TextField
             name="name"
             floatingLabelText="Event Name"
-            onChange={this.handleChange}
-            // onChange={event => this.setState({event: {name: event.currentTarget.value}})}
-            value={name}
+            value={eventName}
+            // ref={ element => this.eventName = element }
+            onChange={(e, eventName)=> this.setState({event: {...this.state.event, eventName}})}
             type="text"
-            style={formStyles.input}
+            className={css(formStyles.input)}
           />
           
           <DatePicker 
             hintText="Event Date" 
             mode="landscape" 
+            value={parse(date)}
             onChange={this.handleDate}
-            value={date}
-            style={formStyles.dateTime}
+            className={css(formStyles.input)}
             />
 
           <TimePicker
             hintText="Start Time"
             autoOk={true} 
+            value={parse(startTime)}
             onChange={this.handleStartTime}
-            value={startTime}
-            style={formStyles.input}
+            className={css(formStyles.input)}
             />
                     
           <TimePicker
             hintText="End Time"
             autoOk={true}
+            value={parse(endTime)}
             onChange={this.handleEndTime}
-            value={endTime} 
-            style={formStyles.input}
+            className={css(formStyles.input)}
             />
 
           <TextField
             name="description"
             floatingLabelText="Description"
-            onChange={this.handleChange}
             value={description}
+            onChange={(e, description)=> this.setState({event: {...this.state.event, description}})}
             type="text"
-            style={formStyles.input}
+            className={css(formStyles.input)}
           />
             
           <TextField
             name="locationName"
             floatingLabelText="Location Name"
-            onChange={this.handleChange}
             value={locationName}
+            onChange={(e, locationName)=> this.setState({event: {...this.state.event, locationName}})}
             type="text" 
-            style={formStyles.input}
+            className={css(formStyles.input)}
             />
 
           <TextField
             name="locationAddress"
             floatingLabelText="Location Address"
-            onChange={this.handleChange}
             value={locationAddress}
+            onChange={(e, locationAddress)=> this.setState({event: {...this.state.event, locationAddress}})}
             type="text" 
-            style={formStyles.input}
+            className={css(formStyles.input)}
             />
 
           <TextField
             name="locationLink"
             floatingLabelText="Location Link"
-            onChange={this.handleChange}
             value={locationLink}
+            onChange={(e, locationLink)=> this.setState({event: {...this.state.event, locationLink}})}
             type="text" 
-            style={formStyles.input}
+            className={css(formStyles.input)}
             />
 
           <TextField
             name="locationMap"
             floatingLabelText="Google Map Link"
-            onChange={this.handleChange}
             value={locationMap}
+            onChange={(e, locationMap)=> this.setState({event: {...this.state.event, locationMap}})}
             type="text" 
-            style={formStyles.input}
+            className={css(formStyles.input)}
             />
-          <div style={formStyles.buttonContainer}>
+
+          <div className={css(formStyles.buttonContainer)}>
             <RaisedButton label="Save" 
               type="submit" 
               primary={true} 
-              style={formStyles.button} />
+              />
 
             <RaisedButton 
-              label="Reset" 
-              type="reset"
+              label="Guest List" 
+              type="button"
               secondary={true} 
-              style={formStyles.button}/>
+              onClick={() => this.props.openGuestList(this.props.eventId)}
+              />
 
             <RaisedButton 
               label="Cancel" 
               type="button" 
-              style={formStyles.button}/>
+              onClick={this.props.closeForm}
+              />
+
           </div>
         </form>
       </div>

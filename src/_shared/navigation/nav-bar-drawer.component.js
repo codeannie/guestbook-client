@@ -1,6 +1,6 @@
 import React from 'react';
 import Appbar from 'material-ui/AppBar'
-import { Drawer, FlatButton, MenuItem } from 'material-ui';
+import { Divider, Drawer, FlatButton, MenuItem } from 'material-ui';
 import styles from './nav-bar-drawer.styles';
 
 export default class NavBarDrawer extends React.Component {
@@ -54,10 +54,11 @@ export default class NavBarDrawer extends React.Component {
           onRequestChange={this.handleToggle}
         >
           <MenuItem onClick={() => {this.props.openDashboard()}}>Dashboard</MenuItem>
+          <Divider />
           <MenuItem onClick={() => {this.props.openEventForm()}}>Create Event</MenuItem>
           <MenuItem>Upcoming Events</MenuItem>
           <MenuItem>Past Events</MenuItem>
-          <MenuItem>Archived Events</MenuItem>
+          {/* <MenuItem>Archived Events</MenuItem> */}
         </Drawer>
       </div>
     );

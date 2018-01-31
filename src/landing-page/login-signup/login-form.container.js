@@ -6,21 +6,15 @@ import { login } from '../../_shared/services/auth.service';
 import { createLoginSuccessAction } from '../../_shared/store/session/session.actions';
 
 const mapStateToProps = state => {
-  console.log(state);
-  return {
-    // email: state.loginSignUpReducer.login.email,
-    // password: state.loginSignUpReducer.login.password
-  };
+  return { };
 };
 
-// dispatch login info to store
-// dispatch location change to router - push to dashboard
-// dispatch auth token to store 
 const mapDispatchToProps = dispatch => {
   return {
     onLogin(email, password){
+      login(email, password)
       //temporarily pass in actual login 
-      login('demo@guestbook.com', 'test123')
+      // login('demo@guestbook.com', 'test123')
       // axios makes a request and returns a promise
       // now can do something with it
         .then(res => {

@@ -2,62 +2,114 @@ import React from 'react';
 import TextField from 'material-ui/TextField';
 import RaisedButton from 'material-ui/RaisedButton';
 import Toggle from 'material-ui/Toggle';
+import { css } from 'aphrodite';
+import formStyles from '../_shared/styles/forms.styles';
+import sharedStyles from '../_shared/styles/shared.styles';
 
 export default class GuestForm extends React.Component{
   constructor(props) {
     super(props);
+    this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+
+    this.state = {
+      firstName: '',
+      lastName: '',
+      email: ''
+      };
+    }
+
+  componentWillMount() {
+    const { event } = this.props;
+    this.props.getEventGuests(event.id);
   }
 
-  handleSubmit(event) {
-    event.preventDefault();
-    const firstName = event.target.firstName.value;
-    const lastName = event.target.lastName.value;
-    const email = event.target.email.value;
-    // toggle = true? 
-    
-    // dispatch action to update redux store w/ values
-    // how to capture auth token?
-    this.refs.guestForm.reset(); 
+  handleChange(input) {
+    const { guests } = this.state;
+    const name = input.target.name;
+    const userInput = input.target.value; 
 
+    this.setState({
+      [name]: userInput
+    })
+  }
+
+  handleSubmit(e) {
+    e.preventDefault();
+    const { event } = this.props;
+    const firstName = e.target.firstName.value;
+    const lastName = e.target.lastName.value;
+    const email = e.target.email.value;
+    // const plusOne = e.target.plusOne.value; 
+    
+    this.props.saveGuest(event.id, {firstName, lastName, email});
+    this.refs.guestForm.reset(); 
   }
 
   render() {
+    const { firstName, lastName, email } = this.state; //?
+    const { guests, event } = this.props;
+
+    const guestListItems = guests.map((guest, index) => {
+      return <li key={index}>
+        {/* <span>{guest.firstName}</span>
+        <span>{guest.lastName}</span> */}
+        <strong>{guest.fullName}</strong> <span>{guest.email}</span>
+        <button onClick={() => {this.props.removeGuest(event.id, guest.id)}}>X</button>
+      </li>;
+    })
+
     return (
-      <div className="signupFormContainer">
-        <h2> Sign up for Guest Book </h2>
-        <form ref="signUpForm" onSubmit={this.handleSubmit}>
+      <div className="guestFormContainer">
+        <h2 className={css(sharedStyles.headerFont)}> Guest List for {event.eventName} </h2>
+        <div className={css(formStyles.eventGuestContainer)}>
+          <ul>
+            {guestListItems}
+          </ul>
+        </div>
+        <form ref="guestForm" 
+          onSubmit={this.handleSubmit} 
+          className={css(formStyles.guestFormContainer)}>
+
           <TextField
             name="firstName"
             floatingLabelText="First name"
+            onChange={this.handleChange}
+            value={firstName}
+            className={css(formStyles.input)}
             type="text"
-          // onChange={this.handleChange}
           />
 
           <TextField
             name="lastName"
             floatingLabelText="Last Name"
+            onChange={this.handleChange}
+            value={lastName}
+            className={css(formStyles.input)}
             type="text"
-          // onChange={this.handleChange}
           />
 
           <TextField
             name="email"
             floatingLabelText="E-mail"
+            onChange={this.handleChange}
+            value={email}
+            className={css(formStyles.input)}
             type="text"
-          // onChange={this.handleChange}
           />
-
-          <Toggle 
-            label="Plus One?"
-            // onToggle={}
-          />
-
-          <RaisedButton label="Save" type="submit" primary={true} />
-          <RaisedButton label="Send" secondary={true} />
-          <RaisedButton label="Close" />
+            <div className={css(formStyles.buttonContainer)}>
+              <RaisedButton label="Save" type="submit" primary={true} />
+              {/* <RaisedButton label="Send" secondary={true} /> */}
+              <RaisedButton label="Close" onClick={() => this.props.closeForm()}/>
+            </div> 
           </form>
       </div>
     )
   }
 }
+
+
+{/* <Toggle 
+  label="Plus One?"
+  onToggle={}
+/> */}

@@ -1,6 +1,6 @@
 import React from 'react';
 import { css } from 'aphrodite';
-import isPast from 'date-fns/is_past';
+import { format, isBefore } from 'date-fns';
 import { 
   DatePicker, 
   TextField, 
@@ -18,7 +18,7 @@ export default class EventForm extends React.Component{
 
     this.state = {
       event: { 
-        name: '',
+        eventName: '',
         date: null,
         startTime: null,
         endTime: null,
@@ -35,22 +35,25 @@ export default class EventForm extends React.Component{
 
   handleDate = (e, date) => {
     const { event } = this.state;
+    const todayDate = format(new Date(), 'MM/DD/YYYY'); 
     // always set to false in the beginning 
     this.setState({
       error: false,
       errorMsg: ''
     });
 
-    if(isPast(date)) {
+    if(isBefore(date, todayDate)) {
       this.setState({
         error: true,
         errorMsg: ERROR_MESSAGES.DATE_PAST  //vs 'date cannot be in the past'
       });
+
     } else {
       this.setState({
         event: {
           ...event,
           date: date
+          // date: format(date, 'MM/DD/YYYY')
         }
       })
     }
@@ -61,7 +64,8 @@ export default class EventForm extends React.Component{
     this.setState({
       event: {
         ...event,
-        startTime: time
+        startTime: time,
+        // startTime: format(time, 'hh:mm A')
       }
     })
   }
@@ -71,7 +75,8 @@ export default class EventForm extends React.Component{
     this.setState({
       event: {
         ...event,
-        endTime: time
+        endTime: time,
+        // endTime: format(time, 'hh:mm A')
       }
     })
   }
@@ -91,24 +96,27 @@ export default class EventForm extends React.Component{
 
   handleSubmit = (event) => {
     event.preventDefault();
-    // const user = this.props.currentUser
-    // const userId = Cookies.get('loggedInUserId');
     const newEvent = {
-      ...this.state.event
+      ...this.state.event,
+      // date: format(this.state.event.date,'MM/DD/YYYY'),
+      // startTime: format(this.state.event.startTime, 'hh:mm A'),
+      // endTime: format(this.state.event.endTime, 'hh:mm A')
     };
     
-    console.log('new event?', newEvent)
+    console.log('new event->', newEvent)
 
     this.props.onSubmitNewEvent(newEvent);
     this.refs.eventForm.reset(); 
   }
 
   render() {
-    const { name, date, startTime, endTime, description, locationName, locationAddress, locationLink, locationMap } = this.state.event;
+    const { eventName, date, startTime, endTime, description, locationName, locationAddress, locationLink, locationMap } = this.state.event;
     return (
       <div className="form-container">
         <h2 className={css(sharedStyles.headerFont)}> Create an Event </h2>
-        <form ref="eventForm" onSubmit={this.handleSubmit} style={formStyles.eventGuestContainer}>
+        <form ref="eventForm" 
+          onSubmit={this.handleSubmit} 
+          className={css(formStyles.eventFormContainer)}>
 
             {/* Example validation */}
             <p style={{
@@ -117,13 +125,12 @@ export default class EventForm extends React.Component{
             }}> {this.state.errorMsg} </p>
             
           <TextField
-            name="name"
+            name="eventName"
             floatingLabelText="Event Name"
             onChange={this.handleChange}
-            // onChange={event => this.setState({event: {name: event.currentTarget.value}})}
-            value={name}
+            value={eventName}
             type="text"
-            style={formStyles.input}
+            className={css(formStyles.input)}
           />
           
           <DatePicker 
@@ -131,7 +138,7 @@ export default class EventForm extends React.Component{
             mode="landscape" 
             onChange={this.handleDate}
             value={date}
-            style={formStyles.dateTime}
+            className={css(formStyles.input)}
             />
 
           <TimePicker
@@ -139,7 +146,7 @@ export default class EventForm extends React.Component{
             autoOk={true} 
             onChange={this.handleStartTime}
             value={startTime}
-            style={formStyles.input}
+            className={css(formStyles.input)}
             />
                     
           <TimePicker
@@ -147,7 +154,7 @@ export default class EventForm extends React.Component{
             autoOk={true}
             onChange={this.handleEndTime}
             value={endTime} 
-            style={formStyles.input}
+            className={css(formStyles.input)}
             />
 
           <TextField
@@ -156,7 +163,7 @@ export default class EventForm extends React.Component{
             onChange={this.handleChange}
             value={description}
             type="text"
-            style={formStyles.input}
+            className={css(formStyles.input)}
           />
             
           <TextField
@@ -165,7 +172,7 @@ export default class EventForm extends React.Component{
             onChange={this.handleChange}
             value={locationName}
             type="text" 
-            style={formStyles.input}
+            className={css(formStyles.input)}
             />
 
           <TextField
@@ -174,7 +181,7 @@ export default class EventForm extends React.Component{
             onChange={this.handleChange}
             value={locationAddress}
             type="text" 
-            style={formStyles.input}
+            className={css(formStyles.input)}
             />
 
           <TextField
@@ -183,7 +190,7 @@ export default class EventForm extends React.Component{
             onChange={this.handleChange}
             value={locationLink}
             type="text" 
-            style={formStyles.input}
+            className={css(formStyles.input)}
             />
 
           <TextField
@@ -192,25 +199,27 @@ export default class EventForm extends React.Component{
             onChange={this.handleChange}
             value={locationMap}
             type="text" 
-            style={formStyles.input}
+            className={css(formStyles.input)}
             />
-          <div style={formStyles.buttonContainer}>
+
+          <div className={css(formStyles.buttonContainer)}>
             <RaisedButton label="Save" 
               type="submit" 
               primary={true} 
-              style={formStyles.button} />
+              />
 
             <RaisedButton 
               label="Reset" 
               type="reset"
               secondary={true} 
-              style={formStyles.button}/>
+              />
 
             <RaisedButton 
               label="Cancel" 
               type="button" 
-              style={formStyles.button}
-              onClick={this.props.closeForm}/>
+              onClick={this.props.closeForm}
+              />
+              
           </div>
         </form>
       </div>

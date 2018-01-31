@@ -24,7 +24,10 @@ const mapDispatchToProps = dispatch => {
       .then(res => {
         dispatch(createNewEventAction(res.data));
         dispatch(push({
-          route: GUESTLIST_NEW_ROUTE
+          route: GUESTLIST_NEW_ROUTE,
+          params: {
+            eventId: res.data.id
+          }
         }));
       })
     },

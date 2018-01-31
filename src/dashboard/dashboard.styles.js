@@ -1,17 +1,22 @@
 import { StyleSheet } from 'aphrodite';
 
+const screenSize = {
+  desktop: '@media (min-width: 700px)',
+  mobile: '@media (max-width: 700px)',
+};
+
 const styles = StyleSheet.create({
   container: {
     backgroundColor: '#ECEFF1', //'#FAFAFA',
   },
   flexContainer: {
     display: 'flex',
-    // alignContent: 'center',
-    // media query for desktop - row
-    // flexDirection: 'column',
     justifyContent: 'center',
+    flexDirection: 'row',
     flexWrap: 'wrap',
-
+    [screenSize.mobile]:{
+      flexDirection: 'column',
+    }
   },
   sectionHeader: {
     textAlign: 'center',
@@ -31,7 +36,7 @@ const styles = StyleSheet.create({
     borderRadius: 5,
     margin: 5,
     padding: 10,
-    flexBasis: '33%',
+    flexBasis: '40%',
   }
 })
 

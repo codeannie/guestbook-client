@@ -1,5 +1,5 @@
 // Action Types
-export const GET_ALL_GUESTS= 'GET_ALL_GUESTS';
+export const GET_ALL_GUESTS = 'GET_ALL_GUESTS';
 export const CREATE_NEW_GUESTLIST = 'CREATE_NEW_GUESTLIST';
 export const ADD_GUEST = 'ADD_GUEST';
 export const DELETE_GUEST = 'DELETE_GUEST';
@@ -8,37 +8,38 @@ export const EMAIL_GUESTS = 'EMAIL_GUESTS';
 
 
 // Action Creators 
-export const createGetAllGuestsAction = (eventId) => ({
-  action: GET_ALL_GUESTS,
+export const createGetAllGuestsAction = (guests) => ({
+  type: GET_ALL_GUESTS,
   payload: {
-    eventId
+    guests
   }
 });
 
 // how to handle guests? 
 export const createNewGuestListAction = (guests) => ({
-    action: CREATE_NEW_GUESTLIST, 
+    type: CREATE_NEW_GUESTLIST, 
     payload: {
       guests
   }
 })
 
 export const createAddGuestAction = (guest) => ({
-    action: ADD_GUEST, 
+    type: ADD_GUEST, 
     payload: {
       guest
   }
 })
 
-export const createDeleteGuestAction = (guest) => ({
-    action: DELETE_GUEST, 
+export const createDeleteGuestAction = (guestId) => ({
+    type: DELETE_GUEST, 
     payload: {
-      guest
+      // index,
+      guestId
   }
 })
 
 export const createModifyGuestAction = (guest) => ({
-    action: MODIFY_GUEST, 
+    type: MODIFY_GUEST, 
     payload: {
       guest
   }
@@ -46,7 +47,7 @@ export const createModifyGuestAction = (guest) => ({
 
 // not sure about email? 
 export const createEmailGuestsAction = (guest) => ({
-    action: EMAIL_GUESTS, 
+    type: EMAIL_GUESTS, 
     payload: {
       guest
   }

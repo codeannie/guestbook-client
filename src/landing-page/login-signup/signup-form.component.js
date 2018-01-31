@@ -3,7 +3,7 @@ import TextField from 'material-ui/TextField';
 import RaisedButton from 'material-ui/RaisedButton';
 import { css } from 'aphrodite';
 import Header from '../../_shared/navigation/header-image.component';
-import LandingPageBtnsRow from '../landing-page-buttons.component';
+import LandingPageBtnsRow from '../landing-page-buttons.container';
 import styles from '../landing-page.styles';
 import formStyles from '../../_shared/styles/forms.styles';
 import sharedStyles from '../../_shared/styles/shared.styles';
@@ -21,7 +21,7 @@ export default class SignUpForm extends React.Component {
     const userEmail = event.target.email.value;
     const userPassword = event.target.password.value
     
-    console.log('signup inputs ->', firstName, lastName, userEmail, userPassword);
+    // console.log('signup inputs ->', firstName, lastName, userEmail, userPassword);
     this.props.onSignUp(firstName, lastName, userEmail, userPassword);
     this.refs.signUpForm.reset(); 
 
@@ -29,45 +29,54 @@ export default class SignUpForm extends React.Component {
   render() {
     return (
       <div className="signupFormContainer">
-        {/* <Header /> need to make this conditional render with button  */}
-        <h1 className={css(sharedStyles.headerFont, styles.header1)}> - Signup for Guest Book - </h1>        <form ref="signUpForm" onSubmit={this.handleSubmit} style={formStyles.formContainer}>
+        <Header /> 
+        <LandingPageBtnsRow {...this.props} />
+
+        <h1 className={css(sharedStyles.headerFont, styles.header1)}> - Signup for Guest Book - </h1>        
+        <form ref="signUpForm" 
+          onSubmit={this.handleSubmit} 
+          className={css(formStyles.formContainer)} >
+
           <TextField
             name="firstName"
             floatingLabelText="First name"
             type="text"
-            style={formStyles.input}
+            className={css(formStyles.input)}
           />
 
           <TextField
             name="lastName"
             floatingLabelText="Last Name"
             type="text"
-            style={formStyles.input}
+            className={css(formStyles.input)}
           />
 
           <TextField
             name="email"
             floatingLabelText="E-mail"
             type="text"
-            style={formStyles.input}
+            className={css(formStyles.input)}
           />
 
           <TextField
             name="password"
             floatingLabelText="Password"
             type="password"
-            style={formStyles.input}
+            className={css(formStyles.input)}
           />
-          <div style={formStyles.buttonContainer}>
+
+          <div className={css(formStyles.buttonContainer)}>
             <RaisedButton label="Submit" 
               type="submit" 
               primary={true} 
-              style={formStyles.button} />
+              className={css(formStyles.button)}
+              />
 
             <RaisedButton 
               label="Reset" 
               type="reset" 
-              style={formStyles.button}/>
+              className={css(formStyles.button)}
+              />
           </div>
         </form>
       </div>

@@ -1,5 +1,7 @@
 import {
   GET_ALL_EVENTS,
+  GET_ACTIVE_EVENTS,
+  GET_PAST_EVENTS,
   CREATE_NEW_EVENT,
   MODIFY_EVENT_DETAILS
 } from './events.actions';
@@ -56,7 +58,21 @@ export const eventsReducer = (state = initialState, action) => {
       return {
         ...state,
         events: [
-          action.payload.events 
+          ...action.payload.events 
+        ]
+      };
+    case GET_ACTIVE_EVENTS:
+      return {
+        ...state,
+        events: [
+          ...action.payload.events
+        ]
+      };
+    case GET_PAST_EVENTS:
+      return {
+        ...state,
+        events: [
+          ...action.payload.events
         ]
       };
     case CREATE_NEW_EVENT:
@@ -76,7 +92,8 @@ export const eventsReducer = (state = initialState, action) => {
       return {
         ...state,
         events: [
-          ...action.payload.events,
+          ...state.events,
+          // ...action.payload.event,
         ]
     };
     default:
