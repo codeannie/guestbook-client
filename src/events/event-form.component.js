@@ -114,7 +114,9 @@ export default class EventForm extends React.Component{
     return (
       <div className="form-container">
         <h2 className={css(sharedStyles.headerFont)}> Create an Event </h2>
-        <form ref="eventForm" onSubmit={this.handleSubmit} style={formStyles.eventGuestContainer}>
+        <form ref="eventForm" 
+          onSubmit={this.handleSubmit} 
+          className={css(formStyles.eventFormContainer)}>
 
             {/* Example validation */}
             <p style={{
@@ -128,7 +130,7 @@ export default class EventForm extends React.Component{
             onChange={this.handleChange}
             value={eventName}
             type="text"
-            style={formStyles.input}
+            className={css(formStyles.input)}
           />
           
           <DatePicker 
@@ -136,7 +138,7 @@ export default class EventForm extends React.Component{
             mode="landscape" 
             onChange={this.handleDate}
             value={date}
-            style={formStyles.dateTime}
+            className={css(formStyles.input)}
             />
 
           <TimePicker
@@ -144,7 +146,7 @@ export default class EventForm extends React.Component{
             autoOk={true} 
             onChange={this.handleStartTime}
             value={startTime}
-            style={formStyles.input}
+            className={css(formStyles.input)}
             />
                     
           <TimePicker
@@ -152,7 +154,7 @@ export default class EventForm extends React.Component{
             autoOk={true}
             onChange={this.handleEndTime}
             value={endTime} 
-            style={formStyles.input}
+            className={css(formStyles.input)}
             />
 
           <TextField
@@ -161,7 +163,7 @@ export default class EventForm extends React.Component{
             onChange={this.handleChange}
             value={description}
             type="text"
-            style={formStyles.input}
+            className={css(formStyles.input)}
           />
             
           <TextField
@@ -170,7 +172,7 @@ export default class EventForm extends React.Component{
             onChange={this.handleChange}
             value={locationName}
             type="text" 
-            style={formStyles.input}
+            className={css(formStyles.input)}
             />
 
           <TextField
@@ -179,7 +181,7 @@ export default class EventForm extends React.Component{
             onChange={this.handleChange}
             value={locationAddress}
             type="text" 
-            style={formStyles.input}
+            className={css(formStyles.input)}
             />
 
           <TextField
@@ -188,7 +190,7 @@ export default class EventForm extends React.Component{
             onChange={this.handleChange}
             value={locationLink}
             type="text" 
-            style={formStyles.input}
+            className={css(formStyles.input)}
             />
 
           <TextField
@@ -197,25 +199,27 @@ export default class EventForm extends React.Component{
             onChange={this.handleChange}
             value={locationMap}
             type="text" 
-            style={formStyles.input}
+            className={css(formStyles.input)}
             />
-          <div style={formStyles.buttonContainer}>
+
+          <div className={css(formStyles.buttonContainer)}>
             <RaisedButton label="Save" 
               type="submit" 
               primary={true} 
-              style={formStyles.button} />
+              />
 
             <RaisedButton 
               label="Reset" 
               type="reset"
               secondary={true} 
-              style={formStyles.button}/>
+              />
 
             <RaisedButton 
               label="Cancel" 
               type="button" 
-              style={formStyles.button}
-              onClick={this.props.closeForm}/>
+              onClick={this.props.closeForm}
+              />
+              
           </div>
         </form>
       </div>

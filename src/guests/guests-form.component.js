@@ -67,13 +67,16 @@ export default class GuestForm extends React.Component{
             {guestListItems}
           </ul>
         </div>
-        <form ref="guestForm" onSubmit={this.handleSubmit} style={formStyles.guestFormContainer}>
+        <form ref="guestForm" 
+          onSubmit={this.handleSubmit} 
+          className={css(formStyles.guestFormContainer)}>
+
           <TextField
             name="firstName"
             floatingLabelText="First name"
             onChange={this.handleChange}
             value={firstName}
-            style={formStyles.input}
+            className={css(formStyles.input)}
             type="text"
           />
 
@@ -82,7 +85,7 @@ export default class GuestForm extends React.Component{
             floatingLabelText="Last Name"
             onChange={this.handleChange}
             value={lastName}
-            style={formStyles.input}
+            className={css(formStyles.input)}
             type="text"
           />
 
@@ -91,10 +94,10 @@ export default class GuestForm extends React.Component{
             floatingLabelText="E-mail"
             onChange={this.handleChange}
             value={email}
-            style={formStyles.input}
+            className={css(formStyles.input)}
             type="text"
           />
-            <div style={formStyles.buttonContainer}>
+            <div className={css(formStyles.buttonContainer)}>
               <RaisedButton label="Save" type="submit" primary={true} />
               {/* <RaisedButton label="Send" secondary={true} /> */}
               <RaisedButton label="Close" onClick={() => this.props.closeForm()}/>

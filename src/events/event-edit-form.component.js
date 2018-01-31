@@ -95,7 +95,7 @@ export default class EditEventForm extends React.Component{
   }
 
   render() {
-    const { eventId,
+    const {
       eventName, 
       date, 
       startTime, 
@@ -109,7 +109,9 @@ export default class EditEventForm extends React.Component{
     return (
       <div className="form-container">
         <h2 className={css(sharedStyles.headerFont)}> Edit Mode for {eventName} </h2>
-        <form ref="editEventForm" onSubmit={this.handleSubmit} style={formStyles.eventGuestContainer}>
+        <form ref="editEventForm" 
+          onSubmit={this.handleSubmit} 
+          className={css(formStyles.eventFormContainer)}>
 
             {/* Example validation */}
             <p style={{
@@ -125,7 +127,7 @@ export default class EditEventForm extends React.Component{
             // ref={ element => this.eventName = element }
             onChange={(e, eventName)=> this.setState({event: {...this.state.event, eventName}})}
             type="text"
-            style={formStyles.input}
+            className={css(formStyles.input)}
           />
           
           <DatePicker 
@@ -133,7 +135,7 @@ export default class EditEventForm extends React.Component{
             mode="landscape" 
             value={parse(date)}
             onChange={this.handleDate}
-            style={formStyles.dateTime}
+            className={css(formStyles.input)}
             />
 
           <TimePicker
@@ -141,7 +143,7 @@ export default class EditEventForm extends React.Component{
             autoOk={true} 
             value={parse(startTime)}
             onChange={this.handleStartTime}
-            style={formStyles.input}
+            className={css(formStyles.input)}
             />
                     
           <TimePicker
@@ -149,7 +151,7 @@ export default class EditEventForm extends React.Component{
             autoOk={true}
             value={parse(endTime)}
             onChange={this.handleEndTime}
-            style={formStyles.input}
+            className={css(formStyles.input)}
             />
 
           <TextField
@@ -158,7 +160,7 @@ export default class EditEventForm extends React.Component{
             value={description}
             onChange={(e, description)=> this.setState({event: {...this.state.event, description}})}
             type="text"
-            style={formStyles.input}
+            className={css(formStyles.input)}
           />
             
           <TextField
@@ -167,7 +169,7 @@ export default class EditEventForm extends React.Component{
             value={locationName}
             onChange={(e, locationName)=> this.setState({event: {...this.state.event, locationName}})}
             type="text" 
-            style={formStyles.input}
+            className={css(formStyles.input)}
             />
 
           <TextField
@@ -176,7 +178,7 @@ export default class EditEventForm extends React.Component{
             value={locationAddress}
             onChange={(e, locationAddress)=> this.setState({event: {...this.state.event, locationAddress}})}
             type="text" 
-            style={formStyles.input}
+            className={css(formStyles.input)}
             />
 
           <TextField
@@ -185,7 +187,7 @@ export default class EditEventForm extends React.Component{
             value={locationLink}
             onChange={(e, locationLink)=> this.setState({event: {...this.state.event, locationLink}})}
             type="text" 
-            style={formStyles.input}
+            className={css(formStyles.input)}
             />
 
           <TextField
@@ -194,35 +196,28 @@ export default class EditEventForm extends React.Component{
             value={locationMap}
             onChange={(e, locationMap)=> this.setState({event: {...this.state.event, locationMap}})}
             type="text" 
-            style={formStyles.input}
+            className={css(formStyles.input)}
             />
 
-          <div style={formStyles.buttonContainer}>
+          <div className={css(formStyles.buttonContainer)}>
             <RaisedButton label="Save" 
               type="submit" 
               primary={true} 
-              style={formStyles.button} />
-
-            <RaisedButton 
-              label="Reset" 
-              type="reset"
-              secondary={true} 
-              style={formStyles.button}/>
-
-            <RaisedButton 
-              label="Cancel" 
-              type="button" 
-              style={formStyles.button}
-              onClick={this.props.closeForm}
               />
 
             <RaisedButton 
               label="Guest List" 
               type="button"
-              primary={true} 
-              style={formStyles.button}
-              onClick={() => this.props.openGuestList(eventId)}
+              secondary={true} 
+              onClick={() => this.props.openGuestList(this.props.eventId)}
               />
+
+            <RaisedButton 
+              label="Cancel" 
+              type="button" 
+              onClick={this.props.closeForm}
+              />
+
           </div>
         </form>
       </div>

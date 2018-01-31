@@ -32,30 +32,33 @@ export default class LoginForm extends React.Component {
         <LandingPageBtnsRow {...this.props} />
 
         <h1 className={css(sharedStyles.headerFont, styles.header1)}> - Login - </h1>
-        <form ref="loginForm" onSubmit={this.handleSubmit} style={formStyles.formContainer}>
+        <form ref="loginForm" 
+          onSubmit={this.handleSubmit} 
+          className={css(formStyles.formContainer)} >
+
           <TextField
             name="email"
             floatingLabelText="E-mail"
             type="email"
-            style={formStyles.input}
+            className={css(formStyles.input)}
           />
 
           <TextField
             name="password"
             floatingLabelText="Password"
             type="password"
-            style={formStyles.input}
+            className={css(formStyles.input)}
           />
-          <div style={formStyles.buttonContainer}>
+          <div className={css(formStyles.buttonContainer)}>
             <RaisedButton label="Submit" 
               type="submit" 
               primary={true} 
-              style={formStyles.button} />
+              />
 
             <RaisedButton 
               label="Reset" 
               type="reset" 
-              style={formStyles.button}/>
+              />
           </div>
         </form>
       </div>
