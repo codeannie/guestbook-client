@@ -11,6 +11,7 @@ const screenSize = {
 const sharedStyles = StyleSheet.create({
   headerFont: {
     fontFamily: 'Permanent Marker, cursive',
+    // fontFamily: 'Dancing Script, cursive',
     textAlign: 'center',
   },
   bodyFont: {
