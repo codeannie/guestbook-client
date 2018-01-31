@@ -11,7 +11,7 @@ export default class EventSection extends React.Component {
         const eventComponent = (
           <EventCard
             key={index}
-            eventId={event.id} //._id?
+            eventId={event.id} 
             eventName={event.eventName}
             date={event.date}
             startTime={event.startTime}
@@ -22,7 +22,6 @@ export default class EventSection extends React.Component {
           />
         );
         if (event.eventStatus === 1) {
-          // console.log('upcoming results? ->', results.upcoming);
           results.upcoming.push(eventComponent);
           return results;
         } else if (event.eventStatus === 2) {
@@ -37,8 +36,6 @@ export default class EventSection extends React.Component {
         archive: []
       }
     );
-    //
-    // console.log('upcoming events? ->', eventByStatus.upcoming);
 
     return (
       <section>

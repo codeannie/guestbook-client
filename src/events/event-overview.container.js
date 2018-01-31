@@ -2,7 +2,7 @@ import { connect } from "react-redux";
 import { push } from '../_shared/store/router/utils';
 import EventOverview from "./event-overview.component";
 import { createGetAllEventsAction } from "./store/events.actions";
-import { EVENT_EDIT_ROUTE } from '../_shared/store/router/authenticated.routes';
+import { DASHBOARD_ROUTE, EVENT_EDIT_ROUTE } from '../_shared/store/router/authenticated.routes';
 
 const mapStateToProps = state => {
   // is this redundant? it's already on event page container 
@@ -29,7 +29,6 @@ const mapDispatchToProps = dispatch => {
     getEvents: () => {
       dispatch(createGetAllEventsAction());
     },
-
     onEditClick(eventId) {
       dispatch(push({
         route: EVENT_EDIT_ROUTE,
@@ -37,7 +36,12 @@ const mapDispatchToProps = dispatch => {
           eventId
         }
       }));
-    }
+    },
+    closeForm: () => {
+      dispatch(push({
+        route: DASHBOARD_ROUTE
+      }));
+    },
   };
 };
 

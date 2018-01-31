@@ -4,6 +4,7 @@ import { css } from 'aphrodite';
 import EventDetailsCard from './event-detail-card.component';
 import GuestList from '../guests/guestlist-view.container';
 import styles from './event.styles';
+import formStyles from '../_shared/styles/forms.styles'
 
 export default class EventOverview extends React.Component{
 
@@ -18,11 +19,19 @@ export default class EventOverview extends React.Component{
       <div><h2>No Event Found</h2></div>
     ) : (
       <section className={css(styles.container)}>
+        <div className={css(formStyles.buttonContainer)}>
           <RaisedButton label="Edit" 
             onClick={() => this.handleEditEvent(eventId)} 
             primary={true} 
             />
-          <EventDetailsCard eventId={event.id} {...event} />
+
+          <RaisedButton 
+            label="Close" 
+            onClick={this.props.closeForm}
+            />
+        </div>
+
+        <EventDetailsCard eventId={event.id} {...event} />
         <GuestList />
       </section>
     )
