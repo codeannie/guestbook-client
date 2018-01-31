@@ -1,14 +1,24 @@
-const formStyles = {
+import { StyleSheet } from 'aphrodite';
+
+const screenSize = {
+  desktop: '@media (min-width: 700px)',
+};
+
+const formStyles = StyleSheet.create({
   formContainer: {
     display: 'flex',
     flexDirection: 'column',
     // justifyContent: 'center',
-    width: '50%', // media query - add widthwith large screen
+    width: '95%', 
+    // media query - add widthwith large screen
     // alignContent: 'center',
     margin: '0 auto',
     padding: 18,
     border: '3px inset #FF8F00',
-    borderRadius: 5
+    borderRadius: 5,
+    [screenSize.desktop]:{
+      width: '50%', 
+    },
   },
   eventGuestContainer: {
     display: 'flex',
@@ -56,6 +66,6 @@ const formStyles = {
     // alignSelf: 'center',
     // width: '25%',
   }
-}
+});
 
 export default formStyles;

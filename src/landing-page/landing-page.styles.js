@@ -1,5 +1,9 @@
 import { StyleSheet } from 'aphrodite';
 
+const screenSize = {
+  desktop: '@media (min-width: 700px)',
+};
+
 const styles = StyleSheet.create({
   flexContainer: {
     display: 'flex',

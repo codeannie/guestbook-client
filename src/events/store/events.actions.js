@@ -54,12 +54,20 @@ export const createNewEventAction = (newEvent) => ({
   }
 })
 
-export const createModifyEventAction = (events) => ({
-    type: MODIFY_EVENT_DETAILS, 
-    payload: {
-      events
-  }
-})
 
-// need to have an async action
-// dispatch the action 
+// export const createModifyEventAction = (events) => async (dispatch) => {
+//   const res = await eventServices.modifyEvent();
+//   return dispatch({
+//     type: MODIFY_EVENT_DETAILS,
+//     payload: {
+//       events: res.data.events
+//     }
+//   })
+// };
+
+export const createModifyEventAction = (events) => ({
+  type: MODIFY_EVENT_DETAILS, 
+  payload: {
+    events
+}
+})

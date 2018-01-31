@@ -55,10 +55,10 @@ export const createEvent = async (event) => {
 }
 
 // MODIFY EVENT 
-export const modifyEvent = async (event) => { 
+export const modifyEvent = async (event, eventId) => { 
   return await axios ({
     method: 'put',
-    url: `${BASE_URL}/api/events/${userId}/${event.id}`,
+    url: `${BASE_URL}/api/events/${userId}/${eventId}`,
     headers: {
       Authorization: `Bearer ${authToken}`
     },

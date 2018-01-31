@@ -6,6 +6,7 @@ import { modifyEvent } from './services/events.service';
 import { DASHBOARD_ROUTE, EVENT_OVERVIEW_ROUTE, GUESTLIST_EDIT_ROUTE } from '../_shared/store/router/authenticated.routes';
 
 const mapStateToProps = (state) => {  
+  console.log('state->', state);
   const events = state.eventsReducer.events;
   const paramId = state.router.params.eventId;
   const event = events.find(e => {
@@ -29,19 +30,21 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    onSubmitUpdatedEvent(event){
-      modifyEvent(event)
+    onSubmitUpdatedEvent(event, eventId){
+      modifyEvent(event, eventId)
       .then(res => {
         dispatch(createModifyEventAction(res.data));
         dispatch(push({
-          route: EVENT_OVERVIEW_ROUTE
+          route: EVENT_OVERVIEW_ROUTE,
+          params: {
+            eventId
+          }
         }));
       })
     },
     closeForm: () => {
       dispatch(push({
         route: DASHBOARD_ROUTE
-        // need params? 
       }));
     },
     openGuestList: (eventId) => {

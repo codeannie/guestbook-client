@@ -1,6 +1,6 @@
 import React from 'react';
 import { css } from 'aphrodite';
-import isPast from 'date-fns/is_past';
+import { format, isBefore, parse } from 'date-fns';
 import { 
   DatePicker, 
   TextField, 
@@ -16,16 +16,17 @@ export default class EditEventForm extends React.Component{
   constructor(props) {
     super(props);
     this.state = {
+      // local state stores existing data from redux
       event: { 
-        eventName: '',
-        date: null,
-        startTime: null,
-        endTime: null,
-        description: '',
-        locationName: '',
-        locationAddress: '',
-        locationLink: '',
-        locationMap: '',
+        eventName: props.eventName,
+        date: props.date,
+        startTime: props.startTime,
+        endTime: props.endTime,
+        description: props.description,
+        locationName: props.locationName,
+        locationAddress: props.locationAddress,
+        locationLink: props.locationLink,
+        locationMap: props.locationMap,
         },
       error: false,
       errorMsg: ''
@@ -40,17 +41,19 @@ export default class EditEventForm extends React.Component{
 
   handleDate = (e, date) => {
     const { event } = this.state;
+    const todayDate = format(new Date(), 'MM/DD/YYYY'); 
     // always set to false in the beginning 
     this.setState({
       error: false,
       errorMsg: ''
     });
 
-    if(isPast(date)) {
+    if(isBefore(date, todayDate)) {
       this.setState({
         error: true,
-        errorMsg: ERROR_MESSAGES.DATE_PAST  //vs 'date cannot be in the past'
+        errorMsg: ERROR_MESSAGES.DATE_PAST  
       });
+
     } else {
       this.setState({
         event: {
@@ -81,34 +84,19 @@ export default class EditEventForm extends React.Component{
     })
   }
   
-  handleChange = (input) => {
-    const { event } = this.state;
-    const name = input.target.name;
-    const userInput = input.target.value;
-
-    this.setState({
-      event: {
-        ...event,
-        [name]: userInput
-      }
-    });
-  }
-
-  handleSubmit = (event) => {
-    event.preventDefault();
-    const modifiedEvent = {
+  handleSubmit = (e) => {
+    e.preventDefault();
+    const updatedEvent = {
       ...this.state.event
     };
-    
-    console.log('modified event', modifiedEvent)
-
-    this.props.onModifyEvent(modifiedEvent);
+    console.log('updated event ->', updatedEvent)
+    this.props.onSubmitUpdatedEvent(updatedEvent, this.props.eventId);
     this.refs.editEventForm.reset(); 
   }
 
   render() {
-    const { eventName, 
-      eventId, 
+    const { eventId,
+      eventName, 
       date, 
       startTime, 
       endTime, 
@@ -116,36 +104,26 @@ export default class EditEventForm extends React.Component{
       locationName, 
       locationAddress, 
       locationLink, 
-      locationMap } = this.props;
-
-    // how to capture local state and from props? 
-    // const { eventName, 
-    //   date, 
-    //   startTime, 
-    //   endTime, 
-    //   description, 
-    //   locationName, 
-    //   locationAddress, 
-    //   locationLink, 
-    //   locationMap } = this.state;
+      locationMap } = this.state.event;
 
     return (
       <div className="form-container">
-        <h2 className={css(sharedStyles.headerFont)}> Edit {eventName} </h2>
+        <h2 className={css(sharedStyles.headerFont)}> Edit Mode for {eventName} </h2>
         <form ref="editEventForm" onSubmit={this.handleSubmit} style={formStyles.eventGuestContainer}>
 
             {/* Example validation */}
-            {/* <p style={{
+            <p style={{
             display: (this.state.error ? "block" : "none"),
             color: "red"
             }}> {this.state.errorMsg} </p>
-             */}
+            
         
           <TextField
             name="name"
             floatingLabelText="Event Name"
-            onChange={this.handleChange}
-            defaultValue={eventName}
+            value={eventName}
+            // ref={ element => this.eventName = element }
+            onChange={(e, eventName)=> this.setState({event: {...this.state.event, eventName}})}
             type="text"
             style={formStyles.input}
           />
@@ -153,33 +131,32 @@ export default class EditEventForm extends React.Component{
           <DatePicker 
             hintText="Event Date" 
             mode="landscape" 
+            value={parse(date)}
             onChange={this.handleDate}
-            defaultValue={date}
-            // value={date}
             style={formStyles.dateTime}
             />
 
           <TimePicker
             hintText="Start Time"
             autoOk={true} 
+            value={parse(startTime)}
             onChange={this.handleStartTime}
-            value={startTime}
             style={formStyles.input}
             />
                     
           <TimePicker
             hintText="End Time"
             autoOk={true}
+            value={parse(endTime)}
             onChange={this.handleEndTime}
-            value={endTime} 
             style={formStyles.input}
             />
 
           <TextField
             name="description"
             floatingLabelText="Description"
-            onChange={this.handleChange}
             value={description}
+            onChange={(e, description)=> this.setState({event: {...this.state.event, description}})}
             type="text"
             style={formStyles.input}
           />
@@ -187,8 +164,8 @@ export default class EditEventForm extends React.Component{
           <TextField
             name="locationName"
             floatingLabelText="Location Name"
-            onChange={this.handleChange}
             value={locationName}
+            onChange={(e, locationName)=> this.setState({event: {...this.state.event, locationName}})}
             type="text" 
             style={formStyles.input}
             />
@@ -196,8 +173,8 @@ export default class EditEventForm extends React.Component{
           <TextField
             name="locationAddress"
             floatingLabelText="Location Address"
-            onChange={this.handleChange}
             value={locationAddress}
+            onChange={(e, locationAddress)=> this.setState({event: {...this.state.event, locationAddress}})}
             type="text" 
             style={formStyles.input}
             />
@@ -205,8 +182,8 @@ export default class EditEventForm extends React.Component{
           <TextField
             name="locationLink"
             floatingLabelText="Location Link"
-            onChange={this.handleChange}
             value={locationLink}
+            onChange={(e, locationLink)=> this.setState({event: {...this.state.event, locationLink}})}
             type="text" 
             style={formStyles.input}
             />
@@ -214,8 +191,8 @@ export default class EditEventForm extends React.Component{
           <TextField
             name="locationMap"
             floatingLabelText="Google Map Link"
-            onChange={this.handleChange}
             value={locationMap}
+            onChange={(e, locationMap)=> this.setState({event: {...this.state.event, locationMap}})}
             type="text" 
             style={formStyles.input}
             />

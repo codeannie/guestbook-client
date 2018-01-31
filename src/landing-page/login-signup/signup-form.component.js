@@ -33,44 +33,50 @@ export default class SignUpForm extends React.Component {
         <LandingPageBtnsRow {...this.props} />
 
         <h1 className={css(sharedStyles.headerFont, styles.header1)}> - Signup for Guest Book - </h1>        
-        <form ref="signUpForm" onSubmit={this.handleSubmit} style={formStyles.formContainer}>
+        <form ref="signUpForm" 
+          onSubmit={this.handleSubmit} 
+          className={css(formStyles.formContainer)} >
+
           <TextField
             name="firstName"
             floatingLabelText="First name"
             type="text"
-            style={formStyles.input}
+            className={css(formStyles.input)}
           />
 
           <TextField
             name="lastName"
             floatingLabelText="Last Name"
             type="text"
-            style={formStyles.input}
+            className={css(formStyles.input)}
           />
 
           <TextField
             name="email"
             floatingLabelText="E-mail"
             type="text"
-            style={formStyles.input}
+            className={css(formStyles.input)}
           />
 
           <TextField
             name="password"
             floatingLabelText="Password"
             type="password"
-            style={formStyles.input}
+            className={css(formStyles.input)}
           />
-          <div style={formStyles.buttonContainer}>
+
+          <div className={css(formStyles.buttonContainer)}>
             <RaisedButton label="Submit" 
               type="submit" 
               primary={true} 
-              style={formStyles.button} />
+              className={css(formStyles.button)}
+              />
 
             <RaisedButton 
               label="Reset" 
               type="reset" 
-              style={formStyles.button}/>
+              className={css(formStyles.button)}
+              />
           </div>
         </form>
       </div>
