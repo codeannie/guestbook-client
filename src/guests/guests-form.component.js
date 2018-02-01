@@ -62,7 +62,7 @@ export default class GuestForm extends React.Component{
     return (
       <div className="guestFormContainer">
         <h2 className={css(sharedStyles.headerFont)}> Guest List for {event.eventName} </h2>
-        <div className={css(formStyles.eventGuestContainer)}>
+        <div className={css(formStyles.guestListContainer)}>
           <ul>
             {guestListItems}
           </ul>
