@@ -7,7 +7,7 @@ import sharedStyles from '../_shared/styles/shared.styles';
 
 const LandingPageBtnsRow = (props) => {
   return (
-    <div className={css(styles.flexContainer)} style={styles.flex}>
+    <div className={css(styles.btnContainer)}>
       <FlatButton
         label="Home"
         onClick={() => {

@@ -7,7 +7,7 @@ import IntroSection from './intro/intro-section.component';
 import LoginForm from './login-signup/login-form.container';
 import SignUpForm from './login-signup/signup-form.container';
 import Footer from '../_shared/navigation/footer.component';
-import sharedStyles from '../_shared/styles/shared.styles';
+import styles from './landing-page.styles';
 
 const LandingPage = (props) => {
   
@@ -22,18 +22,16 @@ const LandingPage = (props) => {
     }
   }
 
-    return (
-      <div className="main-container">
-        <Header />
-        <LandingPageBtnsRow {...props} />
-        
-      <div className={css(sharedStyles.mainContainer)}>
+  return (
+    <div>
+      <LandingPageBtnsRow {...props} />     
+      <div className={css(styles.backgroundContainer, styles.flexContainer)}>
         {getComponentByRoute()}
         <IntroSection />
       </div>
       <Footer />
     </div>
-    )
-  }
+)
+}
 
 export default LandingPage;

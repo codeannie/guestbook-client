@@ -6,7 +6,7 @@ import { login } from '../_shared/services/auth.service';
 import { createLoginSuccessAction } from '../_shared/store/session/session.actions';
 
 const mapStateToProps = state => {
-  return {};
+  return { };
 };
 
 const mapDispatchToProps = dispatch => {
