@@ -19,6 +19,7 @@ const mapDispatchToProps = dispatch => {
       dispatch(createLogOutAction());
       Cookies.remove("jwt");
       Cookies.remove("loggedInUserId");
+      Cookies.remove("loggedInUserFirstName");
       dispatch(push("/"));
     },
     openDashboard: () => {
