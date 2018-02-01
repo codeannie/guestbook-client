@@ -6,8 +6,15 @@ const screenSize = {
 };
 
 const styles = StyleSheet.create({
-  container: {
-    backgroundColor: '#ECEFF1', //'#FAFAFA',
+  backgroundContainer: {
+    backgroundImage: 'url("https://images.unsplash.com/photo-1502691876148-a84978e59af8?ixlib=rb-0.3.5&s=93f1869fc4e287b8097c3435a413218c&auto=format&fit=crop&w=1650&q=80")',
+    backgroundSize: '100% auto',
+    backgroundSize: 'cover',
+    backgroundRepeat: 'no-repeat',
+    backgroundPosition: 'center',
+    overflow: 'hidden',
+    position: 'relative',
+    height: '100vh',
   },
   flexContainer: {
     display: 'flex',
@@ -19,12 +26,13 @@ const styles = StyleSheet.create({
     }
   },
   sectionHeader: {
+    color: '#FFFFFF',
     textAlign: 'center',
-    font: 30,
+    font: 40,
   },
   eventName: {
-    backgroundColor: '#DCEDC8',
-    // color: '#1B5E20',
+    backgroundColor: 'rgba(030, 026, 084, 0.80)',
+    color: '#FFFFFF',
     padding: 5,
     textAlign: 'center',
   },
@@ -32,11 +40,11 @@ const styles = StyleSheet.create({
     textAlign: 'center'
   },
   eventCard: {
-    backgroundColor: 'white',
-    borderRadius: 5,
-    margin: 5,
+    backgroundColor: 'rgba(255, 255, 255, 0.90)',
+    borderRadius: 7,
+    margin: 7,
     padding: 10,
-    flexBasis: '40%',
+    flexBasis: '30%',
   }
 })
 

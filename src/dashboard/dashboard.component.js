@@ -19,7 +19,14 @@ const WelcomeBlurb = (props) => {
   )
 }
 export default class Dashboard extends React.Component {
-  componentDidMount() {
+  // constructor(props) {
+  //   super(props);
+  //   this.state = {
+  //     loading: true,
+  //   }  
+  // }
+
+  componentWillMount() {
     this.props.onLoadDashboard()
   }
   
@@ -27,12 +34,10 @@ export default class Dashboard extends React.Component {
     const events = this.props.events;
     const firstName = this.props.firstName;
 
-    return !events ? (
-      <EventForm /> ) : (
+    return (
       <div>
-        <Header />
         <NavBarDrawer />
-        <div className={css(sharedStyles.mainContainer, styles.container)}>
+        <div className={css(sharedStyles.mainContainer, styles.backgroundContainer)}>
           <WelcomeBlurb firstName={firstName} />
           {/* child prop expects "events" */}
           <EventSection events={events} />
@@ -42,3 +47,27 @@ export default class Dashboard extends React.Component {
     )
   }
 }
+
+
+// !events.length  ? (
+//   <div>
+//     <Header />
+//     <NavBarDrawer />
+//     <div className={css(sharedStyles.mainContainer, styles.container)}>
+//       <WelcomeBlurb firstName={firstName} />
+//       <EventForm /> 
+//     </div>
+//     <Footer />
+//   </div>
+//   ) : (
+//   <div>
+//     <Header />
+//     <NavBarDrawer />
+//     <div className={css(sharedStyles.mainContainer, styles.container)}>
+//       <WelcomeBlurb firstName={firstName} />
+//       {/* child prop expects "events" */}
+//       <EventSection events={events} />
+//     </div>
+//     <Footer />
+//   </div>
+// )

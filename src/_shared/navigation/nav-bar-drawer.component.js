@@ -44,6 +44,7 @@ export default class NavBarDrawer extends React.Component {
           iconElementRight={
             <FlatButton label="Logout" onClick={() => this.handleLogOut()} />
           }
+          style={styles}
         />
         <Drawer
           open={this.state.open}

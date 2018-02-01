@@ -17,7 +17,6 @@ const mapStateToProps = state => {
   }
   return {
     currentUser,
-    // firstName: currentUser.user.firstName,
     firstName: Cookies.get("loggedInUserFirstName"),
     events: state.eventsReducer.events
   };
@@ -28,7 +27,7 @@ const mapDispatchToProps = dispatch => {
     onLoadDashboard: () => {
       // dispatch(createGetActiveEventsAction(), 
       // createGetPastEventsAction())
-    dispatch(createGetAllEventsAction())
+      dispatch(createGetAllEventsAction())
     }
   };
 }
