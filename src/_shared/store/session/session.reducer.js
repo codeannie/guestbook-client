@@ -16,11 +16,11 @@ export const sessionReducer = (state = initialState, action) => {
         ...state,
         currentUser: action.payload.user
       };
-    case LOGOUT:
-      return {
-        ...state,
-        currentUser: null 
-      }
+    // case LOG_OUT:
+    //   return {
+    //     ...state,
+    //     currentUser: null 
+    //   }
     default:
     return state;
   }

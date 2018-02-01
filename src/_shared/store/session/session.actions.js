@@ -2,7 +2,7 @@
 // export const DEMO_SUCCESS = 'DEMO_SUCCESS';
 export const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
 export const SIGNUP_SUCCESS = 'SIGNUP_SUCCESS';
-export const LOGOUT = 'LOGOUT';
+export const LOG_OUT = 'LOG_OUT';
 
 // Action Creators 
 export const createLoginSuccessAction = (user) => {
@@ -25,7 +25,7 @@ export const createSignUpSuccessAction = (user) => {
 
 export const createLogOutAction = () => {
   return {
-    type: LOGOUT, 
+    type: LOG_OUT, 
   }
 }
 // action - make ajax request to GET
