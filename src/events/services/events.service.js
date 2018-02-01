@@ -2,12 +2,11 @@ import axios from 'axios';
 import Cookies from 'js-cookie';
 import { BASE_URL } from '../../_shared/constants';
 
-// get userId & auth token from the js-cookie
-const userId = Cookies.get('loggedInUserId');
-const authToken = Cookies.get('jwt');
-
 // GET ALL EVENTS
 export const getEvents = async () => {
+  const userId = Cookies.get('loggedInUserId');
+  const authToken = Cookies.get('jwt');
+
   return await axios({
     method: 'get',
     url: `${BASE_URL}/api/events/${userId}`,
@@ -19,6 +18,9 @@ export const getEvents = async () => {
 
 // GET UPCOMING (ACTIVE) EVENTS 
 export const getActiveEvents = async () => {
+  const userId = Cookies.get('loggedInUserId');
+  const authToken = Cookies.get('jwt');
+
   return await axios({
     method: 'get',
     url: `${BASE_URL}/api/events/${userId}/active`,
@@ -30,6 +32,9 @@ export const getActiveEvents = async () => {
 
 // GET PAST EVENTS 
 export const getPastEvents = async () => {
+  const userId = Cookies.get('loggedInUserId');
+  const authToken = Cookies.get('jwt');
+
   return await axios({
     method: 'get',
     url: `${BASE_URL}/api/events/${userId}/past`,
@@ -41,6 +46,9 @@ export const getPastEvents = async () => {
 
 // CREATE NEW EVENT
 export const createEvent = async (event) => {
+  const userId = Cookies.get('loggedInUserId');
+  const authToken = Cookies.get('jwt');
+
   return await axios({
     method: 'post',
     url:`${BASE_URL}/api/events/${userId}`,
@@ -56,6 +64,9 @@ export const createEvent = async (event) => {
 
 // MODIFY EVENT 
 export const modifyEvent = async (event, eventId) => { 
+  const userId = Cookies.get('loggedInUserId');
+  const authToken = Cookies.get('jwt');
+
   return await axios ({
     method: 'put',
     url: `${BASE_URL}/api/events/${userId}/${eventId}`,
