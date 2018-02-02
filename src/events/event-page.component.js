@@ -1,7 +1,7 @@
 import React from 'react';
 import { css } from 'aphrodite';
 // HEADER
-import Header from '../_shared/navigation/header-image.component';
+// import Header from '../_shared/navigation/header-image.component';
 import NavBarDrawer from '../_shared/navigation/nav-bar-drawer.container';
 // COMPONENTS
 import EventForm from './event-form.container';
