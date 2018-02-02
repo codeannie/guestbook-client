@@ -33,7 +33,8 @@
     "@storybook/react": "^3.4.0-alpha.1",
     "enzyme": "^3.3.0",
     "enzyme-adapter-react-16": "^1.1.1",
-    "jest": "^22.0.4",
+    "jest": "^22.1.4",
+    "jest-cli": "^22.1.4",
     "react-test-renderer": "^16.2.0",
     "redux-logger": "^3.0.6",
     "storybook-addon-material-ui": "^0.8.2"
