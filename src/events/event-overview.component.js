@@ -19,11 +19,12 @@ export default class EventOverview extends React.Component{
       <div><h2>No Event Found</h2></div>
     ) : (
       <div>
-      <section className={css(styles.mainContainer)}>
-        <h2 className={css(styles.eventName)}> {event.eventName} </h2>
-        <EventDetailsCard eventId={event.id} {...event} />
-        <GuestList />
-      </section>
+        <section className={css(styles.mainContainer)}>
+          <h2 className={css(styles.eventName)}> {event.eventName} Overview </h2>
+            <EventDetailsCard eventId={event.id} {...event} />
+          <h2 className={css(styles.eventName)}> Guest List</h2>
+            <GuestList />
+        </section>
         <div className={css(formStyles.buttonContainer)}>
           <RaisedButton label="Edit" 
             onClick={() => this.handleEditEvent(eventId)} 
