@@ -3,7 +3,6 @@ import React from 'react';
 import { css } from 'aphrodite';
 import { FlatButton } from 'material-ui';
 import styles from './landing-page.styles';
-import sharedStyles from '../_shared/styles/shared.styles';
 
 const LandingPageBtnsRow = (props) => {
   return (

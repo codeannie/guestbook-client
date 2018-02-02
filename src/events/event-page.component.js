@@ -8,7 +8,6 @@ import EventForm from './event-form.container';
 import EditEventForm from './event-edit-form.container';
 import EventOverview from './event-overview.container';
 import GuestForm from '../guests/guests-form.container';
-import GuestList from '../guests/guestlist-view.component';
 // ROUTES
 import * as routerPath from '../_shared/store/router/authenticated.routes';
 // STYLES

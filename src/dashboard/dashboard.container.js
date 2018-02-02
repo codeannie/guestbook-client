@@ -1,12 +1,11 @@
 import { connect } from "react-redux";
-import { push } from "redux-little-router";
 import Cookies from "js-cookie";
 import Dashboard from "./dashboard.component";
 // import actions
 import {
   createGetAllEventsAction,
-  createGetActiveEventsAction,
-  createGetPastEventsAction
+  // createGetActiveEventsAction,
+  // createGetPastEventsAction
 } from "../events/store/events.actions";
 
 const mapStateToProps = state => {

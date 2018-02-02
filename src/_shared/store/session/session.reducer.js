@@ -1,4 +1,4 @@
-import { LOGIN_SUCCESS, SIGNUP_SUCCESS, LOGOUT } from '../session/session.actions';
+import { LOGIN_SUCCESS, SIGNUP_SUCCESS } from '../session/session.actions';
 
 const initialState = {
   currentUser: null
@@ -16,11 +16,6 @@ export const sessionReducer = (state = initialState, action) => {
         ...state,
         currentUser: action.payload.user
       };
-    // case LOG_OUT:
-    //   return {
-    //     ...state,
-    //     currentUser: null 
-    //   }
     default:
     return state;
   }

@@ -11,9 +11,7 @@ const eventCard = (props) => {
     eventName,
     date,
     startTime,
-    endTime,
     locationName,
-    numOfGuests,
     onViewClick
   } = props;
 

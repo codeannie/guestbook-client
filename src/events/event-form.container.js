@@ -3,7 +3,7 @@ import { push } from '../_shared/store/router/utils';
 
 import EventForm from './event-form.component';
 import { createNewEventAction } from './store/events.actions';
-import { createEvent, modifyEvent } from './services/events.service';
+import { createEvent } from './services/events.service';
 import { DASHBOARD_ROUTE, GUESTLIST_NEW_ROUTE } from '../_shared/store/router/authenticated.routes';
 const mapStateToProps = state => {
   // store user info in props

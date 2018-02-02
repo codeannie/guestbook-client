@@ -1,6 +1,5 @@
 // Action Types
 export const GET_ALL_GUESTS = 'GET_ALL_GUESTS';
-export const CREATE_NEW_GUESTLIST = 'CREATE_NEW_GUESTLIST';
 export const ADD_GUEST = 'ADD_GUEST';
 export const DELETE_GUEST = 'DELETE_GUEST';
 export const MODIFY_GUEST = 'MODIFY_GUEST';
@@ -14,14 +13,6 @@ export const createGetAllGuestsAction = (guests) => ({
     guests
   }
 });
-
-// how to handle guests? 
-export const createNewGuestListAction = (guests) => ({
-    type: CREATE_NEW_GUESTLIST, 
-    payload: {
-      guests
-  }
-})
 
 export const createAddGuestAction = (guest) => ({
     type: ADD_GUEST, 

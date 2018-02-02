@@ -1,7 +1,7 @@
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 
 import {
-  lightBlue800, green700, green800, green900, amber800,
+  lightBlue800, green800,amber800,
   grey100, grey300, grey400, grey500,
   white, darkBlack, fullBlack,
 } from 'material-ui/styles/colors';

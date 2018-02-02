@@ -74,13 +74,3 @@ export default class LoginForm extends React.Component {
 // login - get response and store token in local storage & redux state
 // App.js - check if token is in local storage, if there is, dispatch action to redux 
 
-{/* <label>
-E-mail:
-<input type="text" ref="email" onChange={this.handleChange} required />
-</label>
-
-    
-<label>
-Password:
-<input type="password" ref="password" onChange={this.handleChange} required/>
-</label> */}

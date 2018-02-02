@@ -1,7 +1,5 @@
 import { connect } from "react-redux";
-import { push } from '../_shared/store/router/utils';
 import EventPage from "./event-page.component";
-import { EVENT_EDIT_ROUTE } from '../_shared/store/router/authenticated.routes';
 
 const mapStateToProps = state => {
   const events = state.eventsReducer.events;

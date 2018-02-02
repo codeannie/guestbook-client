@@ -8,7 +8,7 @@ const screenSize = {
 const styles = StyleSheet.create({
   backgroundContainer: {
     backgroundImage: 'url("https://images.unsplash.com/photo-1493274409115-3f5143dd3d9a?ixlib=rb-0.3.5&s=a0f77042b42cca2bb290fa7423763873&auto=format&fit=crop&w=1622&q=80")',
-    backgroundSize: '100% auto',
+    // backgroundSize: '100% auto',
     backgroundSize: 'cover',
     backgroundRepeat: 'no-repeat',
     backgroundPosition: 'center',

@@ -1,6 +1,5 @@
 import React from 'react';
 import { css } from 'aphrodite';
-import IntroCard from './intro-card.component';
 import styles from '../landing-page.styles';
 import sharedStyles from '../../_shared/styles/shared.styles';
 

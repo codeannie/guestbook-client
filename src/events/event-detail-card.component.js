@@ -1,5 +1,4 @@
 import React from 'react';
-import { RaisedButton } from 'material-ui';
 import { format } from 'date-fns';
 import { css } from 'aphrodite'; 
 import styles from './event.styles';

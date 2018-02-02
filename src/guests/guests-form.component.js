@@ -1,7 +1,6 @@
 import React from 'react';
 import TextField from 'material-ui/TextField';
 import RaisedButton from 'material-ui/RaisedButton';
-import Toggle from 'material-ui/Toggle';
 import { css } from 'aphrodite';
 import formStyles from '../_shared/styles/forms.styles';
 import sharedStyles from '../_shared/styles/shared.styles';
@@ -25,7 +24,6 @@ export default class GuestForm extends React.Component{
   }
 
   handleChange(input) {
-    const { guests } = this.state;
     const name = input.target.name;
     const userInput = input.target.value; 
 
@@ -66,6 +64,7 @@ export default class GuestForm extends React.Component{
           <ul>
             {guestListItems}
           </ul>
+
         </div>
         <form ref="guestForm" 
           onSubmit={this.handleSubmit} 
@@ -107,9 +106,3 @@ export default class GuestForm extends React.Component{
     )
   }
 }
-
-
-{/* <Toggle 
-  label="Plus One?"
-  onToggle={}
-/> */}

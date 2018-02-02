@@ -1,7 +1,6 @@
 // put landing page components here
 import React from 'react';
 import { css } from 'aphrodite';
-import Header from '../_shared/navigation/header-image.component';
 import LandingPageBtnsRow from './landing-page-buttons.component';
 import IntroSection from './intro/intro-section.component';
 import LoginForm from './login-signup/login-form.container';
