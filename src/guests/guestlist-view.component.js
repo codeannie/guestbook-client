@@ -1,6 +1,7 @@
 import React from 'react';
 import { css } from 'aphrodite'; 
 import GuestResponse from './guest.component';
+import styles from '../events/event.styles';
 
 export default class GuestList extends React.Component {
   
@@ -30,9 +31,9 @@ export default class GuestList extends React.Component {
     })
 
     return (
-      <section className="guestlist" eventId={this.props.event.id}>
+      <section className={css(styles.guestList)} eventId={this.props.event.id}>
         <h2> Guest List </h2>
-        <h3> Responses </h3>
+        {/* <h3> Responses </h3> */}
           <h4> Attending </h4>
             <GuestResponse guestByStatus={guestResponses.get(1)} />
           <h4> Not Attending </h4>

@@ -8,14 +8,12 @@ const formStyles = StyleSheet.create({
   formContainer: {
     display: 'flex',
     flexDirection: 'column',
-    // justifyContent: 'center',
     width: '95%', 
-    // media query - add widthwith large screen
-    // alignContent: 'center',
     margin: '0 auto',
     padding: 18,
     border: '3px inset #FF8F00',
     borderRadius: 5,
+    backgroundColor: 'rgba(255, 255, 255, 0.80)',
     [screenSize.desktop]:{
       width: '50%', 
     },

@@ -12,6 +12,7 @@ import GuestList from '../guests/guestlist-view.component';
 // ROUTES
 import * as routerPath from '../_shared/store/router/authenticated.routes';
 // STYLES
+import styles from './event.styles';
 import sharedStyles from '../_shared/styles/shared.styles';
 
 export default class EventPage extends React.Component {
@@ -34,10 +35,10 @@ export default class EventPage extends React.Component {
   }
   render() {
     return (
-      <div className="main-container">
-        <Header />
+      <div className={css()}>
+        {/* <Header /> */}
         <NavBarDrawer />
-        <div className={css(sharedStyles.mainContainer)}>
+        <div className={css(sharedStyles.mainContainer, styles.backgroundContainer)}>
           {this.getComponentByRoute()}
         </div>
       </div>

@@ -14,11 +14,16 @@ export default class EventOverview extends React.Component{
 
   render() {
     const { event, eventId } = this.props;
-    console.log('event id?', this.props.eventId);
+    // console.log('event id?', this.props.eventId);
     return !event ? (
       <div><h2>No Event Found</h2></div>
     ) : (
-      <section className={css(styles.container)}>
+      <div>
+      <section className={css(styles.mainContainer)}>
+        <h2 className={css(styles.eventName)}> {event.eventName} </h2>
+        <EventDetailsCard eventId={event.id} {...event} />
+        <GuestList />
+      </section>
         <div className={css(formStyles.buttonContainer)}>
           <RaisedButton label="Edit" 
             onClick={() => this.handleEditEvent(eventId)} 
@@ -30,10 +35,7 @@ export default class EventOverview extends React.Component{
             onClick={this.props.closeForm}
             />
         </div>
-
-        <EventDetailsCard eventId={event.id} {...event} />
-        <GuestList />
-      </section>
+      </div>
     )
   }
 }

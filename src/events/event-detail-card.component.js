@@ -14,12 +14,11 @@ const eventDetailsCard = (props) => {
   // };
 
   return (
-    <div className="event-info" key={props.eventId}>
+    <section className={css(styles.eventDetails)} key={props.eventId}>
         {/* <RaisedButton label="Edit" 
         onClick={handleEditEvent(props.eventId)} 
         primary={true} 
         /> */}
-      <h2> {props.eventName} </h2>
       <ul className={css(sharedStyles.lists)}>
         <li className="description"> Description: {props.description} </li>
         <li className="date"> Date: {format(props.date, 'MM/DD/YYYY')}  </li>
@@ -30,7 +29,7 @@ const eventDetailsCard = (props) => {
         <li className="locationLink"> Link: {props.locationLink} </li>
         <li className="locationMap"> Map: {props.locationLink} </li>
       </ul>
-    </div>
+    </section>
   )
 }
 

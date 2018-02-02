@@ -7,7 +7,8 @@ const screenSize = {
 
 const styles = StyleSheet.create({
   backgroundContainer: {
-    backgroundImage: 'url("https://images.unsplash.com/photo-1502691876148-a84978e59af8?ixlib=rb-0.3.5&s=93f1869fc4e287b8097c3435a413218c&auto=format&fit=crop&w=1650&q=80")',
+    // backgroundImage: 'url("https://images.unsplash.com/photo-1502691876148-a84978e59af8?ixlib=rb-0.3.5&s=93f1869fc4e287b8097c3435a413218c&auto=format&fit=crop&w=1650&q=80")',
+    backgroundImage: 'url("https://images.unsplash.com/photo-1494228366869-07a7106eca9f?ixlib=rb-0.3.5&s=2d38f4907af6894b604534e2215a8eaf&auto=format&fit=crop&w=1650&q=80")',
     backgroundSize: '100% auto',
     backgroundSize: 'cover',
     backgroundRepeat: 'no-repeat',
@@ -26,13 +27,16 @@ const styles = StyleSheet.create({
     }
   },
   sectionHeader: {
-    color: '#FFFFFF',
+    // color: '#FFFFFF',
+    color: '#000000',
     textAlign: 'center',
     font: 40,
   },
   eventName: {
-    backgroundColor: 'rgba(030, 026, 084, 0.80)',
-    color: '#FFFFFF',
+    // backgroundColor: 'rgba(030, 026, 084, 0.80)',
+    backgroundColor: 'rgba(136, 160, 152, 0.90)',
+    // color: '#FFFFFF',
+    color: '#000000',
     padding: 5,
     textAlign: 'center',
   },
@@ -40,7 +44,7 @@ const styles = StyleSheet.create({
     textAlign: 'center'
   },
   eventCard: {
-    backgroundColor: 'rgba(255, 255, 255, 0.90)',
+    backgroundColor: 'rgba(255, 255, 255, 0.95)',
     borderRadius: 7,
     margin: 7,
     padding: 10,
