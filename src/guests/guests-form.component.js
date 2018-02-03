@@ -76,6 +76,8 @@ export default class GuestForm extends React.Component{
             onChange={this.handleChange}
             value={firstName}
             className={css(formStyles.input)}
+            floatingLabelStyle={styles.floatingLabelStyle}
+            underlineStyle={styles.underlineStyle}
             type="text"
           />
 
@@ -85,6 +87,8 @@ export default class GuestForm extends React.Component{
             onChange={this.handleChange}
             value={lastName}
             className={css(formStyles.input)}
+            floatingLabelStyle={styles.floatingLabelStyle}
+            underlineStyle={styles.underlineStyle}
             type="text"
           />
 
@@ -94,6 +98,8 @@ export default class GuestForm extends React.Component{
             onChange={this.handleChange}
             value={email}
             className={css(formStyles.input)}
+            floatingLabelStyle={styles.floatingLabelStyle}
+            underlineStyle={styles.underlineStyle}
             type="text"
           />
             <div className={css(formStyles.buttonContainer)}>
@@ -106,3 +112,20 @@ export default class GuestForm extends React.Component{
     )
   }
 }
+
+const styles = {
+  errorStyle: {
+    color: 'blue',
+  },
+  underlineStyle: {
+    borderColor: 'rgba(255, 255, 255, 0.80)',
+    // borderColor: 'rgba(030, 030, 030, 0.90)',
+  },
+  floatingLabelStyle: {
+    color: 'rgba(255, 255, 255, 0.80)',
+    // color: 'rgba(030, 030, 030, 0.90)',
+  },
+  floatingLabelFocusStyle: {
+    color: 'blue',
+  },
+};

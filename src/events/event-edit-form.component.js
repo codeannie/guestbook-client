@@ -128,30 +128,38 @@ export default class EditEventForm extends React.Component{
             onChange={(e, eventName)=> this.setState({event: {...this.state.event, eventName}})}
             type="text"
             className={css(formStyles.input)}
+            floatingLabelStyle={styles.floatingLabelStyle}
+            underlineStyle={styles.underlineStyle}
           />
           
           <DatePicker 
-            hintText="Event Date" 
+            floatingLabelText="Event Date" 
             mode="landscape" 
             value={parse(date)}
             onChange={this.handleDate}
             className={css(formStyles.input)}
+            floatingLabelStyle={styles.floatingLabelStyle}
+            underlineStyle={styles.underlineStyle}
             />
 
           <TimePicker
-            hintText="Start Time"
+            floatingLabelText="Start Time"
             autoOk={true} 
             value={parse(startTime)}
             onChange={this.handleStartTime}
             className={css(formStyles.input)}
+            floatingLabelStyle={styles.floatingLabelStyle}
+            underlineStyle={styles.underlineStyle}
             />
                     
           <TimePicker
-            hintText="End Time"
+            floatingLabelText="End Time"
             autoOk={true}
             value={parse(endTime)}
             onChange={this.handleEndTime}
             className={css(formStyles.input)}
+            floatingLabelStyle={styles.floatingLabelStyle}
+            underlineStyle={styles.underlineStyle}
             />
 
           <TextField
@@ -170,6 +178,8 @@ export default class EditEventForm extends React.Component{
             onChange={(e, locationName)=> this.setState({event: {...this.state.event, locationName}})}
             type="text" 
             className={css(formStyles.input)}
+            floatingLabelStyle={styles.floatingLabelStyle}
+            underlineStyle={styles.underlineStyle}
             />
 
           <TextField
@@ -179,6 +189,8 @@ export default class EditEventForm extends React.Component{
             onChange={(e, locationAddress)=> this.setState({event: {...this.state.event, locationAddress}})}
             type="text" 
             className={css(formStyles.input)}
+            floatingLabelStyle={styles.floatingLabelStyle}
+            underlineStyle={styles.underlineStyle}
             />
 
           <TextField
@@ -188,6 +200,8 @@ export default class EditEventForm extends React.Component{
             onChange={(e, locationLink)=> this.setState({event: {...this.state.event, locationLink}})}
             type="text" 
             className={css(formStyles.input)}
+            floatingLabelStyle={styles.floatingLabelStyle}
+            underlineStyle={styles.underlineStyle}
             />
 
           <TextField
@@ -197,6 +211,8 @@ export default class EditEventForm extends React.Component{
             onChange={(e, locationMap)=> this.setState({event: {...this.state.event, locationMap}})}
             type="text" 
             className={css(formStyles.input)}
+            floatingLabelStyle={styles.floatingLabelStyle}
+            underlineStyle={styles.underlineStyle}
             />
 
           <div className={css(formStyles.buttonContainer)}>
@@ -224,3 +240,20 @@ export default class EditEventForm extends React.Component{
     )
   }
 }
+
+const styles = {
+  errorStyle: {
+    color: 'blue',
+  },
+  underlineStyle: {
+    // borderColor: 'rgba(255, 255, 255, 0.80)',
+    borderColor: 'rgba(030, 030, 030, 0.90)',
+  },
+  floatingLabelStyle: {
+    // color: 'rgba(255, 255, 255, 0.80)',
+    color: '#754148',
+  },
+  floatingLabelFocusStyle: {
+    color: 'blue',
+  },
+};

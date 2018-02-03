@@ -7,7 +7,6 @@ import {
   TimePicker, 
   RaisedButton 
 } from 'material-ui';
-
 import { ERROR_MESSAGES } from '../_shared/constants';
 import formStyles from '../_shared/styles/forms.styles';
 import sharedStyles from '../_shared/styles/shared.styles';
@@ -131,30 +130,38 @@ export default class EventForm extends React.Component{
             value={eventName}
             type="text"
             className={css(formStyles.input)}
+            floatingLabelStyle={styles.floatingLabelStyle}
+            underlineStyle={styles.underlineStyle}
           />
           
           <DatePicker 
-            hintText="Event Date" 
+            floatingLabelText="Event Date" 
             mode="landscape" 
             onChange={this.handleDate}
             value={date}
             className={css(formStyles.input)}
+            floatingLabelStyle={styles.floatingLabelStyle}
+            underlineStyle={styles.underlineStyle}
             />
 
           <TimePicker
-            hintText="Start Time"
+            floatingLabelText="Start Time"
             autoOk={true} 
             onChange={this.handleStartTime}
             value={startTime}
             className={css(formStyles.input)}
+            floatingLabelStyle={styles.floatingLabelStyle}
+            underlineStyle={styles.underlineStyle}
             />
                     
           <TimePicker
-            hintText="End Time"
+            floatingLabelText="End Time"
             autoOk={true}
             onChange={this.handleEndTime}
             value={endTime} 
             className={css(formStyles.input)}
+            floatingLabelStyle={styles.floatingLabelStyle}
+            underlineStyle={styles.underlineStyle}
             />
 
           <TextField
@@ -164,6 +171,8 @@ export default class EventForm extends React.Component{
             value={description}
             type="text"
             className={css(formStyles.input)}
+            floatingLabelStyle={styles.floatingLabelStyle}
+            underlineStyle={styles.underlineStyle}
           />
             
           <TextField
@@ -173,6 +182,8 @@ export default class EventForm extends React.Component{
             value={locationName}
             type="text" 
             className={css(formStyles.input)}
+            floatingLabelStyle={styles.floatingLabelStyle}
+            underlineStyle={styles.underlineStyle}
             />
 
           <TextField
@@ -182,6 +193,8 @@ export default class EventForm extends React.Component{
             value={locationAddress}
             type="text" 
             className={css(formStyles.input)}
+            floatingLabelStyle={styles.floatingLabelStyle}
+            underlineStyle={styles.underlineStyle}
             />
 
           <TextField
@@ -191,6 +204,8 @@ export default class EventForm extends React.Component{
             value={locationLink}
             type="text" 
             className={css(formStyles.input)}
+            floatingLabelStyle={styles.floatingLabelStyle}
+            underlineStyle={styles.underlineStyle}
             />
 
           <TextField
@@ -200,6 +215,8 @@ export default class EventForm extends React.Component{
             value={locationMap}
             type="text" 
             className={css(formStyles.input)}
+            floatingLabelStyle={styles.floatingLabelStyle}
+            underlineStyle={styles.underlineStyle}
             />
 
           <div className={css(formStyles.buttonContainer)}>
@@ -226,3 +243,20 @@ export default class EventForm extends React.Component{
     )
   }
 }
+
+const styles = {
+  errorStyle: {
+    color: 'blue',
+  },
+  underlineStyle: {
+    // borderColor: 'rgba(255, 255, 255, 0.80)',
+    borderColor: 'rgba(030, 030, 030, 0.90)',
+  },
+  floatingLabelStyle: {
+    // color: 'rgba(255, 255, 255, 0.80)',
+    color: 'rgba(030, 030, 030, 0.90)',
+  },
+  floatingLabelFocusStyle: {
+    color: 'blue',
+  },
+};

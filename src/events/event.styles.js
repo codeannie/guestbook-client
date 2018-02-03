@@ -12,7 +12,7 @@ const styles = StyleSheet.create({
     backgroundSize: 'cover',
     backgroundRepeat: 'no-repeat',
     backgroundPosition: 'center',
-    overflow: 'hidden',
+    overflow: 'auto', // 'hidden',
     position: 'relative',
     height: '100vh',
   },
