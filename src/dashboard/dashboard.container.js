@@ -3,9 +3,9 @@ import Cookies from "js-cookie";
 import Dashboard from "./dashboard.component";
 // import actions
 import {
-  createGetAllEventsAction,
-  // createGetActiveEventsAction,
-  // createGetPastEventsAction
+  // createGetAllEventsAction,
+  createGetActiveEventsAction,
+  createGetPastEventsAction
 } from "../events/store/events.actions";
 
 const mapStateToProps = state => {
@@ -17,17 +17,23 @@ const mapStateToProps = state => {
   return {
     currentUser,
     firstName: Cookies.get("loggedInUserFirstName"),
-    events: state.eventsReducer.events
+    events: state.eventsReducer.events,
+    fetching: state.eventsReducer.fetching, 
   };
 };
 
 const mapDispatchToProps = dispatch => {
   return {
-    onLoadDashboard: () => {
-      // dispatch(createGetActiveEventsAction(), 
-      // createGetPastEventsAction())
-      dispatch(createGetAllEventsAction())
-    }
+    // onLoadDashboard: () => {
+    //  dispatch(createGetAllEventsAction())
+    // },
+    getActiveEvents: () => {
+      dispatch(createGetActiveEventsAction())
+    },
+    getPastEvents: () => {
+      dispatch(createGetPastEventsAction())
+    },
   };
 }
+
 export default connect(mapStateToProps, mapDispatchToProps)(Dashboard);

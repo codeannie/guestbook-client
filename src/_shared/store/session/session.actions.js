@@ -1,17 +1,23 @@
 // Action Types
 // export const DEMO_SUCCESS = 'DEMO_SUCCESS';
+import * as authServices from '../../services/auth.service';
 export const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
 export const SIGNUP_SUCCESS = 'SIGNUP_SUCCESS';
 export const LOG_OUT = 'LOG_OUT';
 
 // Action Creators 
-export const createLoginSuccessAction = (user) => {
-  return {
+
+export const createLoginRequestAction = (user) => async (dispatch) => {
+  dispatch({
+    type: 'LOGIN_REQUEST'
+  })
+  const res = await authServices.login();
+  return dispatch({
     type: LOGIN_SUCCESS,
     payload: {
-      user  //it will be payload.user
+      currentUser: res.data.user
     }
-  }
+  })
 }
 
 export const createSignUpSuccessAction = (user) => {
@@ -28,9 +34,3 @@ export const createLogOutAction = () => {
     type: LOG_OUT, 
   }
 }
-// action - make ajax request to GET
-// promise of fetch request (success)
-// dispatch async action that returns the object 
-
-// pass action the data that has a type property & payload
-// reducer - hey! action has happened, then update the state

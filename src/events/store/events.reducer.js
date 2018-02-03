@@ -1,17 +1,24 @@
 import {
   GET_ALL_EVENTS,
   GET_ACTIVE_EVENTS,
+  GET_ACTIVE_EVENTS_REQUEST,
   GET_PAST_EVENTS,
   CREATE_NEW_EVENT,
   MODIFY_EVENT_DETAILS
 } from './events.actions';
 
 const initialState = {
-  events: [ ]
+  fetching: false,
+  events: [],
 };
 
 export const eventsReducer = (state = initialState, action) => {
   switch (action.type) {
+    case GET_ACTIVE_EVENTS_REQUEST:
+      return {
+        ...state,
+        fetching: true
+      }
     case GET_ALL_EVENTS:  
       return {
         ...state,
@@ -22,6 +29,7 @@ export const eventsReducer = (state = initialState, action) => {
     case GET_ACTIVE_EVENTS:
       return {
         ...state,
+        fetching: false,
         events: [
           ...action.payload.events
         ]

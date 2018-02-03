@@ -3,11 +3,10 @@ import { css } from 'aphrodite';
 import sharedStyles from '../_shared/styles/shared.styles';
 import styles from './dashboard.styles';
 import NavBarDrawer from '../_shared/navigation/nav-bar-drawer.container';
-// import Welcome from './welcome.component';
 import EventSection from './events-list-section.component';
 import Footer from '../_shared/navigation/footer.component';
 
-// get first name from state
+
 const WelcomeBlurb = (props) => {
   return (
     <div className="welcomeBlurb">
@@ -16,21 +15,23 @@ const WelcomeBlurb = (props) => {
   )
 }
 export default class Dashboard extends React.Component {
-  // constructor(props) {
-  //   super(props);
-  //   this.state = {
-  //     loading: true,
-  //   }  
-  // }
 
-  componentWillMount() {
-    this.props.onLoadDashboard()
+  componentDidMount() {
+    this.fetchEvents();
+  }
+
+  fetchEvents = () => {
+    this.props.getActiveEvents();
+    this.props.getPastEvents();
   }
   
   render() {
     const events = this.props.events;
     const firstName = this.props.firstName;
-
+    // display loading if fetching = true
+    if (this.props.fetching) {
+      return <h1> loading </h1>
+    }
     return (
       <div>
         <NavBarDrawer />

@@ -1,9 +1,9 @@
 import { connect } from 'react-redux';
 import { push } from 'redux-little-router';
-
+import Cookies from 'js-cookie';
 import SignUpForm from './signup-form.component';
 import { signup } from '../../_shared/services/auth.service';
-import { createSignUpSuccessAction } from '../../_shared/store/session/session.actions';
+import { createLoginRequestAction } from '../../_shared/store/session/session.actions';
 
 
 const mapStateToProps = state => {
@@ -21,8 +21,10 @@ const mapDispatchToProps = dispatch => {
     onSignUp(firstName, lastName, email, password){
       signup(firstName, lastName, email, password)
         .then(res => {
-          console.log(res);
-          dispatch(createSignUpSuccessAction(res.data));
+          Cookies.set('jwt', res.data.authToken);
+          Cookies.set('loggedInUserId', res.data.user.id);
+          Cookies.set('loggedInUserFirstName', res.data.user.firstName);
+          dispatch(createLoginRequestAction(res.data));
           dispatch(push('/dashboard'));
         });
     }
