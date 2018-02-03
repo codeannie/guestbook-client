@@ -9,11 +9,10 @@ const styles = StyleSheet.create({
   backgroundContainer: {
     // backgroundImage: 'url("https://images.unsplash.com/photo-1502691876148-a84978e59af8?ixlib=rb-0.3.5&s=93f1869fc4e287b8097c3435a413218c&auto=format&fit=crop&w=1650&q=80")',
     backgroundImage: 'url("https://images.unsplash.com/photo-1494228366869-07a7106eca9f?ixlib=rb-0.3.5&s=2d38f4907af6894b604534e2215a8eaf&auto=format&fit=crop&w=1650&q=80")',
-    // backgroundSize: '100% auto',
     backgroundSize: 'cover',
     backgroundRepeat: 'no-repeat',
     backgroundPosition: 'center',
-    overflow: 'hidden',
+    overflow: 'auto', // 'hidden',
     position: 'relative',
     height: '100vh',
   },
