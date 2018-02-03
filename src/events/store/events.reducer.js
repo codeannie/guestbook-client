@@ -1,5 +1,6 @@
 import {
   GET_ALL_EVENTS,
+  GET_ALL_EVENTS_REQUEST,
   GET_ACTIVE_EVENTS,
   GET_ACTIVE_EVENTS_REQUEST,
   GET_PAST_EVENTS,
@@ -10,11 +11,13 @@ import {
 const initialState = {
   fetching: false,
   events: [],
+  // activeEvents: [],
+  // pastEvents: [],
 };
 
 export const eventsReducer = (state = initialState, action) => {
   switch (action.type) {
-    case GET_ACTIVE_EVENTS_REQUEST:
+    case GET_ALL_EVENTS_REQUEST:
       return {
         ...state,
         fetching: true
@@ -22,10 +25,16 @@ export const eventsReducer = (state = initialState, action) => {
     case GET_ALL_EVENTS:  
       return {
         ...state,
+        fetching: false,
         events: [
           ...action.payload.events 
         ]
       };
+      case GET_ACTIVE_EVENTS_REQUEST:
+      return {
+        ...state,
+        fetching: true
+      }
     case GET_ACTIVE_EVENTS:
       return {
         ...state,

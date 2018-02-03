@@ -3,7 +3,7 @@ import Cookies from "js-cookie";
 import Dashboard from "./dashboard.component";
 // import actions
 import {
-  // createGetAllEventsAction,
+  createGetAllEventsAction,
   createGetActiveEventsAction,
   createGetPastEventsAction
 } from "../events/store/events.actions";
@@ -14,6 +14,9 @@ const mapStateToProps = state => {
   if (state._sharedReducer.session.currentUser) {
     currentUser = state._sharedReducer.session.currentUser;
   }
+  // can add a date filter here 
+  // const past events = ...filter(return date less than today)
+
   return {
     currentUser,
     firstName: Cookies.get("loggedInUserFirstName"),
@@ -24,9 +27,9 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    // onLoadDashboard: () => {
-    //  dispatch(createGetAllEventsAction())
-    // },
+    onLoadDashboard: () => {
+      dispatch(createGetAllEventsAction())
+    },
     getActiveEvents: () => {
       dispatch(createGetActiveEventsAction())
     },

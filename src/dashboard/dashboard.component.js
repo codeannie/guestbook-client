@@ -1,5 +1,6 @@
 import React from 'react';
 import { css } from 'aphrodite';
+import LoadingStatus from '../_shared/navigation/loading.component';
 import sharedStyles from '../_shared/styles/shared.styles';
 import styles from './dashboard.styles';
 import NavBarDrawer from '../_shared/navigation/nav-bar-drawer.container';
@@ -17,7 +18,8 @@ const WelcomeBlurb = (props) => {
 export default class Dashboard extends React.Component {
 
   componentDidMount() {
-    this.fetchEvents();
+    this.props.onLoadDashboard();
+    // this.fetchEvents();
   }
 
   fetchEvents = () => {
@@ -30,8 +32,10 @@ export default class Dashboard extends React.Component {
     const firstName = this.props.firstName;
     // display loading if fetching = true
     if (this.props.fetching) {
-      return <h1> loading </h1>
+      // return <h1> LOADING... </h1>
+      return <div> <LoadingStatus /> </div>
     }
+
     return (
       <div>
         <NavBarDrawer />
