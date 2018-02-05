@@ -8,10 +8,11 @@ import SignUpForm from './login-signup/signup-form.container';
 import Footer from '../_shared/navigation/footer.component';
 import styles from './landing-page.styles';
 
-const LandingPage = (props) => {
-  
-  const getComponentByRoute = () => {
-    switch(props.route) {
+// const LandingPage = (props) => {
+export default class LandingPage extends React.Component {
+ 
+  getComponentByRoute = () => {
+    switch(this.props.route) {
       case "/login":
         return <LoginForm />;
       case "/signup":
@@ -21,16 +22,19 @@ const LandingPage = (props) => {
     }
   }
 
-  return (
-    <div>
-      <LandingPageBtnsRow {...props} />     
-      <div className={css(styles.backgroundContainer, styles.flexContainer)}>
-        {getComponentByRoute()}
-        <IntroSection />
+  render() {
+    if (this.props.fetching) {
+      return <h1> LOADING... </h1>
+    }
+    return (
+      <div>
+        <LandingPageBtnsRow {...this.props} />     
+        <div className={css(styles.backgroundContainer, styles.flexContainer)}>
+          {this.getComponentByRoute()}
+          <IntroSection />
+        </div>
+        <Footer />
       </div>
-      <Footer />
-    </div>
-)
+    )
+  }
 }
-
-export default LandingPage;

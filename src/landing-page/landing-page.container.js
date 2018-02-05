@@ -6,7 +6,10 @@ import { login } from '../_shared/services/auth.service';
 import { createLoginRequestAction } from '../_shared/store/session/session.actions';
 
 const mapStateToProps = state => {
-  return { };
+  return {
+    fetching: state._sharedReducer.session.fetching,
+    loginError: state._sharedReducer.session.error,
+  };
 };
 
 const mapDispatchToProps = dispatch => {
