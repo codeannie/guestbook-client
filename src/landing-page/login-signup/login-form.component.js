@@ -65,12 +65,3 @@ export default class LoginForm extends React.Component {
     );
   }
 }
-
-// onChange for each input
-// update teh state
-// submit listener - dispatch teh action and grab the values of the state 
-// optional - add to redux store
-
-// login - get response and store token in local storage & redux state
-// App.js - check if token is in local storage, if there is, dispatch action to redux 
-

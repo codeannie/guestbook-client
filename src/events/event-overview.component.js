@@ -14,7 +14,6 @@ export default class EventOverview extends React.Component{
 
   render() {
     const { event, eventId } = this.props;
-    // console.log('event id?', this.props.eventId);
     return !event ? (
       <div><h2>No Event Found</h2></div>
     ) : (

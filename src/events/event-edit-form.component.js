@@ -124,7 +124,6 @@ export default class EditEventForm extends React.Component{
             name="name"
             floatingLabelText="Event Name"
             value={eventName}
-            // ref={ element => this.eventName = element }
             onChange={(e, eventName)=> this.setState({event: {...this.state.event, eventName}})}
             type="text"
             className={css(formStyles.input)}

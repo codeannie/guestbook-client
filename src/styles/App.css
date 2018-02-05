@@ -2,19 +2,8 @@
   text-align: center;
 }
 
-/* .App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
-} */
-
-/* should this be separate? */
 .header-image {
-  /* background-image: url("https://images.unsplash.com/photo-1499346146792-b008e446261f?auto=format&fit=crop&w=1950&q=80"); */
-  /* background-image: url("https://images.unsplash.com/photo-1464047736614-af63643285bf?auto=format&fit=crop&w=1867&q=80"); */
-  /* background-image: url("https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&w=1650&q=80"); */
-  /* background-image: url("https://images.unsplash.com/photo-1498542121366-f62d1031b16d?auto=format&fit=crop&w=1843&q=80"); */
   background-image: url("https://images.unsplash.com/photo-1482987001459-9c8a37b21dd3?auto=format&fit=crop&w=1508&q=80");
-  /* background-image: url("https://images.unsplash.com/photo-1484557594760-42c1ac0c092e?auto=format&fit=crop&w=1899&q=80"); */
   background-size: 100% auto;
   background-repeat: no-repeat;
   background-position: center center; 
@@ -22,7 +11,6 @@
   height: 350px;
 }
 .App-header {
-  /* background-color: #222; */
   padding: 20px;
   color: black;
 }
@@ -30,8 +18,3 @@
 .App-title {
   font-size: 2em;
 }
-
-/* @keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-} */

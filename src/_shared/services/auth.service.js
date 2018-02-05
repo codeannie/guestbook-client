@@ -1,5 +1,4 @@
 // use this as gateway service for logging and signing up
-
 import axios from 'axios';
 import { BASE_URL } from '../constants';
 

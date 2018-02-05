@@ -21,7 +21,6 @@ export default class SignUpForm extends React.Component {
     const userEmail = event.target.email.value;
     const userPassword = event.target.password.value
     
-    // console.log('signup inputs ->', firstName, lastName, userEmail, userPassword);
     this.props.onSignUp(firstName, lastName, userEmail, userPassword);
     this.refs.signUpForm.reset(); 
 

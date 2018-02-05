@@ -14,9 +14,7 @@ const mapStateToProps = state => {
   if (state._sharedReducer.session.currentUser) {
     currentUser = state._sharedReducer.session.currentUser;
   }
-  // can add a date filter here 
-  // const past events = ...filter(return date less than today)
-
+  
   return {
     currentUser,
     firstName: Cookies.get("loggedInUserFirstName"),

@@ -3,7 +3,6 @@ import { StyleSheet } from 'aphrodite';
 const sharedStyles = StyleSheet.create({
   headerFont: {
     fontFamily: 'Permanent Marker, cursive',
-    // fontFamily: 'Dancing Script, cursive',
     textAlign: 'center',
   },
   bodyFont: {
@@ -20,11 +19,3 @@ const sharedStyles = StyleSheet.create({
 })
 
 export default sharedStyles; 
-
-// list: {
-//   fontFamily:'Open Sans, sans-serif',
-//   border: '1px dotted red',
-//   display: 'inline-block',
-//   margin: 'auto 0',
-//   textAlign: 'center',
-// }
