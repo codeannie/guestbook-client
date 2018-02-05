@@ -41,7 +41,12 @@ export default class GuestForm extends React.Component{
     // const plusOne = e.target.plusOne.value; 
     
     this.props.saveGuest(event.id, {firstName, lastName, email});
-    this.refs.guestForm.reset(); 
+    this.setState({
+      firstName: '',
+      lastName: '',
+      email: ''
+    })
+    // this.refs.guestForm.reset(); 
   }
 
   render() {
@@ -116,12 +121,12 @@ const styles = {
     color: 'blue',
   },
   underlineStyle: {
-    borderColor: 'rgba(255, 255, 255, 0.80)',
-    // borderColor: 'rgba(030, 030, 030, 0.90)',
+    // borderColor: 'rgba(255, 255, 255, 0.80)',
+    borderColor: 'rgba(030, 030, 030, 0.90)',
   },
   floatingLabelStyle: {
-    color: 'rgba(255, 255, 255, 0.80)',
-    // color: 'rgba(030, 030, 030, 0.90)',
+    // color: 'rgba(255, 255, 255, 0.80)',
+    color: 'rgba(030, 030, 030, 0.90)',
   },
   floatingLabelFocusStyle: {
     color: 'blue',
