@@ -31,12 +31,14 @@ export default class Dashboard extends React.Component {
     const events = this.props.events;
     const firstName = this.props.firstName;
     // display loading if fetching = true
-    if (this.props.fetching) {
-      // return <h1> LOADING... </h1>
-      return <div> <LoadingStatus /> </div>
-    }
+    // if (this.props.fetching) {
+    //   // return <h1> LOADING... </h1>
+    //   return <div className={css(styles.loadingContainer)}> <LoadingStatus /> </div>
+    // }
 
-    return (
+    return this.props.fetching ? (
+      <div className={css(styles.loadingContainer)}> <LoadingStatus /> </div>
+      ) : (
       <div>
         <NavBarDrawer />
         <div className={css(sharedStyles.mainContainer, styles.backgroundContainer)}>
