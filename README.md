@@ -27,15 +27,22 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 * Redux-little-router
 * Redux-thunk
 * Aphrodite
-* Storybook
-* Enzyme
-* Jest
+
+### Packages
 * Axios
 * Date-fns
 * js-cookie
 * Lodash
 * Material-UI
+* Storybook
 
+### Testing
+* Enzyme
+* Jest
+
+### Hosting
+* Netlify
+* Travis-CI 
 ### Special Thanks:
 ---
 * Doug Mason
