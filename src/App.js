@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-// import "./styles/App.css";
 import { Fragment as RouterFragment } from "redux-little-router";
 import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
 import muiTheme from "./_shared/styles/material-ui.theme";

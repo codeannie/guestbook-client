@@ -35,7 +35,7 @@ export default class EditEventForm extends React.Component{
   
   componentDidMount() {
   // did component mount
-  // if mounteded, add event
+  // if mounted, add event
   // if not, fetch from mongod
   }
 

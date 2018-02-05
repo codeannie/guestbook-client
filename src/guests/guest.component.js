@@ -1,20 +1,20 @@
-import React from 'react';
+// import React from 'react';
 
-const guestResponse = (props) => {
-  const {
-    firstName,
-    lastName,
-    fullName,
-    email,
-    guestByStatus = [] // default value? 
-    // plusOne?
-  } = props;
+// const guestResponse = (props) => {
+//   const {
+//     firstName,
+//     lastName,
+//     fullName,
+//     email,
+//     guestByStatus = [] // default value? 
+//     // plusOne?
+//   } = props;
 
-  return (
-    <ol className="guest">
-      {guestByStatus}
-    </ol>
-  )
-}
+//   return (
+//     <ol className="guest">
+//       {guestByStatus}
+//     </ol>
+//   )
+// }
 
-export default guestResponse;
+// export default guestResponse;

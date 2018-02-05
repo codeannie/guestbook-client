@@ -23,12 +23,9 @@ const eventCard = (props) => {
     <div className={css(styles.eventCard)} key={eventId}>
       <h3 className={css(styles.eventName)}> {eventName} </h3>
         <h4 className={css(styles.date)}> {format(date, 'MM/DD/YYYY')} </h4>
-        <p> <span> Start Time: </span> {format(startTime, 'hh:mm A')} </p>
-        {/* <p> <span> End Time: </span> {format(endTime, 'hh:mm A')} </p> */}
-        <p> <span> Location: </span> {locationName} </p>
-        {/* <p> <span> # of Guests Invited: </span> {numOfGuests} </p> */}
+        <p> <strong> Start Time: </strong> {format(startTime, 'hh:mm A')} </p>
+        <p> <strong> Location: </strong> {locationName} </p>
       <RaisedButton label="View" onClick={handleViewClick} primary={true} />
-      {/* <button onClick={handleViewClick}> View </button> */}
     </div>
   );
 };

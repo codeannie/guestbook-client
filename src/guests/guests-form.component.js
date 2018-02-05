@@ -45,13 +45,11 @@ export default class GuestForm extends React.Component{
   }
 
   render() {
-    const { firstName, lastName, email } = this.state; //?
+    const { firstName, lastName, email } = this.state; 
     const { guests, event } = this.props;
 
     const guestListItems = guests.map((guest, index) => {
       return <li key={index}>
-        {/* <span>{guest.firstName}</span>
-        <span>{guest.lastName}</span> */}
         <strong>{guest.fullName}</strong> <span>{guest.email}</span>
         <button onClick={() => {this.props.removeGuest(event.id, guest.id)}}>X</button>
       </li>;

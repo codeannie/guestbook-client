@@ -2,8 +2,6 @@ import axios from 'axios';
 import Cookies from 'js-cookie';
 import { BASE_URL } from '../../_shared/constants';
 
-// const authToken = Cookies.get('jwt');
-
 export const getEventGuests = async (eventId) => {
   const authToken = Cookies.get('jwt');
   return await axios({

@@ -8,7 +8,6 @@ import SignUpForm from './login-signup/signup-form.container';
 import Footer from '../_shared/navigation/footer.component';
 import styles from './landing-page.styles';
 
-// const LandingPage = (props) => {
 export default class LandingPage extends React.Component {
  
   getComponentByRoute = () => {

@@ -24,7 +24,6 @@ export const createAddGuestAction = (guest) => ({
 export const createDeleteGuestAction = (guestId) => ({
     type: DELETE_GUEST, 
     payload: {
-      // index,
       guestId
   }
 })
@@ -36,7 +35,7 @@ export const createModifyGuestAction = (guest) => ({
   }
 })
 
-// not sure about email? 
+// not sure about email
 export const createEmailGuestsAction = (guest) => ({
     type: EMAIL_GUESTS, 
     payload: {

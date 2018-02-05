@@ -20,10 +20,9 @@ export default class GuestList extends React.Component {
 
     return (
       <section className={css(styles.guestList)} eventId={this.props.event.id}>
-        {/* <h3> Guest List </h3> */}
-          <ol>
-            {guestListItems}
-          </ol>
+        <ol>
+          {guestListItems}
+        </ol>
       </section>
     )
   }

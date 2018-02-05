@@ -36,7 +36,7 @@ const formStyles = StyleSheet.create({
   },
   guestListContainer: {
     display: 'flex',
-    width: '95%', // media query - add width with large screen
+    width: '95%', 
     margin: '0 auto',
     marginBottom: 10,
     padding: 5,
@@ -79,10 +79,7 @@ const formStyles = StyleSheet.create({
     },
   },
   button: {
-    // display: 'inline-block', 
-    // margin: '0 auto',
-    // alignSelf: 'center',
-    // width: '25%',
+    
   }
 });
 

@@ -27,14 +27,12 @@ export default class NavBarDrawer extends React.Component {
   }
 
   handleLogOut = () => {
-    // conditional not working? 
-    // if (!this.props.currentUser) {
-    //   this.props.onLogOut();
-    // }
-    this.props.onLogOut();
+    if (!this.props.currentUser) {
+      this.props.onLogOut();
+    }
+    // this.props.onLogOut();
   };
 
-  // write handler to check if dashboard already open, then close the drawer 
   render() {
     return (
       <div className="navigation">
@@ -51,7 +49,6 @@ export default class NavBarDrawer extends React.Component {
           docked={false}
           width={200}
           style={styles.drawer}
-          // onRequestChange={(open) => this.setState(open)}
           onRequestChange={this.handleToggle}
         >
           <MenuItem onClick={() => {this.props.openDashboard()}}>Dashboard</MenuItem>
@@ -59,7 +56,6 @@ export default class NavBarDrawer extends React.Component {
           <MenuItem onClick={() => {this.props.openEventForm()}}>Create Event</MenuItem>
           <MenuItem>Upcoming Events</MenuItem>
           <MenuItem>Past Events</MenuItem>
-          {/* <MenuItem>Archived Events</MenuItem> */}
         </Drawer>
       </div>
     );

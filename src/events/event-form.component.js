@@ -44,7 +44,7 @@ export default class EventForm extends React.Component{
     if(isBefore(date, todayDate)) {
       this.setState({
         error: true,
-        errorMsg: ERROR_MESSAGES.DATE_PAST  //vs 'date cannot be in the past'
+        errorMsg: ERROR_MESSAGES.DATE_PAST
       });
 
     } else {
@@ -52,7 +52,6 @@ export default class EventForm extends React.Component{
         event: {
           ...event,
           date: date
-          // date: format(date, 'MM/DD/YYYY')
         }
       })
     }
@@ -64,7 +63,6 @@ export default class EventForm extends React.Component{
       event: {
         ...event,
         startTime: time,
-        // startTime: format(time, 'hh:mm A')
       }
     })
   }
@@ -75,7 +73,6 @@ export default class EventForm extends React.Component{
       event: {
         ...event,
         endTime: time,
-        // endTime: format(time, 'hh:mm A')
       }
     })
   }
@@ -97,9 +94,6 @@ export default class EventForm extends React.Component{
     event.preventDefault();
     const newEvent = {
       ...this.state.event,
-      // date: format(this.state.event.date,'MM/DD/YYYY'),
-      // startTime: format(this.state.event.startTime, 'hh:mm A'),
-      // endTime: format(this.state.event.endTime, 'hh:mm A')
     };
     
     console.log('new event->', newEvent)

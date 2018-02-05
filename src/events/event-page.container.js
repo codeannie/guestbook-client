@@ -17,17 +17,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    // getEvents(userId) {
-    //   dispatch(createGetAllEventsAction(userId));
-    // }
-    // onEditClick(eventId) {
-    //   dispatch(push({
-    //     route: EVENT_EDIT_ROUTE,
-    //     params: {
-    //       eventId
-    //     }
-    //   }));
-    // }
+
   };
 };
 

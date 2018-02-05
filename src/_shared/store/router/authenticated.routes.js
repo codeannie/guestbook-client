@@ -1,5 +1,5 @@
 export const DASHBOARD_ROUTE = '/dashboard';
-export const EVENT_OVERVIEW_ROUTE = '/event/:eventId'; //:eventId = route parameter
+export const EVENT_OVERVIEW_ROUTE = '/event/:eventId'; 
 export const EVENT_EDIT_ROUTE = '/event/:eventId/edit';
 export const EVENT_NEW_ROUTE = '/event/new';
 export const GUESTLIST_NEW_ROUTE = '/event/:eventId/guestlist/new';
@@ -27,5 +27,3 @@ const routes = {
 };
 
 export default routes;
-
-//setting key in an obj, use []

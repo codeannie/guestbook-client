@@ -7,12 +7,8 @@ import { createLoginRequestAction } from '../../_shared/store/session/session.ac
 
 
 const mapStateToProps = state => {
-  console.log(state);
   return {
-    // firstName: state.loginSignUpReducer.signup.firstName,
-    // lastName: state.loginSignUpReducer.signup.lastName,
-    // email: state.loginSignUpReducer.signup.email,
-    // password: state.loginSignUpReducer.signup.password
+    
   };
 };
 

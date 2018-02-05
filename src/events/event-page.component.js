@@ -19,7 +19,7 @@ export default class EventPage extends React.Component {
   getComponentByRoute() {
     switch(this.props.route) {
       case routerPath.EVENT_OVERVIEW_ROUTE:
-        return <EventOverview event={this.props.event}/>;
+        return <EventOverview event={this.props.event} />;
       case routerPath.EVENT_EDIT_ROUTE:
         return <EditEventForm />;
       case routerPath.EVENT_NEW_ROUTE:
@@ -29,7 +29,7 @@ export default class EventPage extends React.Component {
       case routerPath.GUESTLIST_NEW_ROUTE:
         return <GuestForm />; 
       default:
-        return <EventOverview event={this.props.event}/>; //if there is not event to show, what shoudl be the default?
+        return <EventOverview event={this.props.event} />; 
     }
   }
   render() {

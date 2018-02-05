@@ -63,7 +63,6 @@ export const eventsReducer = (state = initialState, action) => {
       // on server, update the event
       // get the updated event back back
       // refresh entire redux store 
-
       return {
         ...state,
         events: [
@@ -75,15 +74,3 @@ export const eventsReducer = (state = initialState, action) => {
       return state;
   }
 };
-
-// const findEventToModify = (eventId) => {
-//   return eventId;
-// }
-
-// case FETCH_EVENT_SUCCESS:
-//   return 
-//     //returning a new object from the server
-//     {
-//       ...state, //properties of previous state
-//       events: action.payload.events
-//     }

@@ -7,7 +7,6 @@ export const SIGNUP_SUCCESS = 'SIGNUP_SUCCESS';
 export const LOG_OUT = 'LOG_OUT';
 
 // Action Creators 
-
 export const createLoginRequestAction = (user) => async (dispatch) => {
   dispatch({
     type: LOGIN_REQUEST,
