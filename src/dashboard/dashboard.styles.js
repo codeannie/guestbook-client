@@ -8,7 +8,9 @@ const screenSize = {
 const styles = StyleSheet.create({
   backgroundContainer: {
     // backgroundImage: 'url("https://images.unsplash.com/photo-1502691876148-a84978e59af8?ixlib=rb-0.3.5&s=93f1869fc4e287b8097c3435a413218c&auto=format&fit=crop&w=1650&q=80")',
-    backgroundImage: 'url("https://images.unsplash.com/photo-1494228366869-07a7106eca9f?ixlib=rb-0.3.5&s=2d38f4907af6894b604534e2215a8eaf&auto=format&fit=crop&w=1650&q=80")',
+    // backgroundImage: 'url("https://images.unsplash.com/photo-1494228366869-07a7106eca9f?ixlib=rb-0.3.5&s=2d38f4907af6894b604534e2215a8eaf&auto=format&fit=crop&w=1650&q=80")',
+    // backgroundImage: 'url("https://images.unsplash.com/photo-1489343511429-5482f78c15cf?ixlib=rb-0.3.5&s=c3e56a8709b904d3e577bffb9442e42f&auto=format&fit=crop&w=2766&q=80")',
+    backgroundImage: 'url("https://images.unsplash.com/photo-1433477221118-6eca20a0d62e?ixlib=rb-0.3.5&s=9cb3f84d01e802f3fdb8bbceabb9120c&auto=format&fit=crop&w=2853&q=80")',
     backgroundSize: 'cover',
     backgroundRepeat: 'no-repeat',
     backgroundPosition: 'center',
@@ -26,10 +28,10 @@ const styles = StyleSheet.create({
     }
   },
   sectionHeader: {
-    // color: '#FFFFFF',
-    color: '#000000',
+    color: '#FFFFFF',
+    // color: '#000000',
     textAlign: 'center',
-    font: 40,
+    font: 50,
   },
   eventName: {
     // backgroundColor: 'rgba(030, 026, 084, 0.80)',
@@ -43,12 +45,17 @@ const styles = StyleSheet.create({
     textAlign: 'center'
   },
   eventCard: {
-    backgroundColor: 'rgba(255, 255, 255, 0.95)',
+    backgroundColor: 'rgba(255, 255, 255, 0.80)',
     borderRadius: 7,
     margin: 7,
     padding: 10,
     flexBasis: '30%',
-  }
+  },
+  loadingContainer: {
+    display: 'flex',
+    justifyContent: 'center',
+    alignContent: 'center',
+  },
 })
 
 export default styles;
