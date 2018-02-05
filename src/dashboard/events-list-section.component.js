@@ -1,5 +1,6 @@
 import React from "react";
 import { css } from 'aphrodite';
+import { isFuture } from 'date-fns';
 import styles from './dashboard.styles';
 import sharedStyles from '../_shared/styles/shared.styles';
 import EventCard from "./event-card.container";
@@ -21,14 +22,21 @@ export default class EventSection extends React.Component {
             eventStatus={event.eventStatus}
           />
         );
-        if (event.eventStatus === 1) {
+        if(isFuture(event.date)) {
           results.upcoming.push(eventComponent);
           return results;
-        } else if (event.eventStatus === 2) {
+        } else {
           results.past.push(eventComponent);
           return results;
-        } else results.archive.push(eventComponent);
-        return results;
+        }
+        // if (event.eventStatus === 1) {
+        //   results.upcoming.push(eventComponent);
+        //   return results;
+        // } else if (event.eventStatus === 2) {
+        //   results.past.push(eventComponent);
+        //   return results;
+        // } else results.archive.push(eventComponent);
+        // return results;
       },
       {
         upcoming: [],
