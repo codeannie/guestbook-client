@@ -33,6 +33,9 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     font: 50,
   },
+  welcome: {
+    color: '#FFFFFF',
+  },
   eventName: {
     // backgroundColor: 'rgba(030, 026, 084, 0.80)',
     backgroundColor: 'rgba(136, 160, 152, 0.90)',

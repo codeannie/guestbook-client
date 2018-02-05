@@ -55,11 +55,12 @@ const formStyles = StyleSheet.create({
     width: '95%', 
     margin: '0 auto',
     padding: 5,
-    backgroundColor: 'rgba(055, 072, 079, 0.90)',
+    backgroundColor: 'rgba(255, 255, 255, 0.75)',
+    // backgroundColor: 'rgba(055, 072, 079, 0.90)',
     border: '3px inset #754148', 
     borderRadius: 5,
     [screenSize.desktop]:{
-      maxWidth: '45%', 
+      maxWidth: '40%', 
     },
   },
   input: {

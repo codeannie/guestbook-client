@@ -35,16 +35,15 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     padding: 20,
     [screenSize.desktop]: {
-      width: '60%',
+      width: '50%',
     }
   },
   guestList: {
     backgroundColor: 'rgba(255, 255, 255, 0.80)',
     borderRadius: 10,
-    marginTop: 20,
     padding: 20,
     [screenSize.desktop]: {
-      width: '60%',
+      width: '50%',
     }
   },
   eventEditForm: {

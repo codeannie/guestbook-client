@@ -11,7 +11,7 @@ import Footer from '../_shared/navigation/footer.component';
 const WelcomeBlurb = (props) => {
   return (
     <div className="welcomeBlurb">
-      <h2> Welcome, {props.firstName} </h2>
+      <h2 className={css(styles.welcome)}> Welcome, {props.firstName} </h2>
     </div> 
   )
 }

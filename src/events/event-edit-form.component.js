@@ -168,6 +168,8 @@ export default class EditEventForm extends React.Component{
             onChange={(e, description)=> this.setState({event: {...this.state.event, description}})}
             type="text"
             className={css(formStyles.input)}
+            floatingLabelStyle={styles.floatingLabelStyle}
+            underlineStyle={styles.underlineStyle}
           />
             
           <TextField
